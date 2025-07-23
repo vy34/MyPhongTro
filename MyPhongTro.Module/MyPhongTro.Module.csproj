@@ -1,0 +1,107 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
+    <Deterministic>false</Deterministic>
+    <AssemblyVersion>1.0.*</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Configurations>Debug;Release;EasyTest</Configurations>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Images\baotri.svg" />
+    <None Remove="Images\chutro.svg" />
+    <None Remove="Images\dien.svg" />
+    <None Remove="Images\hethong.svg" />
+    <None Remove="Images\hoadon.svg" />
+    <None Remove="Images\hopdong.svg" />
+    <None Remove="Images\khanhthue.svg" />
+    <None Remove="Images\Khoanchi.svg" />
+    <None Remove="Images\khoanthu.svg" />
+    <None Remove="Images\nhatky.svg" />
+    <None Remove="Images\nuoc.svg" />
+    <None Remove="Images\phiduytri.svg" />
+    <None Remove="Images\phieuchi.svg" />
+    <None Remove="Images\phieuthu.svg" />
+    <None Remove="Images\phong.svg" />
+    <None Remove="Images\quanliphongtro.svg" />
+    <None Remove="Images\quanlydiennuoc.svg" />
+    <None Remove="Images\tamtru.svg" />
+    <None Remove="Images\thietbi.svg" />
+    <None Remove="Images\tuychon.svg" />
+    <None Remove="Model.DesignedDiffs.xafml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\baotri.svg" />
+    <EmbeddedResource Include="Images\chutro.svg" />
+    <EmbeddedResource Include="Images\dien.svg" />
+    <EmbeddedResource Include="Images\hethong.svg" />
+    <EmbeddedResource Include="Images\hoadon.svg" />
+    <EmbeddedResource Include="Images\hopdong.svg" />
+    <EmbeddedResource Include="Images\khanhthue.svg" />
+    <EmbeddedResource Include="Images\khoanchi.svg" />
+    <EmbeddedResource Include="Images\khoanthu.svg" />
+    <EmbeddedResource Include="Images\nhatky.svg" />
+    <EmbeddedResource Include="Images\nuoc.svg" />
+    <EmbeddedResource Include="Images\phiduytri.svg" />
+    <EmbeddedResource Include="Images\phieuchi.svg" />
+    <EmbeddedResource Include="Images\phieuthu.svg" />
+    <EmbeddedResource Include="Images\phong.svg" />
+    <EmbeddedResource Include="Images\quanliphongtro.svg" />
+    <EmbeddedResource Include="Images\quanlydiennuoc.svg" />
+    <EmbeddedResource Include="Images\suachua.svg" />
+    <EmbeddedResource Include="Images\tamtru.svg" />
+    <EmbeddedResource Include="Images\thietbiphong.svg" />
+    <EmbeddedResource Include="Images\thietbi.svg" />
+    <EmbeddedResource Include="Images\tuychon.svg" />
+    <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Controllers\Profile\ProfileController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DevExpress.ExpressApp" Version="24.2.8" />
+    <PackageReference Include="DevExpress.ExpressApp.CloneObject.Xpo" Version="24.2.8" />
+    <PackageReference Include="DevExpress.ExpressApp.CodeAnalysis" Version="24.2.8" />
+    <PackageReference Include="DevExpress.ExpressApp.ConditionalAppearance" Version="24.2.8" />
+    <PackageReference Include="DevExpress.ExpressApp.Dashboards" Version="24.2.8" />
+    <PackageReference Include="DevExpress.ExpressApp.Notifications" Version="24.2.8" />
+    <PackageReference Include="DevExpress.ExpressApp.Objects" Version="24.2.8" />
+    <PackageReference Include="DevExpress.ExpressApp.Office" Version="24.2.8" />
+    <PackageReference Include="DevExpress.ExpressApp.ReportsV2" Version="24.2.8" />
+    <PackageReference Include="DevExpress.ExpressApp.Scheduler" Version="24.2.8" />
+    <PackageReference Include="DevExpress.ExpressApp.Security" Version="24.2.8" />
+    <PackageReference Include="DevExpress.ExpressApp.Security.Xpo" Version="24.2.8" />
+    <PackageReference Include="DevExpress.ExpressApp.Validation" Version="24.2.8" />
+    <PackageReference Include="DevExpress.ExpressApp.ViewVariantsModule" Version="24.2.8" />
+    <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="24.2.8" />
+    <PackageReference Include="DevExpress.Persistent.Base" Version="24.2.8" />
+    <PackageReference Include="DevExpress.Persistent.BaseImpl.Xpo" Version="24.2.8" />
+    <PackageReference Include="Azure.Identity" Version="1.13.1" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.5.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\tmLib\tmLib\tmLib.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="UnusableNodes.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+    </None>
+    <None Update="UnusableNodes1.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+    </None>
+    <None Update="UnusableNodes2.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+    </None>
+    <None Update="UnusableNodes3.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+    </None>
+    <None Update="UnusableNodes4.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+    </None>
+    <None Update="UnusableNodes5.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+    </None>
+  </ItemGroup>
+</Project>

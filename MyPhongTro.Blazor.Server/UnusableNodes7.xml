@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="KhachThue_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="KhachThue">
+              <LayoutGroup Id="KhachThue_col1" RelativeSize="34.50807635829662" Caption="KhachThue_col1" Direction="Vertical" Removed="True" />
+              <LayoutGroup Id="Auto8c1087aa-dfcb-4712-95a2-326def9e2394">
+                <LayoutItem Id="CCCD" RelativeSize="3.787878787878788" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="HoaDon_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="HoaDon">
+              <LayoutGroup Id="HoaDon_col1">
+                <LayoutItem Id="so" RelativeSize="100" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="ChuTro_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="ChuTro">
+              <LayoutGroup Id="ChuTro_col1">
+                <LayoutItem Id="Anh" ViewItem="Anh" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

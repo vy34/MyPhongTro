@@ -1,0 +1,9 @@
+﻿@code {
+    [Parameter] public string Caption { get; set; }
+    [Parameter] public string ImagePath { get; set; }
+}
+<div class="my-splash-container">
+    <img src="@ImagePath" alt="Splash" />
+    <h1 class="loading-caption">@Caption</h1>
+</div>
+

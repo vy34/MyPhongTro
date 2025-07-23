@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="KhachThue_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="TamTrus_Group" Direction="Vertical" RelativeSize="72.03389830508475" Caption="Tạm trú">
+            <LayoutItem Id="TamTrus" RelativeSize="100" />
+          </LayoutGroup>
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="KhachThue">
+              <LayoutGroup Id="KhachThue_col1" RelativeSize="49.884792626728114">
+                <LayoutItem Id="HoTen" RelativeSize="24" />
+                <LayoutItem Id="Dienthoai" RelativeSize="17.333333333333332" />
+                <LayoutItem Id="Email" RelativeSize="24" />
+                <LayoutItem Id="SoCCCD" RelativeSize="17.333333333333332" />
+              </LayoutGroup>
+              <LayoutGroup Id="KhachThue_col2" RelativeSize="50.115207373271886">
+                <LayoutItem Id="MsThue" RelativeSize="17.333333333333332" />
+                <LayoutItem Id="NgayDangky" RelativeSize="17.333333333333332" />
+                <LayoutItem Id="AnhTruoc" RelativeSize="17.333333333333332" />
+                <LayoutItem Id="AnhSau" RelativeSize="24" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

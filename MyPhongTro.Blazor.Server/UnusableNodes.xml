@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="Baotri_ListView" InlineEditMode="Batch" />
+    <ListView Id="Chon_ListView" InlineEditMode="Batch" />
+    <ListView Id="Chutro_ListView" InlineEditMode="Batch" />
+    <ListView Id="Hoadon_ListView" InlineEditMode="Batch" />
+    <ListView Id="HoadonCT_ListView" InlineEditMode="Batch" />
+    <ListView Id="Hopdong_ListView" InlineEditMode="Batch" />
+    <ListView Id="HopdongCT_ListView" InlineEditMode="Batch" />
+    <ListView Id="Khanhthue_ListView" InlineEditMode="Batch" />
+    <ListView Id="Khoanchi_ListView" InlineEditMode="Batch" />
+    <ListView Id="Khoanthu_ListView" InlineEditMode="Batch" />
+    <ListView Id="Nhatky_ListView" InlineEditMode="Batch" />
+    <ListView Id="Phieuchi_ListView" InlineEditMode="Batch" />
+    <ListView Id="Phieuthu_ListView" InlineEditMode="Batch" />
+    <ListView Id="Suachua_ListView" InlineEditMode="Batch" />
+    <ListView Id="Tamtru_ListView" InlineEditMode="Batch" />
+    <ListView Id="Thietbi_ListView" InlineEditMode="Batch" />
+  </Views>
+</Application>

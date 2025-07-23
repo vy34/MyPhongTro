@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="KhachThue_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="CCCD" Index="2" />
+      </Columns>
+    </ListView>
+    <DetailView Id="ApplicationUser_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="ApplicationUser">
+              <LayoutGroup Id="ApplicationUser_col2" RelativeSize="100" Caption="ApplicationUser_col2" Index="0" Removed="True">
+                <LayoutItem Id="MsThue" RelativeSize="100" Index="0" Removed="True" />
+                <LayoutItem Id="Diachi" RelativeSize="50" Removed="True" />
+                <LayoutItem Id="NgayDangky" RelativeSize="26.53061224489796" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="ApplicationUser_col1" RelativeSize="50" Caption="ApplicationUser_col1" Removed="True">
+                <LayoutItem Id="Dienthoai" Index="0" RelativeSize="100" Removed="True" />
+                <LayoutItem Id="Email" Index="1" RelativeSize="63.265306122448976" Removed="True" />
+                <LayoutItem Id="CCCD" Index="2" RelativeSize="36.734693877551024" Removed="True" />
+                <LayoutItem Id="Photo" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="ApplicationUser_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="CCCD" Index="-1" />
+        <ColumnInfo Id="Diachi" Index="-1" />
+        <ColumnInfo Id="Dienthoai" Index="-1" />
+        <ColumnInfo Id="Email" Index="-1" />
+        <ColumnInfo Id="MsThue" Index="-1" />
+        <ColumnInfo Id="NgayDangky" Index="-1" />
+      </Columns>
+    </ListView>
+    <DetailView Id="KhachThue_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="KhachThue">
+              <LayoutItem Id="AnhSau" Index="1" RelativeSize="22.972972972972972" Removed="True" />
+              <LayoutItem Id="AnhTruoc" Removed="True" />
+              <LayoutItem Id="HoTen" Removed="True" />
+              <LayoutGroup Id="Auto8c1087aa-dfcb-4712-95a2-326def9e2394">
+                <LayoutItem Id="CCCD" ViewItem="CCCD" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

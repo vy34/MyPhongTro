@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="Quản lý điện nước" Index="3" ImageName="quanlydiennuoc" />
+    </Items>
+  </NavigationItems>
+  <Views Id="Views">
+    <DetailView Id="ChuTro_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="ChuTro">
+              <LayoutGroup Id="ChuTro_col1">
+                <LayoutItem Id="Diachi" RelativeSize="20.967741935483872" />
+              </LayoutGroup>
+              <LayoutGroup Id="ChuTro_col2">
+                <LayoutItem Id="NgayDangky" RelativeSize="20.967741935483872" />
+                <LayoutItem Id="Sodangky" RelativeSize="50" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="HoaDon_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="HoaDon">
+              <LayoutItem Id="Ngay" RelativeSize="51.42857142857143" />
+              <LayoutItem Id="Noidung" RelativeSize="48.57142857142857" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="HopDong_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="HopDong">
+              <LayoutItem Id="SoHD" RelativeSize="37.5" />
+              <LayoutItem Id="Ngayky" RelativeSize="27.083333333333332" />
+              <LayoutItem Id="Trangthai" RelativeSize="35.416666666666664" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="NhatKies" RelativeSize="100" Caption="Nhật ký">
+              <LayoutItem Id="NhatKies" RelativeSize="100" />
+            </LayoutGroup>
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="KhachThue_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="KhachThue">
+              <LayoutGroup Id="KhachThue_col1">
+                <LayoutItem Id="NgayCap" RelativeSize="17.333333333333332" />
+              </LayoutGroup>
+              <LayoutGroup Id="KhachThue_col2">
+                <LayoutItem Id="Diachi" RelativeSize="24" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

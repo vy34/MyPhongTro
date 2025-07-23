@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="Chisodien_ListView" InlineEditMode="Inline" />
+    <ListView Id="Chisonuoc_ListView" InlineEditMode="Inline" />
+    <DetailView Id="ChuTro_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="ChuTro">
+              <LayoutGroup Id="ChuTro_col1">
+                <LayoutItem Id="Anh" ViewItem="Anh" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

@@ -1,0 +1,81 @@
+  .mt-2, .my-2 {
+        margin-top: .5rem
+    }
+
+    .mt-4, .my-4 {
+        margin-top: 1.5rem
+    }
+
+    body {
+        margin: 0;
+    }
+
+    /* SplashScreen Start */
+    .loading-font {
+        font-family: "Segoe UI",Roboto,"Helvetica Neue","-apple-system",BlinkMacSystemFont,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        font-size: .88rem;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    .loading-items-center {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        position: absolute;
+        width: 100px
+        height: 100vh;
+        z-index: 1000;
+    }
+
+    .loading-border-primary {
+        border-color: #bfbfbf;
+    }
+
+    .loading {
+        width: 140px;
+        height: 140px;
+    }
+
+    .loading-caption {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    .loading-image {
+        width: 46px;
+        height: 30px;
+    }
+
+    .loading-border {
+        border-width: 4px;
+        border-style: solid;
+    }
+
+    .loading-image-wrapper {
+        width: 120px;
+        height: 120px;
+        background-color: #d9d9d9;
+        transition: 0.5s;
+    }
+
+    .loading-floated-circle {
+        transform: translateZ(0);
+        animation: loading 1s infinite linear;
+    }
+
+    .loading-hide {
+        visibility: hidden;
+    }
+
+    @keyframes loading {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    /* SplashScreen End */

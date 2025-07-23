@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="ChuTro_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="ChuTro">
+              <LayoutGroup Id="ChuTro_col1">
+                <LayoutItem Id="Dienthoai" RelativeSize="20.967741935483872" />
+                <LayoutItem Id="Email" RelativeSize="29.032258064516128" />
+              </LayoutGroup>
+              <LayoutGroup Id="ChuTro_col2">
+                <LayoutItem Id="MsThue" RelativeSize="29.032258064516128" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>
