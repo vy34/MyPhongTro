@@ -14,6 +14,7 @@ namespace MyPhongTro.Module.Controllers.Chung.Profile
         {
             base.OnActivated();
 
+
             var navigationController = Frame.GetController<ShowNavigationItemController>();  // Lấy controller ShowNavigationItemController từ Frame
 
             if (navigationController != null)
