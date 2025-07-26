@@ -40,32 +40,51 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         }
         private KhoanThu _Khoanthu;
         [Association]
-        [XafDisplayName("Khoản thu")]
+        [XafDisplayName("Các khoản thu")]
         public KhoanThu Khoanthu
         {
             get { return _Khoanthu; }
             set { SetPropertyValue<KhoanThu>(nameof(Khoanthu), ref _Khoanthu, value); }
         }
 
-        private decimal _GiaThang;
-        [XafDisplayName("Giá tháng")]
-        [ModelDefault("DisplayFormat", "{0:### ### ###}")]     //tự động
-        [ModelDefault("EditMask", "### ### ###")]
-        public decimal GiaThang
+
+        private int _Sothang;
+        [XafDisplayName("Số tháng")]
+        public int Sothang
         {
-            get { return _GiaThang; }
-            set { SetPropertyValue<decimal>(nameof(GiaThang), ref _GiaThang, value); }
+            get { return _Sothang; }
+            set { SetPropertyValue<int>(nameof(Sothang), ref _Sothang, value); }
         }
 
-        private decimal _GiaChiso;
-        [XafDisplayName("Giá chỉ số")]
+
+        private decimal _Dongia;
+        [XafDisplayName("Đơn giá ")]
         [ModelDefault("DisplayFormat", "{0:### ### ###}")]     //tự động
         [ModelDefault("EditMask", "### ### ###")]
-        public decimal GiaChiso
+        public decimal Dongia
         {
-            get { return _GiaChiso; }
-            set { SetPropertyValue<decimal>(nameof(GiaChiso), ref _GiaChiso, value); }
+            get { return _Dongia; }
+            set { SetPropertyValue<decimal>(nameof(Dongia), ref _Dongia, value); }
         }
+
+
+        private bool _Theochiso;
+        [XafDisplayName("Theo chỉ số")]
+        public bool Theochiso
+        {
+            get { return _Theochiso; }
+            set { SetPropertyValue<bool>(nameof(Theochiso), ref _Theochiso, value); }
+        }
+
+
+        private int _Chisodau;
+        [XafDisplayName("Chỉ số đầu")]
+        public int Chisodau
+        {
+            get { return _Chisodau; }
+            set { SetPropertyValue<int>(nameof(Chisodau), ref _Chisodau, value); }
+        }
+
 
         private string _Ghichu;
         [XafDisplayName("Ghi chú")]

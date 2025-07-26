@@ -91,16 +91,6 @@ namespace MyPhongTro.Module.BusinessObjects.Chutro
             get { return _Dienthoai; }
             set
             {
-                //bool isModified = SetPropertyValue<string>(nameof(Dienthoai), ref _Dienthoai, value);
-                //if (Session.IsNewObject(this) && isModified)
-                //{
-                //    // Tự động tạo tài khoản người dùng nếu là chủ trọ mới
-                //    if (string.IsNullOrEmpty(UserName))
-                //    {
-                //        UserName = value; // Sử dụng số điện thoại làm tên đăng nhập
-
-                //    }
-                //}
                 if (SetPropertyValue(nameof(Dienthoai), ref _Dienthoai, value))
                 {
                     if (Session.IsNewObject(this) && !string.IsNullOrEmpty(value)) // Chỉ tạo tài khoản người dùng nếu là chủ trọ mới và số điện thoại không rỗng
@@ -253,6 +243,7 @@ namespace MyPhongTro.Module.BusinessObjects.Chutro
         {
             get { return GetCollection<ThietBi>(nameof(ThietBis)); }
         }
+
         [DevExpress.Xpo.Aggregated, Association]
         public XPCollection<HoaDon> HoaDons
         {

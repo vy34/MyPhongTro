@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="HopDong_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="PhieuChis" RelativeSize="100" Caption="Phiếu chi">
+              <LayoutItem Id="PhieuChis" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="Chisodiens" RelativeSize="100" Caption="Chỉ số điện">
+              <LayoutItem Id="Chisodiens" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="Chisonuocs" RelativeSize="100" Caption="Chỉ số nước">
+              <LayoutItem Id="Chisonuocs" RelativeSize="100" />
+            </LayoutGroup>
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="NhatKy_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="NhatKy">
+              <LayoutGroup Id="NhatKy_col1" RelativeSize="49.92784992784993">
+                <LayoutItem Id="Ngay" RelativeSize="7.258064516129032" />
+                <LayoutItem Id="Tungay" RelativeSize="5.241935483870968" />
+                <LayoutItem Id="Denngay" RelativeSize="87.5" />
+              </LayoutGroup>
+              <LayoutGroup Id="NhatKy_col2" RelativeSize="50.07215007215007">
+                <LayoutItem Id="Noidung" RelativeSize="7.258064516129032" />
+                <LayoutItem Id="Anh" RelativeSize="92.74193548387096" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="PhieuChi_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="PhieuChi">
+              <LayoutGroup Id="PhieuChi_col1">
+                <LayoutItem Id="Noidung" RelativeSize="90.5775075987842" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="PhieuThu_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="PhieuThu">
+              <LayoutGroup Id="PhieuThu_col1">
+                <LayoutItem Id="Noidung" RelativeSize="90.5775075987842" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Phong_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SizeableEditors" RelativeSize="45.833333333333336">
+            <LayoutItem Id="Mota" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

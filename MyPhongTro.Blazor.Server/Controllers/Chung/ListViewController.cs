@@ -1,4 +1,6 @@
-﻿using DevExpress.ExpressApp;
+﻿using DevExpress.Blazor;
+using DevExpress.DashboardCommon.Viewer;
+using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Blazor.Editors;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,7 +15,9 @@ namespace MyPhongTro.Blazor.Server.Controllers.Chung
             {
                 // For example, you can modify the grid's settings or add custom columns
                 IDxGridAdapter dxGridAdapter = gridListEditor.GetGridAdapter();
-                dxGridAdapter.GridModel.ColumnResizeMode = DevExpress.Blazor.GridColumnResizeMode.ColumnsContainer;
+                dxGridAdapter.GridModel.ColumnResizeMode = DevExpress.Blazor.GridColumnResizeMode.ColumnsContainer; 
+
+                // Disable the link for LookupPropertyEditor and ObjectPropertyEditor
                 if (dxGridAdapter != null)
                 {
                     foreach (var editor in gridListEditor.PropertyEditors)  // không hiện link 
@@ -28,9 +32,14 @@ namespace MyPhongTro.Blazor.Server.Controllers.Chung
                         }
 
                     }
-                }
-            }
 
+
+                }
+              
+
+
+            }
+            
         }
 
 

@@ -83,7 +83,7 @@ public class MyPhongTroBlazorApplication : BlazorApplication {
             if (this.Model.Options is DevExpress.ExpressApp.Blazor.SystemModule.IModelOptionsBlazor optionBlazor)
             {
                 optionBlazor.RefreshViewOnTabFocus = true;  // tự động làm mới view khi chuyển tab
-                optionBlazor.RestoreTabbedMdiLayout = false;  // không khôi phục bố cục tabbed MDI
+                optionBlazor.RestoreTabbedMdiLayout = false;  // không khôi phục bố cục của table 
             }
         };
 #if DEBUG

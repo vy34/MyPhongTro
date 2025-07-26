@@ -1,56 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application>
   <Views Id="Views">
-    <DetailView Id="ChuTro_DetailView">
-      <Layout Id="Layout">
-        <LayoutGroup Id="Main">
-          <LayoutGroup Id="SimpleEditors">
-            <LayoutGroup Id="ChuTro">
-              <LayoutGroup Id="ChuTro_col1">
-                <LayoutItem Id="Diachi" Removed="True" />
-              </LayoutGroup>
-              <LayoutGroup Id="ChuTro_col2">
-                <LayoutItem Id="Sodangky" RelativeSize="9.285714285714286" Index="6" />
-                <LayoutItem Id="NgayDangky" RelativeSize="9.285714285714286" Index="7" />
-              </LayoutGroup>
-            </LayoutGroup>
-          </LayoutGroup>
-        </LayoutGroup>
-      </Layout>
-    </DetailView>
     <DetailView Id="HoaDon_DetailView">
       <Layout Id="Layout">
         <LayoutGroup Id="Main">
           <LayoutGroup Id="SimpleEditors">
             <LayoutGroup Id="HoaDon">
-              <LayoutItem Id="Noidung" ViewItem="Noidung" Index="2" RelativeSize="52.855245683930946" Removed="True" />
-              <LayoutItem Id="Ngay" ViewItem="Ngay" Index="3" RelativeSize="20.869565217391305" Removed="True" />
-            </LayoutGroup>
-          </LayoutGroup>
-        </LayoutGroup>
-      </Layout>
-    </DetailView>
-    <DetailView Id="HopDong_DetailView">
-      <Layout Id="Layout">
-        <LayoutGroup Id="Main">
-          <LayoutGroup Id="SimpleEditors">
-            <LayoutGroup Id="HopDong">
-              <LayoutItem Id="SoHD" Index="1" RelativeSize="19.69504447268107" Removed="True" />
-              <LayoutItem Id="Ngayky" Index="2" RelativeSize="16.454352441613587" Removed="True" />
-              <LayoutItem Id="Trangthai" Index="3" RelativeSize="20.4574332909784" Removed="True" />
-            </LayoutGroup>
-          </LayoutGroup>
-        </LayoutGroup>
-      </Layout>
-    </DetailView>
-    <DetailView Id="KhachThue_DetailView">
-      <Layout Id="Layout">
-        <LayoutGroup Id="Main">
-          <LayoutGroup Id="SimpleEditors">
-            <LayoutGroup Id="KhachThue">
-              <LayoutGroup Id="KhachThue_col2">
-                <LayoutItem Id="Diachi" Index="4" RelativeSize="12.871287128712872" />
-                <LayoutItem Id="NgayCap" ViewItem="NgayCap" />
+              <LayoutGroup Id="Auto84a6b4cb-b310-4cb5-979c-7fcc024603a4" Caption="Auto84a6b4cb-b310-4cb5-979c-7fcc024603a4(9)" RelativeSize="53.06957708049113">
+                <LayoutItem Id="TongTien" RelativeSize="29.032258064516128" />
+                <LayoutItem Id="Dathu" RelativeSize="20.967741935483872" />
+                <LayoutItem Id="Conno" RelativeSize="50" />
+              </LayoutGroup>
+              <LayoutGroup Id="HoaDon_col1">
+                <LayoutItem Id="Noidung" Index="3" RelativeSize="29.032258064516128" />
+                <LayoutItem Id="Hopdong.SoHD" Removed="True" />
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>

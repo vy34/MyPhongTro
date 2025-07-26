@@ -27,7 +27,7 @@ namespace MyPhongTro.Module.Controllers.Chung.Profile
 
             if (e.ActionArguments.SelectedChoiceActionItem.Id == "Hosochutro") // khi chọn naavi có id là Hosochutro
             {
-                IObjectSpace objectSpace = Application.CreateObjectSpace(typeof(ApplicationUser));
+                IObjectSpace objectSpace = Application.CreateObjectSpace<ApplicationUser>();
                 ApplicationUser currentUser = objectSpace.GetObjectByKey<ApplicationUser>(SecuritySystem.CurrentUserId);
 
                 if (currentUser is ChuTro currentChuTro) // kiểm tra currentUser có là chủ trọ k , phải thì gán cho biến currentChutro
@@ -43,7 +43,7 @@ namespace MyPhongTro.Module.Controllers.Chung.Profile
             }
             else if(e.ActionArguments.SelectedChoiceActionItem.Id == "Hosokhachthue")
             {
-                IObjectSpace objectSpace = Application.CreateObjectSpace(typeof(ApplicationUser));
+                IObjectSpace objectSpace = Application.CreateObjectSpace<ApplicationUser>();
                 ApplicationUser currentUser = objectSpace.GetObjectByKey<ApplicationUser>(SecuritySystem.CurrentUserId);
                 if (currentUser != null)
                 {

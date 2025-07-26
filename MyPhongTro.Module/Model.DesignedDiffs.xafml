@@ -277,49 +277,83 @@
       </Layout>
     </DetailView>
     <DetailView Id="HoaDon_DetailView">
+      <Items>
+        <PropertyEditor Id="Hopdong" PropertyName="Hopdong" IsNewNode="True" />
+        <PropertyEditor Id="Hopdong.SoHD" PropertyName="Hopdong.SoHD" IsNewNode="True" />
+        <PropertyEditor Id="Hopdong.SoHopdong" PropertyName="Hopdong.SoHopdong" IsNewNode="True" />
+      </Items>
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
-          <LayoutGroup Id="SimpleEditors" RelativeSize="9.887005649717514">
-            <LayoutGroup Id="HoaDon" RelativeSize="100" />
+          <LayoutGroup Id="SimpleEditors" RelativeSize="24.431818181818183">
+            <LayoutGroup Id="HoaDon" RelativeSize="100">
+              <LayoutGroup Id="HoaDon_col1" RelativeSize="50">
+                <LayoutItem Id="So" RelativeSize="29.032258064516128" />
+                <LayoutItem Id="Hopdong" ViewItem="Hopdong" Index="1" RelativeSize="20.967741935483872" IsNewNode="True" />
+                <LayoutItem Id="Ngay" Index="2" RelativeSize="20.967741935483872" />
+                <LayoutItem Id="TongTien" Index="3" RelativeSize="29.032258064516128" />
+              </LayoutGroup>
+              <LayoutGroup Id="HoaDon_col2" RelativeSize="50">
+                <LayoutItem Id="Dathu" RelativeSize="29.032258064516128" />
+                <LayoutItem Id="Conno" RelativeSize="20.967741935483872" />
+                <LayoutItem Id="Noidung" RelativeSize="50" />
+              </LayoutGroup>
+            </LayoutGroup>
           </LayoutGroup>
-          <TabbedGroup Id="Tabs" RelativeSize="90.11299435028249">
-            <LayoutGroup Id="HoaDonCTs" Caption="Chi tiết hóa đơn" RelativeSize="100">
+          <TabbedGroup Id="Tabs" RelativeSize="75.56818181818181">
+            <LayoutGroup Id="HoaDonCTs" RelativeSize="100">
               <LayoutItem Id="HoaDonCTs" RelativeSize="100" />
             </LayoutGroup>
-            <LayoutGroup Id="PhieuThus" RelativeSize="100" Caption="Phiếu thu">
+            <LayoutGroup Id="PhieuThus" RelativeSize="100">
               <LayoutItem Id="PhieuThus" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="Anhs" RelativeSize="100">
+              <LayoutItem Id="Anhs" RelativeSize="100" />
             </LayoutGroup>
           </TabbedGroup>
         </LayoutGroup>
       </Layout>
     </DetailView>
+    <ListView Id="HoaDon_ListView">
+      <Columns>
+        <ColumnInfo Id="So" SortIndex="-1" SortOrder="None" />
+        <ColumnInfo Id="Hopdong" SortIndex="0" SortOrder="Ascending" />
+      </Columns>
+    </ListView>
     <DetailView Id="HopDong_DetailView">
       <Items>
+        <PropertyEditor Id="Phong" PropertyName="Phong" IsNewNode="True" />
         <PropertyEditor Id="Phong.Sophong" PropertyName="Phong.Sophong" IsNewNode="True" />
       </Items>
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
-          <LayoutGroup Id="SimpleEditors" RelativeSize="13.559322033898304">
-            <LayoutGroup Id="HopDong" RelativeSize="100" />
+          <LayoutGroup Id="SimpleEditors" RelativeSize="28.205128205128204">
+            <LayoutGroup Id="HopDong" RelativeSize="100">
+              <LayoutGroup Id="HopDong_col1" RelativeSize="49.891067538126364">
+                <LayoutItem Id="SoHD" RelativeSize="24" />
+                <LayoutItem Id="Phong.Sophong" ViewItem="Phong.Sophong" Index="1" RelativeSize="17.333333333333332" IsNewNode="True" />
+                <LayoutItem Id="Ngaylap" Index="2" RelativeSize="17.333333333333332" />
+                <LayoutItem Id="Tungay" Index="3" RelativeSize="17.333333333333332" />
+                <LayoutItem Id="Denngay" Index="4" RelativeSize="24" />
+                <LayoutItem Id="Tiencoc" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="HopDong_col2" RelativeSize="50.108932461873636">
+                <LayoutItem Id="Tiencoc" ViewItem="Tiencoc" Index="0" RelativeSize="24" IsNewNode="True" />
+                <LayoutItem Id="Doanhthu" Index="1" RelativeSize="17.333333333333332" />
+                <LayoutItem Id="Songuoi" Index="2" RelativeSize="17.333333333333332" />
+                <LayoutItem Id="Ghichu" Index="3" RelativeSize="17.333333333333332" />
+                <LayoutItem Id="Trangthai" Index="4" RelativeSize="24" />
+              </LayoutGroup>
+            </LayoutGroup>
           </LayoutGroup>
-          <TabbedGroup Id="Tabs" RelativeSize="86.44067796610169">
-            <LayoutGroup Id="HopDongCTs" Caption="Chi tiết hợp đồng" RelativeSize="100">
+          <TabbedGroup Id="Tabs" RelativeSize="71.7948717948718">
+            <LayoutGroup Id="HopDongCTs" RelativeSize="100">
               <LayoutItem Id="HopDongCTs" RelativeSize="100" />
             </LayoutGroup>
-            <LayoutGroup Id="HoaDons" RelativeSize="100" Caption="Hóa đơn">
+            <LayoutGroup Id="HoaDons" RelativeSize="100">
               <LayoutItem Id="HoaDons" RelativeSize="100" />
             </LayoutGroup>
-            <LayoutGroup Id="PhieuChis" RelativeSize="100" Caption="Phiếu chi">
-              <LayoutItem Id="PhieuChis" RelativeSize="100" />
-            </LayoutGroup>
-            <LayoutGroup Id="TamTrus" RelativeSize="100" Caption="Tạm trú">
+            <LayoutGroup Id="TamTrus" RelativeSize="100">
               <LayoutItem Id="TamTrus" RelativeSize="100" />
-            </LayoutGroup>
-            <LayoutGroup Id="Chisodiens" RelativeSize="100" Caption="Chỉ số điện">
-              <LayoutItem Id="Chisodiens" RelativeSize="100" />
-            </LayoutGroup>
-            <LayoutGroup Id="Chisonuocs" RelativeSize="100" Caption="Chỉ số nước">
-              <LayoutItem Id="Chisonuocs" RelativeSize="100" />
             </LayoutGroup>
           </TabbedGroup>
         </LayoutGroup>
@@ -475,17 +509,7 @@
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
           <LayoutGroup Id="SimpleEditors" RelativeSize="100">
-            <LayoutGroup Id="NhatKy" Caption="Nhật ký hoạt động" RelativeSize="100">
-              <LayoutGroup Id="NhatKy_col1" RelativeSize="49.92784992784993">
-                <LayoutItem Id="Ngay" RelativeSize="7.258064516129032" />
-                <LayoutItem Id="Tungay" RelativeSize="5.241935483870968" />
-                <LayoutItem Id="Denngay" RelativeSize="87.5" />
-              </LayoutGroup>
-              <LayoutGroup Id="NhatKy_col2" RelativeSize="50.07215007215007">
-                <LayoutItem Id="Noidung" RelativeSize="7.258064516129032" />
-                <LayoutItem Id="Anh" RelativeSize="92.74193548387096" />
-              </LayoutGroup>
-            </LayoutGroup>
+            <LayoutGroup Id="NhatKy" Caption="Nhật ký hoạt động" RelativeSize="100" />
           </LayoutGroup>
         </LayoutGroup>
       </Layout>
@@ -518,7 +542,6 @@
               <LayoutGroup Id="PhieuChi_col1" RelativeSize="49.884792626728114">
                 <LayoutItem Id="Ngay" RelativeSize="5.47112462006079" />
                 <LayoutItem Id="Sotien" RelativeSize="3.951367781155015" />
-                <LayoutItem Id="Noidung" RelativeSize="90.5775075987842" />
               </LayoutGroup>
               <LayoutGroup Id="PhieuChi_col2" RelativeSize="50.115207373271886">
                 <LayoutItem Id="Ghichu" RelativeSize="5.47112462006079" />
@@ -537,7 +560,6 @@
               <LayoutGroup Id="PhieuThu_col1" RelativeSize="49.884792626728114">
                 <LayoutItem Id="Ngay" RelativeSize="5.47112462006079" />
                 <LayoutItem Id="Sotien" RelativeSize="3.951367781155015" />
-                <LayoutItem Id="Noidung" RelativeSize="90.5775075987842" />
               </LayoutGroup>
               <LayoutGroup Id="PhieuThu_col2" RelativeSize="50.115207373271886">
                 <LayoutItem Id="Ghichu" RelativeSize="5.47112462006079" />
@@ -555,9 +577,6 @@
             <LayoutGroup Id="Phong" RelativeSize="100">
               <LayoutItem Id="Sophong" RelativeSize="100" />
             </LayoutGroup>
-          </LayoutGroup>
-          <LayoutGroup Id="SizeableEditors" RelativeSize="45.833333333333336">
-            <LayoutItem Id="Mota" RelativeSize="100" />
           </LayoutGroup>
           <TabbedGroup Id="Tabs" RelativeSize="46.19565217391305">
             <LayoutGroup Id="Thietbiphongs" Caption="Thiết bị phòng" RelativeSize="100">

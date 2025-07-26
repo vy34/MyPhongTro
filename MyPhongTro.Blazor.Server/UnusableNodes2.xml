@@ -1,16 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application>
   <Views Id="Views">
-    <DetailView Id="KhachThue_DetailView">
+    <DetailView Id="HoaDon_DetailView">
       <Layout Id="Layout">
         <LayoutGroup Id="Main">
           <LayoutGroup Id="SimpleEditors">
-            <LayoutGroup Id="KhachThue">
-              <LayoutGroup Id="KhachThue_col1">
-                <LayoutItem Id="NgayCap" Index="1" RelativeSize="84.21052631578948" Removed="True" />
+            <LayoutGroup Id="HoaDon">
+              <LayoutGroup Id="HoaDon_col1">
+                <LayoutItem Id="TongTien" Removed="True" />
               </LayoutGroup>
-              <LayoutGroup Id="KhachThue_col2">
-                <LayoutItem Id="NgayCap" ViewItem="NgayCap" />
+              <LayoutGroup Id="HoaDon_col2">
+                <LayoutItem Id="Conno" Removed="True" />
+                <LayoutItem Id="Dathu" Removed="True" />
+                <LayoutItem Id="Noidung" Removed="True" />
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>

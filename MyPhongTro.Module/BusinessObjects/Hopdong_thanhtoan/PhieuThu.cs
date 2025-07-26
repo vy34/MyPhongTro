@@ -33,6 +33,12 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         if(Session.IsNewObject(this))
             {
                 Ngay = TCom.GetServerDateOnly(); // Ngày mặc định là ngày hiện tại
+                string sql = "select max(So) as so from PhieuThu where Chutro = '" + SecuritySystem.CurrentUserId + "'";
+                var ret = Session.ExecuteScalar(sql);
+                int so = 1;
+                if (ret != null) so = tmLib.ViCom.CInt(ret) + 1; // Lấy số phiếu thu lớn nhất của chủ trọ hiện tại
+                So = so; // Số phiếu thu mặc định là 1
+
             }
         }
         private ChuTro _Chutro;
@@ -56,12 +62,22 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         private TamTru _Tamtru;
         [Association]
         [XafDisplayName("Khách tạm trú")]
-        //[VisibleInListView(false), VisibleInLookupListView(false), VisibleInDetailView(false), VisibleInDashboards(false)]
         public TamTru Tamtru
         {
             get { return _Tamtru; }
             set { SetPropertyValue<TamTru>(nameof(Tamtru), ref _Tamtru, value); }
         }
+
+
+        private int _So;
+        [XafDisplayName("Số phiếu")]
+        public int So
+        {
+            get { return _So; }
+            set { SetPropertyValue<int>(nameof(So), ref _So, value); }
+        }
+
+
 
         private DateOnly _Ngay;
         [XafDisplayName("Ngày")]

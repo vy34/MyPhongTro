@@ -16,7 +16,7 @@ namespace MyPhongTro.Module.BusinessObjects.Quanlyphongtro
 {
     [DefaultClassOptions]
     [NavigationItem(false)]
-    //[ImageName("baotri")]
+    [ImageName("baotri")]
     //[NavigationItem("Quản lý phòng trọ")]
     //[System.ComponentModel.DisplayName("Bảo trì thiết bị")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
@@ -54,7 +54,14 @@ namespace MyPhongTro.Module.BusinessObjects.Quanlyphongtro
             set { SetPropertyValue<DateOnly>(nameof(Ngay), ref _Ngay, value); }
         }
 
-       
+        private string _Noidung;
+        [XafDisplayName("Nội dung")]
+        [Size(255)]
+        public string Noidung
+        {
+            get { return _Noidung; }
+            set { SetPropertyValue<string>(nameof(Noidung), ref _Noidung, value); }
+        }
 
         private decimal _Sotien;
         [XafDisplayName("Số tiền")]
@@ -67,14 +74,7 @@ namespace MyPhongTro.Module.BusinessObjects.Quanlyphongtro
         }
 
         
-        private string _Noidung;
-        [XafDisplayName("Nội dung")]
-        [Size(255)]
-        public string Noidung
-        {
-            get { return _Noidung; }
-            set { SetPropertyValue<string>(nameof(Noidung), ref _Noidung, value); }
-        }
+
 
 
 

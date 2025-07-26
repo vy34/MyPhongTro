@@ -42,7 +42,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
 
         private KhoanThu _Khoanthu;
         [Association]
-        [XafDisplayName("Khoản thu")]
+        [XafDisplayName("Các khoản thu")]
         public KhoanThu Khoanthu
         {
             get { return _Khoanthu; }
@@ -68,6 +68,17 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
             set { SetPropertyValue<int>(nameof(Chisocuoi), ref _Chisocuoi, value); }
         }
 
+
+        
+        [XafDisplayName("Số lượng")]
+        public int Soluong
+        {
+            get 
+            {
+                return Chisocuoi - Chisodau;
+            }
+        }
+
         private decimal _DonGia;
         [ModelDefault("DisplayFormat", "{0:### ### ###}")]     //tự động
         [ModelDefault("EditMask", "### ### ###")]
@@ -78,7 +89,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
             set { SetPropertyValue<decimal>(nameof(DonGia), ref _DonGia, value); }
         }
 
-        private decimal _ThanhTien;
+        
         [XafDisplayName("Thành tiền")]
         [ModelDefault("DisplayFormat", "{0:### ### ###}")]     //tự động
         [ModelDefault("EditMask", "### ### ###")]
@@ -86,7 +97,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         {
             get
             {
-                return (int)(Chisocuoi - Chisodau) * DonGia;
+                return (int)Soluong * DonGia;
             }
 
         }

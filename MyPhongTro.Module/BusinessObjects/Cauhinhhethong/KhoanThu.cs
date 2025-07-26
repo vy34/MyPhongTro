@@ -18,7 +18,7 @@ namespace MyPhongTro.Module.BusinessObjects.Cauhinhhethong
 {
     [DefaultClassOptions]
     [ImageName("khoanthu")]
-    [System.ComponentModel.DisplayName("Khoản thu")]
+    [System.ComponentModel.DisplayName("Các khoản thu")]
     [NavigationItem("Cấu hình hệ thống")]
     [DefaultProperty("TenKhoanThu")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
@@ -50,7 +50,7 @@ namespace MyPhongTro.Module.BusinessObjects.Cauhinhhethong
         }
 
         private decimal _GiaThang;
-        [XafDisplayName("Giá tháng")]
+        [XafDisplayName("Giá theo tháng")]
         [ModelDefault("DisplayFormat", "{0:### ### ###}")]     //tự động
         [ModelDefault("EditMask", "### ### ###")]
         public decimal GiaThang
@@ -59,14 +59,12 @@ namespace MyPhongTro.Module.BusinessObjects.Cauhinhhethong
             set { SetPropertyValue<decimal>(nameof(GiaThang), ref _GiaThang, value); }
         }
 
-        private decimal _GiaChiso;
-        [XafDisplayName("Giá chỉ số")]
-        [ModelDefault("DisplayFormat", "{0:### ###}")]     //tự động
-        [ModelDefault("EditMask", "### ###")]
-        public decimal GiaChiso
+        private bool _GiaChiso;
+        [XafDisplayName("Đơn giá chỉ số")]
+        public bool GiaChiso
         {
             get { return _GiaChiso; }
-            set { SetPropertyValue<decimal>(nameof(GiaChiso), ref _GiaChiso, value); }
+            set { SetPropertyValue<bool>(nameof(GiaChiso), ref _GiaChiso, value); }
         }
 
         private bool _Def;
@@ -91,11 +89,6 @@ namespace MyPhongTro.Module.BusinessObjects.Cauhinhhethong
             get { return GetCollection<HoaDonCT>(nameof(HoaDonCTs)); }
         }
 
-        [DevExpress.Xpo.Aggregated, Association]
-        public XPCollection<Chiso> Chisos
-        {
-            get { return GetCollection<Chiso>(nameof(Chisos)); }
-        }
      
 
 

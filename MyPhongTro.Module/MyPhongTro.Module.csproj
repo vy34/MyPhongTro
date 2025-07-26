@@ -15,6 +15,7 @@
     <None Remove="Images\hethong.svg" />
     <None Remove="Images\hoadon.svg" />
     <None Remove="Images\hopdong.svg" />
+    <None Remove="Images\image.svg" />
     <None Remove="Images\khanhthue.svg" />
     <None Remove="Images\Khoanchi.svg" />
     <None Remove="Images\khoanthu.svg" />
@@ -38,6 +39,7 @@
     <EmbeddedResource Include="Images\hethong.svg" />
     <EmbeddedResource Include="Images\hoadon.svg" />
     <EmbeddedResource Include="Images\hopdong.svg" />
+    <EmbeddedResource Include="Images\image.svg" />
     <EmbeddedResource Include="Images\khanhthue.svg" />
     <EmbeddedResource Include="Images\khoanchi.svg" />
     <EmbeddedResource Include="Images\khoanthu.svg" />

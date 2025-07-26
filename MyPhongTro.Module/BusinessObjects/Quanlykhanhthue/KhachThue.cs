@@ -81,14 +81,25 @@ namespace MyPhongTro.Module.BusinessObjects.Quanlykhanhthue
             set
             {
 
-                bool isModified = SetPropertyValue<string>(nameof(Dienthoai), ref _Dienthoai, value);
-                if (Session.IsNewObject(this) && isModified)
+                if (SetPropertyValue(nameof(Dienthoai), ref _Dienthoai, value))
                 {
-                    // Tự động tạo tài khoản người dùng nếu là chủ trọ mới
-                    if (string.IsNullOrEmpty(UserName))
+                    if (Session.IsNewObject(this) && !string.IsNullOrEmpty(value)) // Chỉ tạo tài khoản người dùng nếu là chủ trọ mới và số điện thoại không rỗng
                     {
-                        UserName = value; // Sử dụng số điện thoại làm tên đăng nhập
+                        // Gán UserName duy nhất dựa trên Dienthoai
+                        string baseUserName = value;
+                        string tenDangNhap = baseUserName;
+                        int sott = 0;
 
+                        ApplicationUser user = Session.FindObject<ApplicationUser>(CriteriaOperator.Parse("UserName = ?", tenDangNhap)); // Kiểm tra xem tên đăng nhập đã tồn tại chưa
+                        while (user != null)
+                        {
+                            sott++;
+                            tenDangNhap = baseUserName + sott;
+                            user = Session.FindObject<ApplicationUser>(CriteriaOperator.Parse("UserName = ?", tenDangNhap));
+                        }
+
+                        this.UserName = tenDangNhap;
+                        this.SetPassword(tenDangNhap + "@#");
                     }
                 }
             }
@@ -189,21 +200,7 @@ namespace MyPhongTro.Module.BusinessObjects.Quanlykhanhthue
 
         private void Captaikhoan()
         {
-            string baseUserName = string.IsNullOrEmpty(this.UserName) ? this.Dienthoai : this.UserName;
-            string tenDangNhap = baseUserName;
-
-            int sott = 0;
-            ApplicationUser user = Session.FindObject<ApplicationUser>(CriteriaOperator.Parse("UserName = ?", tenDangNhap));  // duyệt tring application có tồn tại usernam = tenDangNhap này chua
-            while (user != null)
-            {
-                sott++;
-                tenDangNhap = baseUserName + sott; // reset tên đăng nhập cũ rồi cộng thêm số thứ tự
-                user = Session.FindObject<ApplicationUser>(CriteriaOperator.Parse("UserName = ?", tenDangNhap));
-            }
-            this.UserName = tenDangNhap; // Cập nhật tên đăng nhập duy nhất
-            this.SetPassword(UserName + "@#");
-
-
+           
             //role
             if (this.Roles.Count == 0)
             {

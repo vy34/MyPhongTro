@@ -1,6 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application>
   <Views Id="Views">
-    <ListView Id="PhieCchi_ListView" InlineEditMode="Batch" />
+    <DetailView Id="HoaDon_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="HoaDon">
+              <LayoutGroup Id="HoaDon_col1">
+                <LayoutItem Id="TongTien" Index="4" RelativeSize="24" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="HoaDon_col2">
+                <LayoutItem Id="Noidung" RelativeSize="37.333333333333336" Index="1" Removed="True" />
+                <LayoutItem Id="Conno" RelativeSize="15.789473684210526" Removed="True" />
+                <LayoutItem Id="Dathu" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
   </Views>
 </Application>

@@ -50,16 +50,29 @@ namespace MyPhongTro.Module.BusinessObjects.Quanlyphongtro
             get { return _Sophong; }
             set { SetPropertyValue<string>(nameof(Sophong), ref _Sophong, value); }
         }
-       
-        private string _Mota;
-        [XafDisplayName("Mô tả")]
-        [Size(SizeAttribute.Unlimited)]
-        [EditorAlias(EditorAliases.RichTextPropertyEditor)] // cho phép sử dụng trình soạn thảo
-        public string Mota
+
+
+        private decimal _Tiencoc;
+        [XafDisplayName("Tiền cọc")]
+        [ModelDefault("DisplayFormat", "{0:### ### ###}")]     //tự động
+        [ModelDefault("EditMask", "### ### ###")]
+        public decimal Tiencoc
         {
-            get { return _Mota; }
-            set { SetPropertyValue<string>(nameof(Mota), ref _Mota, value); }
+            get { return _Tiencoc; }
+            set { SetPropertyValue<decimal>(nameof(Tiencoc), ref _Tiencoc, value); }
         }
+
+
+
+        //private string _Mota;
+        //[XafDisplayName("Mô tả")]
+        //[Size(SizeAttribute.Unlimited)]
+        //[EditorAlias(EditorAliases.RichTextPropertyEditor)] // cho phép sử dụng trình soạn thảo
+        //public string Mota
+        //{
+        //    get { return _Mota; }
+        //    set { SetPropertyValue<string>(nameof(Mota), ref _Mota, value); }
+        //}
 
         [DevExpress.Xpo.Aggregated, Association]
         public XPCollection<Thietbiphong> Thietbiphongs

@@ -1,14 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application>
   <Views Id="Views">
-    <DetailView Id="KhachThue_DetailView">
+    <DetailView Id="HoaDon_DetailView">
       <Layout Id="Layout">
         <LayoutGroup Id="Main">
           <LayoutGroup Id="SimpleEditors">
-            <LayoutGroup Id="KhachThue">
-              <LayoutGroup Id="KhachThue_col2">
-                <LayoutItem Id="NgayCap" ViewItem="NgayCap" />
-              </LayoutGroup>
+            <LayoutGroup Id="HoaDon">
+              <LayoutGroup Id="HoaDon_col2" Removed="True" />
             </LayoutGroup>
           </LayoutGroup>
         </LayoutGroup>

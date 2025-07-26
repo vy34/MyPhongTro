@@ -6,6 +6,7 @@ using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
+using MyPhongTro.Module.BusinessObjects.Cauhinhhethong;
 using MyPhongTro.Module.BusinessObjects.Chutro;
 using MyPhongTro.Module.BusinessObjects.Quanlykhanhthue;
 using System;
@@ -33,6 +34,12 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
            if(Session.IsNewObject(this))
             {
                 Ngay = TCom.GetServerDateOnly(); // Ngày mặc định là ngày hiện tại
+
+                string sql = "select max(So) as so from PhieuChi where Chutro = '" + SecuritySystem.CurrentUserId + "'";
+                var ret = Session.ExecuteScalar(sql);
+                int so = 1;
+                if (ret != null) so = tmLib.ViCom.CInt(ret) + 1; // Lấy số phiếu chi lớn nhất của chủ trọ hiện tại
+                So = so; // Số phiếu chi mặc định là 1
             }
         }
         private ChuTro _Chutro;
@@ -44,17 +51,6 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
             set { SetPropertyValue<ChuTro>(nameof(Chutro), ref _Chutro, value); }
         }
 
-
-        private HopDong _Hopdong;
-        [Association]
-        [XafDisplayName("Hợp đồng")]
-        public HopDong Hopdong
-        {
-            get { return _Hopdong; }
-            set { SetPropertyValue<HopDong>(nameof(Hopdong), ref _Hopdong, value); }
-        }
-
-
         private TamTru _Tamtru;
         [Association]
         [XafDisplayName("Khách tạm trú")]
@@ -64,6 +60,28 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
             get { return _Tamtru; }
             set { SetPropertyValue<TamTru>(nameof(Tamtru), ref _Tamtru, value); }
         }
+
+
+
+        private KhoanChi _Khoanchi;
+        [Association]
+        [XafDisplayName("Các khoản chi")]
+        public KhoanChi Khoanchi
+        {
+            get { return _Khoanchi; }
+            set { SetPropertyValue<KhoanChi>(nameof(Khoanchi), ref _Khoanchi, value); }
+        }
+
+
+        private int  _So;
+        [XafDisplayName("Số phiếu")]
+        public int  So
+        {
+            get { return _So; }
+            set { SetPropertyValue<int >(nameof(So), ref _So, value); }
+        }
+
+
 
         private DateOnly _Ngay;
         [XafDisplayName("Ngày")]
