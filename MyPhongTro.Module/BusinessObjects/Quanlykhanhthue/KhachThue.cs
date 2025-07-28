@@ -33,6 +33,11 @@ namespace MyPhongTro.Module.BusinessObjects.Quanlykhanhthue
             // Place your initialization code here (https://docs.devexpress.com/eXpressAppFramework/112834/getting-started/in-depth-tutorial-winforms-webforms/business-model-design/initialize-a-property-after-creating-an-object-xpo?v=22.1).
             if (Session.IsNewObject(this))
             {
+                ChuTro chutro = Session.FindObject<ChuTro>(CriteriaOperator.Parse("Oid = ?", SecuritySystem.CurrentUserId));
+                if (chutro != null)
+                {
+                    Chutro = chutro; // Tự động gán chủ trọ là người dùng hiện tại
+                }
                 NgayDangky = TCom.GetServerDateOnly(); // Ngày đăng ký mặc định là ngày hiện tại
             }
         }

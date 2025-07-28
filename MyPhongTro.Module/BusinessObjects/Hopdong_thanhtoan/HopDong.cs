@@ -7,6 +7,7 @@ using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
 using DevExpress.XtraRichEdit.API.Native;
+using MyPhongTro.Module.BusinessObjects.Cauhinhhethong;
 using MyPhongTro.Module.BusinessObjects.Chutro;
 using MyPhongTro.Module.BusinessObjects.Quanlykhanhthue;
 using MyPhongTro.Module.BusinessObjects.Quanlyphongtro;
@@ -46,9 +47,26 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
                 if(ret != null) so = tmLib.ViCom.CInt(ret) + 1; // Lấy số hợp đồng lớn nhất của chủ trọ hiện tại
                 SoHD = so; // Số hợp đồng mặc định là 1
 
+                //Cập nhật khoản thu mặc định cho hợp đồng
+                XPCollection<KhoanThu> xpCollectionKhoan = new(Session)
+                {
+                    Criteria = CriteriaOperator.Parse("Chutro.Oid=? && Def=?", SecuritySystem.CurrentUserId,true) 
+                };
+                foreach(KhoanThu khoan in xpCollectionKhoan)
+                {
+                    HopDongCT hopdongct = new(Session)
+                    {
+                        Hopdong = this,
+                        Khoanthu = khoan,
+                        Dongia = khoan.Dongia, // Giá mặc định là giá tháng của khoản thu
+                        Theochiso = khoan.Theochiso, // Theo chỉ số hay không
+                    };
+                    hopdongct.Save();
+                    this.HopDongCTs.Add(hopdongct); // Thêm vào danh sách hợp đồng chi tiết
+                }
+
+
                 Ngaylap = TCom.GetServerDateOnly(); // Ngày mặc định là ngày hiện tại
-                Tungay = TCom.GetServerDateOnly(); // Ngày bắt đầu hợp đồng mặc định là ngày hiện tại
-                Denngay = TCom.GetServerDateOnly().AddMonths(3); // Ngày kết thúc hợp đồng mặc định là 1 tháng sau ngày hiện tại
                 Trangthai = TrangThaiHD.dukien;
                 
             }
@@ -98,7 +116,8 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         }
 
         private int _SoHD;
-        [XafDisplayName("Số hợp đồng")]
+        [XafDisplayName("Số hợp đồng"), ModelDefault("AllowEdit", "false")]
+        
         public int SoHD
         {
             get { return _SoHD; }
@@ -141,7 +160,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
 
 
         private decimal  _Tiencoc;
-        [XafDisplayName("Tiền cọc")]
+        [XafDisplayName("Tiền cọc"), ModelDefault("AllowEdit", "false")]
         [ModelDefault("DisplayFormat", "{0:### ### ###}")]     //tự động
         [ModelDefault("EditMask", "### ### ###")]
         public decimal Tiencoc

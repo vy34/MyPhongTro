@@ -2,6 +2,64 @@
 <Application Title="MyPhongTro">
   <BOModel>
     <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
+    <Class Name="MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan.HoaDon">
+      <OwnMembers>
+        <Member Name="Hopdong" DataSourceCriteria="[Chutro.Oid] = CurrentUserId()" />
+      </OwnMembers>
+    </Class>
+    <Class Name="MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan.HoaDonCT">
+      <OwnMembers>
+        <Member Name="Khoanthu" DataSourceCriteria="[Chutro.Oid] = CurrentUserId()" />
+      </OwnMembers>
+    </Class>
+    <Class Name="MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan.HopDong">
+      <OwnMembers>
+        <Member Name="Phong" DataSourceCriteria="[Chutro.Oid] = CurrentUserId()" />
+      </OwnMembers>
+    </Class>
+    <Class Name="MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan.HopDongCT">
+      <OwnMembers>
+        <Member Name="Khoanthu" DataSourceCriteria="[Chutro.Oid] = CurrentUserId()" />
+      </OwnMembers>
+    </Class>
+    <Class Name="MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan.PhieuChi">
+      <OwnMembers>
+        <Member Name="Khoanchi" DataSourceCriteria="[Chutro.Oid] = CurrentUserId()" />
+        <Member Name="Tamtru" DataSourceCriteria="[Hopdong.Chutro.Oid] = CurrentUserId()" />
+      </OwnMembers>
+    </Class>
+    <Class Name="MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan.PhieuThu">
+      <OwnMembers>
+        <Member Name="Hoadon" DataSourceCriteria="[Chutro.Oid] = CurrentUserId()" />
+        <Member Name="Tamtru" DataSourceCriteria="[Hopdong.Chutro.Oid] = CurrentUserId()" />
+      </OwnMembers>
+    </Class>
+    <Class Name="MyPhongTro.Module.BusinessObjects.Quanlykhanhthue.NhatKy">
+      <OwnMembers>
+        <Member Name="Tamtru" DataSourceCriteria="[Hopdong.Chutro.Oid] = CurrentUserId()" />
+      </OwnMembers>
+    </Class>
+    <Class Name="MyPhongTro.Module.BusinessObjects.Quanlykhanhthue.TamTru">
+      <OwnMembers>
+        <Member Name="Khachthue" DataSourceCriteria="[Chutro.Oid] = CurrentUserId()" />
+      </OwnMembers>
+    </Class>
+    <Class Name="MyPhongTro.Module.BusinessObjects.Quanlyphongtro.BaoTri">
+      <OwnMembers>
+        <Member Name="Thietbiphong" DataSourceCriteria="" />
+      </OwnMembers>
+    </Class>
+    <Class Name="MyPhongTro.Module.BusinessObjects.Quanlyphongtro.SuaChua">
+      <OwnMembers>
+        <Member Name="Phong" DataSourceCriteria="[Chutro.Oid] = CurrentUserId()" />
+      </OwnMembers>
+    </Class>
+    <Class Name="MyPhongTro.Module.BusinessObjects.Quanlyphongtro.Thietbiphong">
+      <OwnMembers>
+        <Member Name="Phong" DataSourceCriteria="[Chutro.Oid] = CurrentUserId()" />
+        <Member Name="Thietbi" DataSourceCriteria="[Chutro.Oid] = CurrentUserId()" />
+      </OwnMembers>
+    </Class>
   </BOModel>
   <NavigationItems>
     <Items>
@@ -108,6 +166,11 @@
     <ListView Id="ApplicationUser_ListView" Caption="Users">
       <Columns>
         <ColumnInfo Id="UserName" SortOrder="Ascending" />
+      </Columns>
+    </ListView>
+    <ListView Id="BaoTri_ListView">
+      <Columns>
+        <ColumnInfo Id="Thietbiphong" LookupProperty="Thietbiphong" Width="122" />
       </Columns>
     </ListView>
     <DetailView Id="ChuTro_DetailView" DefaultFocusedItem="Tenchutro">
@@ -319,24 +382,29 @@
         <ColumnInfo Id="Hopdong" SortIndex="0" SortOrder="Ascending" />
       </Columns>
     </ListView>
+    <ListView Id="HoaDonCT_ListView">
+      <Columns>
+        <ColumnInfo Id="Khoanthu" DataSourceCriteria="[Chutro.Oid] = CurrentUserId()" />
+      </Columns>
+    </ListView>
     <DetailView Id="HopDong_DetailView">
       <Items>
         <PropertyEditor Id="Phong" PropertyName="Phong" IsNewNode="True" />
-        <PropertyEditor Id="Phong.Sophong" PropertyName="Phong.Sophong" IsNewNode="True" />
+        <PropertyEditor Id="SoHopdong" Removed="True" />
       </Items>
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
-          <LayoutGroup Id="SimpleEditors" RelativeSize="28.205128205128204">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="33.84615384615385">
             <LayoutGroup Id="HopDong" RelativeSize="100">
-              <LayoutGroup Id="HopDong_col1" RelativeSize="49.891067538126364">
+              <LayoutGroup Id="HopDong_col1" RelativeSize="49.92947813822285">
                 <LayoutItem Id="SoHD" RelativeSize="24" />
-                <LayoutItem Id="Phong.Sophong" ViewItem="Phong.Sophong" Index="1" RelativeSize="17.333333333333332" IsNewNode="True" />
+                <LayoutItem Id="Phong" ViewItem="Phong" Index="1" RelativeSize="17.333333333333332" IsNewNode="True" />
                 <LayoutItem Id="Ngaylap" Index="2" RelativeSize="17.333333333333332" />
                 <LayoutItem Id="Tungay" Index="3" RelativeSize="17.333333333333332" />
                 <LayoutItem Id="Denngay" Index="4" RelativeSize="24" />
                 <LayoutItem Id="Tiencoc" Removed="True" />
               </LayoutGroup>
-              <LayoutGroup Id="HopDong_col2" RelativeSize="50.108932461873636">
+              <LayoutGroup Id="HopDong_col2" RelativeSize="50.07052186177715">
                 <LayoutItem Id="Tiencoc" ViewItem="Tiencoc" Index="0" RelativeSize="24" IsNewNode="True" />
                 <LayoutItem Id="Doanhthu" Index="1" RelativeSize="17.333333333333332" />
                 <LayoutItem Id="Songuoi" Index="2" RelativeSize="17.333333333333332" />
@@ -345,20 +413,31 @@
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
-          <TabbedGroup Id="Tabs" RelativeSize="71.7948717948718">
+          <TabbedGroup Id="Tabs" RelativeSize="20.34188034188034">
             <LayoutGroup Id="HopDongCTs" RelativeSize="100">
               <LayoutItem Id="HopDongCTs" RelativeSize="100" />
             </LayoutGroup>
-            <LayoutGroup Id="HoaDons" RelativeSize="100">
+            <LayoutGroup Id="HoaDons" RelativeSize="100" Removed="True">
               <LayoutItem Id="HoaDons" RelativeSize="100" />
             </LayoutGroup>
-            <LayoutGroup Id="TamTrus" RelativeSize="100">
+            <LayoutGroup Id="TamTrus" RelativeSize="100" Removed="True">
               <LayoutItem Id="TamTrus" RelativeSize="100" />
             </LayoutGroup>
           </TabbedGroup>
+          <LayoutGroup Id="TamTrus" ShowCaption="True" Caption="Tam Trus" Index="2" RelativeSize="22.05128205128205" IsNewNode="True">
+            <LayoutItem Id="TamTrus" ViewItem="TamTrus" Index="0" RelativeSize="100" IsNewNode="True" />
+          </LayoutGroup>
+          <LayoutGroup Id="HoaDons" ShowCaption="True" Caption="Hoa Dons" Index="3" RelativeSize="23.76068376068376" IsNewNode="True">
+            <LayoutItem Id="HoaDons" ViewItem="HoaDons" Index="0" RelativeSize="100" IsNewNode="True" />
+          </LayoutGroup>
         </LayoutGroup>
       </Layout>
     </DetailView>
+    <ListView Id="HopDongCT_ListView">
+      <Columns>
+        <ColumnInfo Id="Khoanthu" DataSourceCriteria="[Chutro.Oid] = CurrentUserId()" />
+      </Columns>
+    </ListView>
     <DetailView Id="KhachThue_DetailView" DefaultFocusedItem="HoTen">
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
@@ -489,8 +568,6 @@
           <LayoutGroup Id="SimpleEditors" RelativeSize="17.231638418079097">
             <LayoutGroup Id="KhoanThu" RelativeSize="100">
               <LayoutItem Id="TenKhoanThu" RelativeSize="29.508196721311474" />
-              <LayoutItem Id="GiaThang" RelativeSize="21.311475409836067" />
-              <LayoutItem Id="GiaChiso" RelativeSize="21.311475409836067" />
               <LayoutItem Id="Def" RelativeSize="27.868852459016395" />
             </LayoutGroup>
           </LayoutGroup>
@@ -514,6 +591,11 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
+    <ListView Id="NhatKy_ListView">
+      <Columns>
+        <ColumnInfo Id="Tamtru" DataSourceCriteria="[Hopdong.Chutro.Oid] = CurrentUserId()" />
+      </Columns>
+    </ListView>
     <DetailView Id="Phiduytri_DetailView">
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
@@ -552,6 +634,11 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
+    <ListView Id="PhieuChi_ListView">
+      <Columns>
+        <ColumnInfo Id="Tamtru" DataSourceCriteria="[Hopdong.Chutro.Oid] = CurrentUserId()" />
+      </Columns>
+    </ListView>
     <DetailView Id="PhieuThu_DetailView">
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
@@ -573,26 +660,34 @@
     <DetailView Id="Phong_DetailView">
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
-          <LayoutGroup Id="SimpleEditors" RelativeSize="7.971014492753623">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="12.987012987012987">
             <LayoutGroup Id="Phong" RelativeSize="100">
-              <LayoutItem Id="Sophong" RelativeSize="100" />
+              <LayoutItem Id="Sophong" RelativeSize="51.42857142857143" />
+              <LayoutItem Id="Tiencoc" RelativeSize="48.57142857142857" />
             </LayoutGroup>
           </LayoutGroup>
-          <TabbedGroup Id="Tabs" RelativeSize="46.19565217391305">
-            <LayoutGroup Id="Thietbiphongs" Caption="Thiết bị phòng" RelativeSize="100">
+          <TabbedGroup Id="Tabs" RelativeSize="37.291280148423006">
+            <LayoutGroup Id="Thietbiphongs" RelativeSize="100" Caption="Thiết bị phòng">
               <LayoutItem Id="Thietbiphongs" RelativeSize="100" />
             </LayoutGroup>
-            <LayoutGroup Id="HopDongs" RelativeSize="100" Caption="Hợp đồng">
-              <LayoutItem Id="HopDongs" RelativeSize="100" />
-            </LayoutGroup>
-            <LayoutGroup Id="SuaChuas" RelativeSize="100" Caption="Sửa chữa">
-              <LayoutItem Id="SuaChuas" RelativeSize="100" />
-            </LayoutGroup>
+            <LayoutGroup Id="HopDongs" Removed="True" />
+            <LayoutGroup Id="SuaChuas" Removed="True" />
           </TabbedGroup>
+          <LayoutGroup Id="SuaChuas" ShowCaption="True" Caption="Lịch sử sửa chữa" Index="2" RelativeSize="23.93320964749536" IsNewNode="True">
+            <LayoutItem Id="SuaChuas" ViewItem="SuaChuas" Index="0" RelativeSize="100" IsNewNode="True" />
+          </LayoutGroup>
+          <LayoutGroup Id="HopDongs" ShowCaption="True" Caption="Hợp đồng của phòng" Index="3" RelativeSize="25.788497217068645" IsNewNode="True">
+            <LayoutItem Id="HopDongs" ViewItem="HopDongs" Index="0" RelativeSize="100" IsNewNode="True" />
+          </LayoutGroup>
         </LayoutGroup>
       </Layout>
     </DetailView>
     <ListView Id="Phong_ListView" AllowLink="True" />
+    <ListView Id="SuaChua_ListView">
+      <Columns>
+        <ColumnInfo Id="Phong" DataSourceCriteria="[Chutro.Oid] = CurrentUserId()" />
+      </Columns>
+    </ListView>
     <DetailView Id="TamTru_DetailView">
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
@@ -617,6 +712,11 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
+    <ListView Id="TamTru_ListView">
+      <Columns>
+        <ColumnInfo Id="Khachthue" SortOrder="None" />
+      </Columns>
+    </ListView>
     <DetailView Id="ThietBi_DetailView">
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
@@ -649,5 +749,11 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
+    <ListView Id="Thietbiphong_ListView">
+      <Columns>
+        <ColumnInfo Id="Thietbi" DataSourceCriteria="[Chutro.Oid] = CurrentUserId()" SortOrder="None" />
+        <ColumnInfo Id="Phong" DataSourceCriteria="[Chutro.Oid] = CurrentUserId()" />
+      </Columns>
+    </ListView>
   </Views>
 </Application>

@@ -31,8 +31,8 @@ namespace MyPhongTro.Module.BusinessObjects.Quanlykhanhthue
             // Place your initialization code here (https://docs.devexpress.com/eXpressAppFramework/112834/getting-started/in-depth-tutorial-winforms-webforms/business-model-design/initialize-a-property-after-creating-an-object-xpo?v=22.1).
         if(Session.IsNewObject(this))
             {
-                TuNgay = TCom.GetServerDateOnly(); // Ngày mặc định là ngày hiện tại
-                DenNgay = TCom.GetServerDateOnly(); // Ngày mặc định là ngày hiện tại
+                //TuNgay = TCom.GetServerDateOnly(); // Ngày mặc định là ngày hiện tại
+                //DenNgay = TCom.GetServerDateOnly(); // Ngày mặc định là ngày hiện tại
             }
         }
         private HopDong _Hopdong;
@@ -41,7 +41,16 @@ namespace MyPhongTro.Module.BusinessObjects.Quanlykhanhthue
         public HopDong Hopdong
         {
             get { return _Hopdong; }
-            set { SetPropertyValue<HopDong>(nameof(Hopdong), ref _Hopdong, value); }
+            set
+            {
+                bool isModified = SetPropertyValue<HopDong>(nameof(Hopdong), ref _Hopdong, value);
+                if (isModified && !IsDeleted && !IsLoading && !IsSaving && value != null)
+                {
+                    // Nếu hợp đồng được gán, tự động lấy ngày bắt đầu và kết thúc từ hợp đồng
+                    TuNgay = value.Tungay;
+                    DenNgay = value.Denngay;
+                }
+            }
         }
 
 

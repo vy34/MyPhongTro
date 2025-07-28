@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using tmLib;
 using MyPhongTro.Module.BusinessObjects;
+using DevExpress.Persistent.BaseImpl.PermissionPolicy;
 
 namespace MyPhongTro.Module
 {
@@ -28,6 +29,38 @@ namespace MyPhongTro.Module
             }
             //os.Dispose();
             return bAdmin;
+        }
+        public static bool IsChutro()
+        {
+            bool bChutro = false;
+            if (SecuritySystem.CurrentUser is PermissionPolicyUser currentUser)
+            {
+                foreach (var role in currentUser.Roles)
+                {
+                    if (role.Name == "Chutro")
+                    {
+                        bChutro = true;
+                        break;
+                    }
+                }
+            }   return bChutro;
+        }
+
+        public static bool IsKhachthue()
+        {
+            bool bKhachthue = false;
+            if(SecuritySystem.CurrentUser is PermissionPolicyUser currentUser)
+            {
+                foreach (var role in currentUser.Roles)
+                {
+                    if(role.Name == "Default")
+                    {
+                        bKhachthue = true;
+                        break;
+                    }
+                }
+            }
+           return bKhachthue;
         }
 
         public static void CustomInfo(string msg, bool bDone = false) // để hiển thị thông báo thành công kiểu như popup nhỏ

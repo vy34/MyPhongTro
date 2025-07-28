@@ -19,7 +19,7 @@ namespace MyPhongTro.Module.BusinessObjects.Quanlyphongtro
     [ImageName("baotri")]
     //[NavigationItem("Quản lý phòng trọ")]
     //[System.ComponentModel.DisplayName("Bảo trì thiết bị")]
-    //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
+    [DefaultProperty("Thietbiphong")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://docs.devexpress.com/eXpressAppFramework/112701/business-model-design-orm/data-annotations-in-data-model).

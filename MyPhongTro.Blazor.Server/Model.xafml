@@ -41,7 +41,11 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <ListView Id="BaoTri_ListView" InlineEditMode="Inline" />
+    <ListView Id="BaoTri_ListView" InlineEditMode="Inline">
+      <Columns>
+        <ColumnInfo Id="Thietbiphong" SortIndex="0" SortOrder="Ascending" />
+      </Columns>
+    </ListView>
     <DetailView Id="ChuTro_DetailView">
       <Layout>
         <LayoutGroup Id="Main">
@@ -80,16 +84,17 @@
       </Items>
       <Layout>
         <LayoutGroup Id="Main">
-          <LayoutGroup Id="SimpleEditors" RelativeSize="30.604982206405694">
-            <LayoutGroup Id="HoaDon">
-              <LayoutGroup Id="HoaDon_col1" RelativeSize="46.93042291950887">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="25.519287833827892">
+            <LayoutGroup Id="HoaDon" Caption="Hoá đơn">
+              <LayoutGroup Id="HoaDon_col1" RelativeSize="48.25646794150731">
                 <LayoutItem Id="So" RelativeSize="29.032258064516128" />
                 <LayoutItem Id="Hopdong" Index="1" RelativeSize="20.967741935483872" ViewItem="Hopdong" IsNewNode="True" />
                 <LayoutItem Id="Ngay" Index="2" RelativeSize="20.967741935483872" />
               </LayoutGroup>
+              <LayoutGroup Id="HoaDon_col2" RelativeSize="51.74353205849269" />
             </LayoutGroup>
           </LayoutGroup>
-          <TabbedGroup Id="Tabs" RelativeSize="69.3950177935943">
+          <TabbedGroup Id="Tabs" RelativeSize="74.48071216617211">
             <LayoutGroup Id="HoaDonCTs" Caption="Chi tiết" />
             <LayoutGroup Id="PhieuThus" Caption="Phiếu thu" />
             <LayoutGroup Id="Anhs" Caption="Ảnh" />
@@ -109,24 +114,33 @@
       </Items>
       <Layout>
         <LayoutGroup Id="Main">
-          <LayoutGroup Id="SimpleEditors" RelativeSize="35.16873889875666">
-            <LayoutGroup Id="HopDong">
-              <LayoutGroup Id="HopDong_col1" RelativeSize="49.931787175989086">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="29.376854599406528">
+            <LayoutGroup Id="HopDong" Caption="Hợp đồng">
+              <LayoutGroup Id="HopDong_col1" RelativeSize="49.9437570303712">
                 <LayoutItem Id="SoHD" RelativeSize="24" />
-                <LayoutItem Id="Phong" ViewItem="Phong" Index="1" RelativeSize="17.333333333333332" IsNewNode="True" />
-                <LayoutItem Id="Ngaylap" Index="2" />
-                <LayoutItem Id="Tungay" Index="3" />
+                <LayoutItem Id="Phong" Index="1" RelativeSize="17.333333333333332" ViewItem="Phong" IsNewNode="True" />
+                <LayoutItem Id="Ngaylap" ViewItem="Ngaylap" Index="2" RelativeSize="17.333333333333332" IsNewNode="True" Removed="True" />
+                <LayoutItem Id="Tungay" Index="3" RelativeSize="17.333333333333332" />
                 <LayoutItem Id="Denngay" Index="4" RelativeSize="24" />
-                <LayoutItem Id="Phong.Sophong" Removed="True" />
               </LayoutGroup>
-              <LayoutGroup Id="HopDong_col2" RelativeSize="50.068212824010914" />
+              <LayoutGroup Id="HopDong_col2" RelativeSize="50.0562429696288">
+                <LayoutItem Id="Tiencoc" RelativeSize="24" />
+                <LayoutItem Id="Doanhthu" RelativeSize="17.333333333333332" />
+                <LayoutItem Id="Songuoi" RelativeSize="17.333333333333332" />
+                <LayoutItem Id="Ghichu" RelativeSize="17.333333333333332" />
+                <LayoutItem Id="Trangthai" RelativeSize="24" />
+              </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
-          <TabbedGroup Id="Tabs" RelativeSize="64.83126110124334">
+          <TabbedGroup Id="Tabs" RelativeSize="21.661721068249257">
             <LayoutGroup Id="HopDongCTs" Caption="Chi tiết" />
-            <LayoutGroup Id="HoaDons" Caption="Hoá đơn" />
-            <LayoutGroup Id="TamTrus" Caption="Tạm trú khách thuê" />
           </TabbedGroup>
+          <LayoutGroup Id="TamTrus" ShowCaption="True" Caption="Tạm trú khách thuê" Index="2" RelativeSize="23.590504451038576" IsNewNode="True">
+            <LayoutItem Id="TamTrus" Index="0" RelativeSize="100" ViewItem="TamTrus" IsNewNode="True" />
+          </LayoutGroup>
+          <LayoutGroup Id="HoaDons" ShowCaption="True" Caption="Hoá đơn" Index="3" RelativeSize="25.37091988130564" IsNewNode="True">
+            <LayoutItem Id="HoaDons" Index="0" RelativeSize="100" ViewItem="HoaDons" IsNewNode="True" />
+          </LayoutGroup>
         </LayoutGroup>
       </Layout>
     </DetailView>
@@ -198,7 +212,11 @@
     <ListView Id="Phiduytri_ListView" InlineEditMode="Inline" />
     <ListView Id="PhieuThu_ListView" InlineEditMode="Inline" />
     <ListView Id="Phong_ListView" InlineEditMode="Inline" AllowEdit="True" EditorTypeName="DevExpress.ExpressApp.Blazor.Editors.DxGridListEditor" />
-    <ListView Id="SuaChua_ListView" InlineEditMode="Inline" />
+    <ListView Id="SuaChua_ListView" InlineEditMode="Inline">
+      <Columns>
+        <ColumnInfo Id="Phong" SortIndex="0" SortOrder="None" Index="3" />
+      </Columns>
+    </ListView>
     <ListView Id="TamTru_ListView" InlineEditMode="Inline" />
     <ListView Id="ThietBi_ListView" InlineEditMode="Inline" />
     <ListView Id="Thietbiphong_ListView" InlineEditMode="Inline" />
