@@ -19,7 +19,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
     [DefaultClassOptions]
     [ImageName("phieuthu")]
     [System.ComponentModel.DisplayName("Phiếu thu")]
-    [NavigationItem("Hợp đồng thanh toán")]
+    [NavigationItem("Hợp đồng và hoá đơn")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
     //[Persistent("DatabaseTableName")]
@@ -101,7 +101,17 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         [ModelDefault("EditMask", "### ### ###")]
         public decimal Sotien
         {
-            get { return _Sotien; }
+            get
+            {
+                if (_Sotien > 0) 
+                    return _Sotien;  // nếu số tiền dương (nhập tay) ưu tiên
+                else
+                {
+                    decimal tien = Hoadon != null ? Hoadon.TongTien : 0;
+                    return tien;
+                }
+                
+            }       
             set { SetPropertyValue<decimal>(nameof(Sotien), ref _Sotien, value); }
         }
 

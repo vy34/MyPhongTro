@@ -46,7 +46,15 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         public KhoanThu Khoanthu
         {
             get { return _Khoanthu; }
-            set { SetPropertyValue<KhoanThu>(nameof(Khoanthu), ref _Khoanthu, value); }
+            set 
+            {
+                bool isModified = SetPropertyValue<KhoanThu>(nameof(Khoanthu), ref _Khoanthu, value);
+                if (isModified && !IsDeleted && !IsLoading && value != null) 
+                {
+                    DonGia = value.Dongia;
+                }
+
+            }
         }
 
 
@@ -68,16 +76,24 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
             set { SetPropertyValue<int>(nameof(Chisocuoi), ref _Chisocuoi, value); }
         }
 
-
-        
+        private int _Soluong;
         [XafDisplayName("Số lượng")]
         public int Soluong
         {
-            get 
+            get
             {
-                return Chisocuoi - Chisodau;
+                if (_Soluong > 0) // nếu người dùng nhập tay thì ưu tiên 
+                    return _Soluong;
+                if (Chisocuoi > Chisodau)
+                    return Chisocuoi - Chisodau;
+                return 1;
+            }
+            set
+            {
+                SetPropertyValue(nameof(Soluong), ref _Soluong, value);
             }
         }
+
 
         private decimal _DonGia;
         [ModelDefault("DisplayFormat", "{0:### ### ###}")]     //tự động

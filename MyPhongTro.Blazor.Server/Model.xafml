@@ -24,6 +24,22 @@
     <SchemaModule Name="SystemModule" Version="24.2.8.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
+    <DetailView Id="Anh_DetailView" Caption="Ảnh minh chứng">
+      <Items>
+        <PropertyEditor Id="Photo" Caption="Ảnh" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="Anh" Caption="Photo" RelativeSize="100">
+              <LayoutItem Id="Photo" RelativeSize="100" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Anh_ListView" Caption="Ảnh minh chứng" />
+    <ListView Id="Anh_LookupListView" Caption="Ảnh minh chứng" />
     <DetailView Id="ApplicationUser_DetailView">
       <Layout>
         <LayoutGroup Id="Main">
@@ -77,6 +93,7 @@
     <DetailView Id="DashboardData_DetailView" Caption="Thống kê" />
     <ListView Id="DashboardData_ListView" Caption="Thống kê" />
     <ListView Id="DashboardData_LookupListView" Caption="Thống kê" />
+    <ListView Id="HoaDon_Anhs_ListView" Caption="Ảnh minh chứng" />
     <DetailView Id="HoaDon_DetailView">
       <Items>
         <PropertyEditor Id="Hopdong" PropertyName="Hopdong" IsNewNode="True" />
@@ -84,20 +101,20 @@
       </Items>
       <Layout>
         <LayoutGroup Id="Main">
-          <LayoutGroup Id="SimpleEditors" RelativeSize="25.519287833827892">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="23.724137931034484">
             <LayoutGroup Id="HoaDon" Caption="Hoá đơn">
-              <LayoutGroup Id="HoaDon_col1" RelativeSize="48.25646794150731">
+              <LayoutGroup Id="HoaDon_col1" RelativeSize="48.272138228941685">
                 <LayoutItem Id="So" RelativeSize="29.032258064516128" />
                 <LayoutItem Id="Hopdong" Index="1" RelativeSize="20.967741935483872" ViewItem="Hopdong" IsNewNode="True" />
                 <LayoutItem Id="Ngay" Index="2" RelativeSize="20.967741935483872" />
               </LayoutGroup>
-              <LayoutGroup Id="HoaDon_col2" RelativeSize="51.74353205849269" />
+              <LayoutGroup Id="HoaDon_col2" RelativeSize="51.727861771058315" />
             </LayoutGroup>
           </LayoutGroup>
-          <TabbedGroup Id="Tabs" RelativeSize="74.48071216617211">
+          <TabbedGroup Id="Tabs" RelativeSize="76.27586206896552">
             <LayoutGroup Id="HoaDonCTs" Caption="Chi tiết" />
             <LayoutGroup Id="PhieuThus" Caption="Phiếu thu" />
-            <LayoutGroup Id="Anhs" Caption="Ảnh" />
+            <LayoutGroup Id="Anhs" Caption="Ảnh minh chứng" />
           </TabbedGroup>
         </LayoutGroup>
       </Layout>

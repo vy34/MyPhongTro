@@ -10,6 +10,14 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Model.xafml" />
+    <None Remove="UnusableNodes1.xml" />
+    <None Remove="UnusableNodes2.xml" />
+    <None Remove="UnusableNodes3.xml" />
+    <None Remove="UnusableNodes4.xml" />
+    <None Remove="UnusableNodes5.xml" />
+    <None Remove="UnusableNodes6.xml" />
+    <None Remove="UnusableNodes7.xml" />
+    <None Remove="UnusableNodes8.xml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Model.xafml">

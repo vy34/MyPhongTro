@@ -19,7 +19,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
 {
     [DefaultClassOptions]
     [ImageName("phieuchi")]
-    [NavigationItem("Hợp đồng thanh toán")]
+    [NavigationItem("Hợp đồng và hoá đơn")]
     [System.ComponentModel.DisplayName("Phiếu chi")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]

@@ -2,14 +2,28 @@
 <AxialisIconCollection>
   <Name>Icon</Name>
   <Icon>
+    <Name>money</Name>
+    <StockIconName>money.axvi</StockIconName>
+    <StockIconFamily>Axialis Flat Pro 2017</StockIconFamily>
+    <StockIconSet>Construction</StockIconSet>
+    <StockOverlayName></StockOverlayName>
+    <ResourceIDValue>120</ResourceIDValue>
+    <ResourceID>ID_MONEY</ResourceID>
+    <OverlayOffset>1</OverlayOffset>
+    <Opacity>255</Opacity>
+    <ColorizeMode>0</ColorizeMode>
+    <StockOverlayPos>4</StockOverlayPos>
+    <DarkMode>0</DarkMode>
+  </Icon>
+  <Icon>
     <Name>action-repeat-filled</Name>
     <StockIconName>action-repeat-filled.axvi</StockIconName>
     <StockIconFamily>Axialis Universal Pro</StockIconFamily>
     <StockIconSet>Multimedia</StockIconSet>
     <StockOverlayName></StockOverlayName>
-    <ResourceIDValue>106</ResourceIDValue>
+    <ResourceIDValue>100</ResourceIDValue>
     <ResourceID>ID_ACTION-REPEAT-FILLED</ResourceID>
-    <OverlayOffset>2</OverlayOffset>
+    <OverlayOffset>1</OverlayOffset>
     <Opacity>255</Opacity>
     <ColorizeMode>2</ColorizeMode>
     <StockOverlayPos>736</StockOverlayPos>
@@ -21,9 +35,9 @@
     <StockIconFamily>Axialis Universal Pro</StockIconFamily>
     <StockIconSet>Business</StockIconSet>
     <StockOverlayName></StockOverlayName>
-    <ResourceIDValue>100</ResourceIDValue>
+    <ResourceIDValue>101</ResourceIDValue>
     <ResourceID>ID_CONTRACT</ResourceID>
-    <OverlayOffset>2</OverlayOffset>
+    <OverlayOffset>1</OverlayOffset>
     <Opacity>255</Opacity>
     <ColorizeMode>2</ColorizeMode>
     <StockOverlayPos>4</StockOverlayPos>
@@ -35,7 +49,7 @@
     <StockIconFamily>Axialis Flat Design</StockIconFamily>
     <StockIconSet>Letters and Symbols</StockIconSet>
     <StockOverlayName>money-coins.axvi</StockOverlayName>
-    <ResourceIDValue>101</ResourceIDValue>
+    <ResourceIDValue>102</ResourceIDValue>
     <ResourceID>ID_SYMBOL-PLUS</ResourceID>
     <OverlayOffset>1</OverlayOffset>
     <Opacity>255</Opacity>
@@ -50,7 +64,7 @@
     <StockIconSet>Letters and Symbols</StockIconSet>
     <StockOverlayName>money-coins.axvi</StockOverlayName>
     <ResourceIDValue>103</ResourceIDValue>
-    <ResourceID>ID_SYMBOL-MINUS_2</ResourceID>
+    <ResourceID>ID_SYMBOL-MINUS</ResourceID>
     <OverlayOffset>1</OverlayOffset>
     <Opacity>255</Opacity>
     <ColorizeMode>1</ColorizeMode>
@@ -63,9 +77,9 @@
     <StockIconFamily>Axialis Universal Pro</StockIconFamily>
     <StockIconSet>Hardware and Network</StockIconSet>
     <StockOverlayName>execute.axvi</StockOverlayName>
-    <ResourceIDValue>102</ResourceIDValue>
+    <ResourceIDValue>104</ResourceIDValue>
     <ResourceID>ID_POWER-PLUG</ResourceID>
-    <OverlayOffset>2</OverlayOffset>
+    <OverlayOffset>1</OverlayOffset>
     <Opacity>255</Opacity>
     <ColorizeMode>2</ColorizeMode>
     <StockOverlayPos>4</StockOverlayPos>
@@ -77,9 +91,9 @@
     <StockIconFamily>Axialis Universal Pro</StockIconFamily>
     <StockIconSet>Emoji</StockIconSet>
     <StockOverlayName></StockOverlayName>
-    <ResourceIDValue>118</ResourceIDValue>
-    <ResourceID>ID_SWEAT-DROPLETS_2</ResourceID>
-    <OverlayOffset>2</OverlayOffset>
+    <ResourceIDValue>105</ResourceIDValue>
+    <ResourceID>ID_SWEAT-DROPLETS</ResourceID>
+    <OverlayOffset>1</OverlayOffset>
     <Opacity>255</Opacity>
     <ColorizeMode>2</ColorizeMode>
     <StockOverlayPos>4</StockOverlayPos>
@@ -91,7 +105,7 @@
     <StockIconFamily>Axialis Flat Pro 2017</StockIconFamily>
     <StockIconSet>Basic</StockIconSet>
     <StockOverlayName></StockOverlayName>
-    <ResourceIDValue>119</ResourceIDValue>
+    <ResourceIDValue>106</ResourceIDValue>
     <ResourceID>ID_GEARS</ResourceID>
     <OverlayOffset>1</OverlayOffset>
     <Opacity>255</Opacity>
@@ -105,9 +119,9 @@
     <StockIconFamily>Axialis Universal Pro</StockIconFamily>
     <StockIconSet>Emoji</StockIconSet>
     <StockOverlayName>execute.axvi</StockOverlayName>
-    <ResourceIDValue>104</ResourceIDValue>
-    <ResourceID>ID_SWEAT-DROPLETS</ResourceID>
-    <OverlayOffset>2</OverlayOffset>
+    <ResourceIDValue>107</ResourceIDValue>
+    <ResourceID>ID_SWEAT-DROPLETS_2</ResourceID>
+    <OverlayOffset>1</OverlayOffset>
     <Opacity>255</Opacity>
     <ColorizeMode>2</ColorizeMode>
     <StockOverlayPos>4</StockOverlayPos>
@@ -133,9 +147,9 @@
     <StockIconFamily>Axialis Universal Pro</StockIconFamily>
     <StockIconSet>Word Processing</StockIconSet>
     <StockOverlayName>brush.axvi</StockOverlayName>
-    <ResourceIDValue>107</ResourceIDValue>
+    <ResourceIDValue>109</ResourceIDValue>
     <ResourceID>ID_CLIPBOARD</ResourceID>
-    <OverlayOffset>2</OverlayOffset>
+    <OverlayOffset>1</OverlayOffset>
     <Opacity>255</Opacity>
     <ColorizeMode>2</ColorizeMode>
     <StockOverlayPos>4</StockOverlayPos>
@@ -147,7 +161,7 @@
     <StockIconFamily>Axialis Flat Design</StockIconFamily>
     <StockIconSet>Transportation and Logistics</StockIconSet>
     <StockOverlayName></StockOverlayName>
-    <ResourceIDValue>105</ResourceIDValue>
+    <ResourceIDValue>110</ResourceIDValue>
     <ResourceID>ID_MAP</ResourceID>
     <OverlayOffset>1</OverlayOffset>
     <Opacity>255</Opacity>
@@ -161,9 +175,9 @@
     <StockIconFamily>Axialis Universal Pro</StockIconFamily>
     <StockIconSet>Medical</StockIconSet>
     <StockOverlayName>new.axvi</StockOverlayName>
-    <ResourceIDValue>109</ResourceIDValue>
+    <ResourceIDValue>111</ResourceIDValue>
     <ResourceID>ID_BED-FILLED</ResourceID>
-    <OverlayOffset>2</OverlayOffset>
+    <OverlayOffset>1</OverlayOffset>
     <Opacity>255</Opacity>
     <ColorizeMode>2</ColorizeMode>
     <StockOverlayPos>4</StockOverlayPos>
@@ -175,9 +189,9 @@
     <StockIconFamily>Axialis Universal Pro</StockIconFamily>
     <StockIconSet>Basic</StockIconSet>
     <StockOverlayName>padlock.axvi</StockOverlayName>
-    <ResourceIDValue>110</ResourceIDValue>
+    <ResourceIDValue>112</ResourceIDValue>
     <ResourceID>ID_TOOL-WRENCH</ResourceID>
-    <OverlayOffset>2</OverlayOffset>
+    <OverlayOffset>1</OverlayOffset>
     <Opacity>255</Opacity>
     <ColorizeMode>2</ColorizeMode>
     <StockOverlayPos>4</StockOverlayPos>
@@ -189,7 +203,7 @@
     <StockIconFamily>Axialis Flat Pro 2017</StockIconFamily>
     <StockIconSet>Construction</StockIconSet>
     <StockOverlayName></StockOverlayName>
-    <ResourceIDValue>111</ResourceIDValue>
+    <ResourceIDValue>113</ResourceIDValue>
     <ResourceID>ID_HAMMER-NAILS</ResourceID>
     <OverlayOffset>1</OverlayOffset>
     <Opacity>255</Opacity>
@@ -203,7 +217,7 @@
     <StockIconFamily>Axialis Flat Pro 2017</StockIconFamily>
     <StockIconSet>Construction</StockIconSet>
     <StockOverlayName></StockOverlayName>
-    <ResourceIDValue>112</ResourceIDValue>
+    <ResourceIDValue>114</ResourceIDValue>
     <ResourceID>ID_TOOL-WRENCH-2</ResourceID>
     <OverlayOffset>1</OverlayOffset>
     <Opacity>255</Opacity>
@@ -217,9 +231,9 @@
     <StockIconFamily>Axialis Universal Pro</StockIconFamily>
     <StockIconSet>User Management</StockIconSet>
     <StockOverlayName></StockOverlayName>
-    <ResourceIDValue>113</ResourceIDValue>
+    <ResourceIDValue>115</ResourceIDValue>
     <ResourceID>ID_USER-ADMIN-MAN-FILLED</ResourceID>
-    <OverlayOffset>2</OverlayOffset>
+    <OverlayOffset>1</OverlayOffset>
     <Opacity>255</Opacity>
     <ColorizeMode>2</ColorizeMode>
     <StockOverlayPos>4</StockOverlayPos>
@@ -231,9 +245,9 @@
     <StockIconFamily>Axialis Universal Pro</StockIconFamily>
     <StockIconSet>Construction</StockIconSet>
     <StockOverlayName>tool.axvi</StockOverlayName>
-    <ResourceIDValue>114</ResourceIDValue>
+    <ResourceIDValue>116</ResourceIDValue>
     <ResourceID>ID_PEOPLE-WORKER</ResourceID>
-    <OverlayOffset>2</OverlayOffset>
+    <OverlayOffset>1</OverlayOffset>
     <Opacity>255</Opacity>
     <ColorizeMode>2</ColorizeMode>
     <StockOverlayPos>4</StockOverlayPos>
@@ -245,9 +259,9 @@
     <StockIconFamily>Axialis Universal Pro</StockIconFamily>
     <StockIconSet>Web and Email</StockIconSet>
     <StockOverlayName>user-filled.axvi</StockOverlayName>
-    <ResourceIDValue>115</ResourceIDValue>
+    <ResourceIDValue>117</ResourceIDValue>
     <ResourceID>ID_HOME-1</ResourceID>
-    <OverlayOffset>2</OverlayOffset>
+    <OverlayOffset>1</OverlayOffset>
     <Opacity>255</Opacity>
     <ColorizeMode>2</ColorizeMode>
     <StockOverlayPos>4</StockOverlayPos>
@@ -259,9 +273,9 @@
     <StockIconFamily>Axialis Universal Pro</StockIconFamily>
     <StockIconSet>Business</StockIconSet>
     <StockOverlayName></StockOverlayName>
-    <ResourceIDValue>116</ResourceIDValue>
+    <ResourceIDValue>118</ResourceIDValue>
     <ResourceID>ID_PEOPLE-CUSTOMER-MAN</ResourceID>
-    <OverlayOffset>2</OverlayOffset>
+    <OverlayOffset>1</OverlayOffset>
     <Opacity>255</Opacity>
     <ColorizeMode>2</ColorizeMode>
     <StockOverlayPos>4</StockOverlayPos>
@@ -273,9 +287,9 @@
     <StockIconFamily>Axialis Universal Pro</StockIconFamily>
     <StockIconSet>Hardware and Network</StockIconSet>
     <StockOverlayName>warning.axvi</StockOverlayName>
-    <ResourceIDValue>117</ResourceIDValue>
+    <ResourceIDValue>119</ResourceIDValue>
     <ResourceID>ID_POWER-PLUG_2</ResourceID>
-    <OverlayOffset>2</OverlayOffset>
+    <OverlayOffset>1</OverlayOffset>
     <Opacity>255</Opacity>
     <ColorizeMode>2</ColorizeMode>
     <StockOverlayPos>4</StockOverlayPos>

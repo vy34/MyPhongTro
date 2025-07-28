@@ -17,7 +17,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
     [DefaultClassOptions]
     [NavigationItem(false)]
     [ImageName("image")]
-    //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
+    //[DefaultProperty("Photo")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://docs.devexpress.com/eXpressAppFramework/112701/business-model-design-orm/data-annotations-in-data-model).
@@ -40,17 +40,18 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         }
 
 
-        private MediaDataObject photo;
+        [Delayed(true), VisibleInListViewAttribute(true)]
         [ImageEditor(
             ListViewImageEditorMode = ImageEditorMode.PopupPictureEdit,
             DetailViewImageEditorMode = ImageEditorMode.PictureEdit,
             DetailViewImageEditorFixedHeight = 240,
             DetailViewImageEditorFixedWidth = 300,
             ListViewImageEditorCustomHeight = 40)]
-        public MediaDataObject Photo
+        [XafDisplayName("Thêm minh chứng")]
+        public byte[] Photo
         {
-            get { return photo; }
-            set { SetPropertyValue(nameof(Photo), ref photo, value); }
+            get { return GetDelayedPropertyValue<byte[]>(nameof(Photo)); }
+            set { SetDelayedPropertyValue<byte[]>(nameof(Photo), value); }
         }
     }
 }

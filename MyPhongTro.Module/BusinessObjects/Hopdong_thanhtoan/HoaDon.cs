@@ -18,7 +18,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
     [DefaultClassOptions]
     [ImageName("hoadon")]
     [System.ComponentModel.DisplayName("Hóa đơn")]
-    [NavigationItem("Hợp đồng thanh toán")]
+    [NavigationItem("Hợp đồng và hoá đơn")]
     [DefaultProperty("So")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
     //[Persistent("DatabaseTableName")]
@@ -66,10 +66,29 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         public HopDong Hopdong
         {
             get { return _Hopdong; }
-            set { SetPropertyValue<HopDong>(nameof(Hopdong), ref _Hopdong, value); }
+            set
+            {
+                bool isModified = SetPropertyValue<HopDong>(nameof(Hopdong), ref _Hopdong, value);
+                if( isModified &&  !IsDeleted && !IsLoading && value != null)
+                {
+                    foreach (var hopDongCT in value.HopDongCTs)
+                    {
+                        HoaDonCT hdct = new(Session) 
+                        {  
+                            Hoadon = this,
+                            Khoanthu = hopDongCT.Khoanthu,
+                            Chisodau = hopDongCT.Chisodau,
+                            DonGia = hopDongCT.Dongia,
+                            
+                        };
+
+                        hdct.Save();
+                        this.HoaDonCTs.Add(hdct);
+                    }
+
+                }
+            }
         }
-
-
 
         private int _So;
         [XafDisplayName("Số hóa đơn"),ModelDefault("AllowEdit","false")]
@@ -102,9 +121,10 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
             }
         }
 
+
         [XafDisplayName("Đã thu")]
-        [ModelDefault("DisplayFormat", "{0:### ###}")]     //tự động
-        [ModelDefault("EditMask", "### ###")]
+        [ModelDefault("DisplayFormat", "{0:### ### ###}")]     //tự động
+        [ModelDefault("EditMask", "### ### ###")]
         public decimal Dathu
         {
             get
@@ -112,12 +132,12 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
                 decimal tien = PhieuThus.Sum(x => x.Sotien);
                 return tien;
             }
+           
         }
 
-        
         [XafDisplayName("Tiền nợ")]
-        [ModelDefault("DisplayFormat", "{0:### ###}")]     //tự động
-        [ModelDefault("EditMask", "### ###")]
+        [ModelDefault("DisplayFormat", "{0:### ### ###}")]     //tự động
+        [ModelDefault("EditMask", "### ### ###")]
         public decimal Conno
         {
             get
@@ -157,13 +177,6 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         {
             get { return GetCollection<Anh>(nameof(Anhs)); }
         }
-
-
-
-
-
-
-
 
     }
 }

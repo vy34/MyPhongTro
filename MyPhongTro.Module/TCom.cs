@@ -33,9 +33,9 @@ namespace MyPhongTro.Module
         public static bool IsChutro()
         {
             bool bChutro = false;
-            if (SecuritySystem.CurrentUser is PermissionPolicyUser currentUser)
+            if (SecuritySystem.CurrentUser is PermissionPolicyUser currentUser)  // lấy người dùng hiện tại
             {
-                foreach (var role in currentUser.Roles)
+                foreach (var role in currentUser.Roles)   // lặp qua các vai trò của người dùng
                 {
                     if (role.Name == "Chutro")
                     {

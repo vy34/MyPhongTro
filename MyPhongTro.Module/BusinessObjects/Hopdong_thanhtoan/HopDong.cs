@@ -22,7 +22,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
     [DefaultClassOptions]
     [ImageName("hopdong")]
     [System.ComponentModel.DisplayName("Hợp đồng")]
-    [NavigationItem("Hợp đồng thanh toán")]
+    [NavigationItem("Hợp đồng và hoá đơn")]
     [DefaultProperty("SoHopdong")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
     //[Persistent("DatabaseTableName")]
@@ -35,7 +35,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
             // Place your initialization code here (https://docs.devexpress.com/eXpressAppFramework/112834/getting-started/in-depth-tutorial-winforms-webforms/business-model-design/initialize-a-property-after-creating-an-object-xpo?v=22.1).
         if(Session.IsNewObject(this))
             {
-                ChuTro chutro = Session.FindObject<ChuTro>(CriteriaOperator.Parse("Oid = ?",SecuritySystem.CurrentUserId));
+                ChuTro chutro = Session.FindObject<ChuTro>(CriteriaOperator.Parse("Oid = ?",SecuritySystem.CurrentUserId)); // Tìm chủ trọ là người dùng hiện tại
                 if (chutro != null)
                 {
                     Chutro = chutro; // Tự động gán chủ trọ là người dùng hiện tại
@@ -48,18 +48,18 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
                 SoHD = so; // Số hợp đồng mặc định là 1
 
                 //Cập nhật khoản thu mặc định cho hợp đồng
-                XPCollection<KhoanThu> xpCollectionKhoan = new(Session)
+                XPCollection<KhoanThu> xpCollectionKhoan = new(Session) // Lấy tất cả các khoản thu trong DB của chủ trọ hiện tại
                 {
-                    Criteria = CriteriaOperator.Parse("Chutro.Oid=? && Def=?", SecuritySystem.CurrentUserId,true) 
+                    Criteria = CriteriaOperator.Parse("Chutro.Oid=? && Def=?", SecuritySystem.CurrentUserId,true)  
                 };
                 foreach(KhoanThu khoan in xpCollectionKhoan)
                 {
-                    HopDongCT hopdongct = new(Session)
+                    HopDongCT hopdongct = new(Session) // với mỗi khoản thu, tạo một hợp đồng chi tiết
                     {
-                        Hopdong = this,
-                        Khoanthu = khoan,
-                        Dongia = khoan.Dongia, // Giá mặc định là giá tháng của khoản thu
-                        Theochiso = khoan.Theochiso, // Theo chỉ số hay không
+                        Hopdong = this, // Gán hợp đồng hiện tại
+                        Khoanthu = khoan, // Gán khoản thu
+                        Dongia = khoan.Dongia, 
+                        Theochiso = khoan.Theochiso,
                     };
                     hopdongct.Save();
                     this.HopDongCTs.Add(hopdongct); // Thêm vào danh sách hợp đồng chi tiết
