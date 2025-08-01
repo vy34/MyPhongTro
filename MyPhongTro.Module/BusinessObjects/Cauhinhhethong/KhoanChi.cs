@@ -39,6 +39,18 @@ namespace MyPhongTro.Module.BusinessObjects.Cauhinhhethong
                 }
             }
         }
+
+
+        protected override void OnDeleting()
+        {
+            base.OnDeleting();
+            int so = Session.CollectReferencingObjects(this).Count;
+            if (so > 0)
+            {
+                throw new UserFriendlyException("Không thể xóa khoản chi này vì có " + so + " đối tượng liên quan. Vui lòng xóa các đối tượng liên quan trước.");
+            }
+        }
+
         private ChuTro _Chutro;
         [Association]
         [VisibleInListView(false), VisibleInLookupListView(false), VisibleInDetailView(false), VisibleInDashboards(false)]

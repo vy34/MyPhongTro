@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="ChuTroView">
+      <Items Id="Items">
+        <PropertyEditor Id="Diachi" PropertyName="Diachi" />
+        <PropertyEditor Id="AnhQRCode" PropertyName="AnhQRCode" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="ChuTro">
+              <LayoutGroup Id="ChuTro_col2">
+                <LayoutItem Id="Diachi" ViewItem="Diachi" />
+              </LayoutGroup>
+              <LayoutGroup Id="ChuTro_col1">
+                <LayoutItem Id="AnhQRCode" ViewItem="AnhQRCode" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="ChuTro_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="ChuTro">
+              <LayoutGroup Id="ChuTro_col2">
+                <LayoutItem Id="Diachi" ViewItem="Diachi" />
+              </LayoutGroup>
+              <LayoutGroup Id="ChuTro_col1">
+                <LayoutItem Id="AnhQRCode" ViewItem="AnhQRCode" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="ChuTro_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Diachi" Index="4" />
+      </Columns>
+    </ListView>
+    <DetailView Id="HopDong_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="HopDong">
+              <LayoutGroup Id="HopDong_col2">
+                <LayoutItem Id="Doanhthu" Index="1" RelativeSize="17.333333333333332" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

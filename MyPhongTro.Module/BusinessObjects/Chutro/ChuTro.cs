@@ -63,15 +63,15 @@ namespace MyPhongTro.Module.BusinessObjects.Chutro
             base.OnSaving();
             
         }
-        //protected override void OnDeleting()
-        //{
-        //    base.OnDeleting();
-        //    int so = Session.CollectReferencingObjects(this).Count;
-        //    if (so > 0)
-        //    {
-        //        throw new UserFriendlyException("Không thể xóa chủ trọ này vì có " + so + " đối tượng liên quan. Vui lòng xóa các đối tượng liên quan trước.");
-        //    }
-        //}
+        protected override void OnDeleting()
+        {
+            base.OnDeleting();
+            int so = Session.CollectReferencingObjects(this).Count;
+            if (so > 0)
+            {
+                throw new UserFriendlyException("Không thể xóa chủ trọ này vì có " + so + " đối tượng liên quan. Vui lòng xóa các đối tượng liên quan trước.");
+            }
+        }
 
 
         private string _Tenchutro;
@@ -131,13 +131,6 @@ namespace MyPhongTro.Module.BusinessObjects.Chutro
             set { SetPropertyValue<string>(nameof(CCCD), ref _CCCD, value); }
         }
 
-        private string _Diachi;
-        [Size(255), XafDisplayName("Địa chỉ")]
-        public string Diachi
-        {
-            get { return _Diachi; }
-            set { SetPropertyValue<string>(nameof(Diachi), ref _Diachi, value); }
-        }
 
         private DateOnly _NgayDangky;
         [XafDisplayName("Ngày đăng ký")]
@@ -156,8 +149,6 @@ namespace MyPhongTro.Module.BusinessObjects.Chutro
             get { return _Sodangky; }
             set { SetPropertyValue<int>(nameof(Sodangky), ref _Sodangky, value); }
         }
-
-
 
         private string _MsThue;
         [Size(50), XafDisplayName("MS Thuế")]
@@ -190,19 +181,47 @@ namespace MyPhongTro.Module.BusinessObjects.Chutro
         }
 
 
-        [Delayed(true), VisibleInListViewAttribute(false)]
-        [ImageEditor(
-            ListViewImageEditorMode = ImageEditorMode.PopupPictureEdit,
-            DetailViewImageEditorMode = ImageEditorMode.PictureEdit,
-            DetailViewImageEditorFixedHeight = 240,
-            DetailViewImageEditorFixedWidth = 300,
-            ListViewImageEditorCustomHeight = 40)]
-        [XafDisplayName("Ảnh QR code")]
-        public byte[] AnhQRCode
+        private int _SoTK;
+        [XafDisplayName("Số tài khoản")]
+        public int SoTK
         {
-            get { return GetDelayedPropertyValue<byte[]>(nameof(AnhQRCode)); }
-            set { SetDelayedPropertyValue<byte[]>(nameof(AnhQRCode), value); }
+            get { return _SoTK; }
+            set { SetPropertyValue<int>(nameof(SoTK), ref _SoTK, value); }
         }
+
+
+        private NganHang _Nganhang;
+        [Association]
+        [XafDisplayName("Ngân hàng")]
+        public NganHang Nganhang
+        {
+            get { return _Nganhang; }
+            set { SetPropertyValue<NganHang>(nameof(Nganhang), ref _Nganhang, value); }
+        }
+
+        private string _ChuTK;
+        [XafDisplayName("Chủ tài khoản")]
+        public string ChuTK
+        {
+            get { return _ChuTK; }
+            set { SetPropertyValue<string>(nameof(ChuTK), ref _ChuTK, value); }
+        }
+
+
+
+        private DiaPhuong _Diaphuong;
+        [Association]
+        public DiaPhuong Diaphuong
+        {
+            get { return _Diaphuong; }
+            set { SetPropertyValue<DiaPhuong>(nameof(Diaphuong), ref _Diaphuong, value); }
+        }
+
+
+
+
+
+
 
 
 
@@ -282,6 +301,13 @@ namespace MyPhongTro.Module.BusinessObjects.Chutro
         public XPCollection<NhatKy> NhatKies
         {
             get { return GetCollection<NhatKy>(nameof(NhatKies)); }
+        }
+
+
+        [DevExpress.Xpo.Aggregated, Association]
+        public XPCollection<HopDongMau> HopDongMaus
+        {
+            get { return GetCollection<HopDongMau>(nameof(HopDongMaus)); }
         }
 
 

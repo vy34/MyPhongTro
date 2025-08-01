@@ -42,6 +42,15 @@ namespace MyPhongTro.Module.BusinessObjects.Quanlyphongtro
             }
         }
 
+        protected override void OnDeleting()
+        {
+            base.OnDeleting();
+            int so = Session.CollectReferencingObjects(this).Count;
+            if (so > 0)
+            {
+                throw new UserFriendlyException("Không thể xóa phòng này vì có " + so + " đối tượng liên quan. Vui lòng xóa các đối tượng liên quan trước.");
+            }
+        }
 
         private ChuTro _Chutro;
         [Association]

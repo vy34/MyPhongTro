@@ -69,16 +69,16 @@ namespace MyPhongTro.Module.Controllers.Filter
             }
             else if (TCom.IsKhachthue())
             {   
-                CriteriaOperator criteria = CriteriaOperator.Parse("Khachthue.Oid=?", SecuritySystem.CurrentUserId); // Lọc theo Khachthue hiện tại cho các listview có Khachthue
-               
+                CriteriaOperator criteria = CriteriaOperator.Parse("Khachthue.Oid=?", SecuritySystem.CurrentUserId); // Lọc theo Khachthue hiện tại cho các listview có Khachthue     
+                if (View.Id == "HopDong_ListView")
+                    criteria = CriteriaOperator.Parse("Tamtru.Hopdong.Chutro.Oid=?", SecuritySystem.CurrentUserId);
+
+                ((ListView)View).CollectionSource.Criteria["loc"] = criteria; // Gán bộ lọc cho CollectionSource của ListView
             }
             else
             {
                 ((ListView)View).CollectionSource.Criteria.Remove("loc");
             }    
         }
-
-
-
     }
 }

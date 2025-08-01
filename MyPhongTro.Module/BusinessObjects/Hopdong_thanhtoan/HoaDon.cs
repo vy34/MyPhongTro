@@ -7,11 +7,8 @@ using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
 using MyPhongTro.Module.BusinessObjects.Chutro;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
+
 
 namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
 {
@@ -29,14 +26,14 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         {
             base.AfterConstruction();
             // Place your initialization code here (https://docs.devexpress.com/eXpressAppFramework/112834/getting-started/in-depth-tutorial-winforms-webforms/business-model-design/initialize-a-property-after-creating-an-object-xpo?v=22.1).
-        if( Session.IsNewObject(this))
+            if (Session.IsNewObject(this))
             {
                 ChuTro chutro = Session.FindObject<ChuTro>(CriteriaOperator.Parse("Oid = ?", SecuritySystem.CurrentUserId));
                 if (chutro != null)
                 {
                     Chutro = chutro; // Tự động gán chủ trọ là người dùng hiện tại
                 }
-                
+
                 string sql = "select max(So) as so from HoaDon where Chutro = '" + SecuritySystem.CurrentUserId + "'";
                 var ret = Session.ExecuteScalar(sql);
                 int so = 1;
@@ -47,7 +44,6 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
             }
         }
 
-     
 
         private ChuTro _Chutro;
         [Association]
@@ -57,6 +53,17 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
             get { return _Chutro; }
             set { SetPropertyValue<ChuTro>(nameof(Chutro), ref _Chutro, value); }
         }
+
+
+        [NonPersistent] // Thuộc tính không được lưu vào cơ sở dữ liệu
+        [VisibleInListView(false), VisibleInDetailView(false)]
+        private bool _IsHoadonTiencoc;
+        public bool IsHoadonTiencoc
+        {
+            get { return _IsHoadonTiencoc; }
+            set { SetPropertyValue<bool>(nameof(IsHoadonTiencoc), ref _IsHoadonTiencoc, value); }
+        }
+
 
 
         private HopDong _Hopdong;
@@ -69,29 +76,70 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
             set
             {
                 bool isModified = SetPropertyValue<HopDong>(nameof(Hopdong), ref _Hopdong, value);
-                if( isModified &&  !IsDeleted && !IsLoading && value != null)
+                if (isModified && !IsDeleted && !IsLoading && value != null && !IsHoadonTiencoc)
                 {
-                    foreach (var hopDongCT in value.HopDongCTs)
+                    if (HoaDonCTs.Count > 0)// Nếu đã có chi tiết hóa đơn thì xóa hết
                     {
-                        HoaDonCT hdct = new(Session) 
-                        {  
-                            Hoadon = this,
-                            Khoanthu = hopDongCT.Khoanthu,
-                            Chisodau = hopDongCT.Chisodau,
-                            DonGia = hopDongCT.Dongia,
-                            
-                        };
+                        while (HoaDonCTs.Count > 0)
+                        {
+                            HoaDonCTs.Remove(HoaDonCTs[0]);
+                        }
+                    }
+                    if (value != null) // Nếu hợp đồng không null thì tạo chi tiết hóa đơn mới
+                    {
+                        var hoadonTruoc = value.HoaDons // Lấy hóa đơn trước đó của hợp đồng này
+                                            .Where(hd => hd.Oid != this.Oid) // Bỏ qua hóa đơn hiện tại nếu đã có Oid
+                                            .OrderByDescending(hd => hd.Ngay) // Sắp xếp theo ngày giảm dần
+                                            .FirstOrDefault(); // Lấy hóa đơn mới nhất trước ngày hiện tại
 
-                        hdct.Save();
-                        this.HoaDonCTs.Add(hdct);
+                        foreach (var hopDongCT in value.HopDongCTs)
+                        {
+                            HoaDonCT hdct = new(Session)
+                            {
+                                Hoadon = this,
+                                Khoanthu = hopDongCT.Khoanthu,
+                                DonGia = hopDongCT.Dongia,
+                            };
+
+                            if (hdct.Khoanthu != null && (hdct.Khoanthu.TenKhoanThu.Contains("điện", StringComparison.OrdinalIgnoreCase) || hdct.Khoanthu.TenKhoanThu.Contains("nước", StringComparison.OrdinalIgnoreCase)))
+                            {
+                                if (hoadonTruoc != null)
+                                { 
+                                    var hoaDonCTTruoc = hoadonTruoc.HoaDonCTs.FirstOrDefault(ct => ct.Khoanthu?.Oid == hdct.Khoanthu?.Oid);// Tìm chi tiết hóa đơn trước đó cùng loại khoản thu
+
+                                    if (hoaDonCTTruoc != null)
+                                    {
+                                        hdct.Chisodau = hoaDonCTTruoc.Chisocuoi;
+                                    }
+                                    else
+                                    {
+                                        // Nếu không tìm thấy, lấy chỉ số đầu từ hợp đồng chi tiết
+                                        hdct.Chisodau = hopDongCT.Chisodau;
+                                    }
+                                }
+                                else
+                                {
+                                    // Đây là hóa đơn đầu tiên, lấy chỉ số đầu từ hợp đồng chi tiết
+                                    hdct.Chisodau = hopDongCT.Chisodau;
+                                }
+                            }
+                            else
+                            {
+                                // Đối với các khoản thu khác (không phải điện, nước), chỉ số đầu mặc định là 0 hoặc giá trị của hopDongCT
+                                hdct.Chisodau = hopDongCT.Chisodau;
+                            }
+
+                            this.HoaDonCTs.Add(hdct);
+                        }
                     }
 
                 }
             }
         }
 
+
         private int _So;
-        [XafDisplayName("Số hóa đơn"),ModelDefault("AllowEdit","false")]
+        [XafDisplayName("Số hóa đơn"), ModelDefault("AllowEdit", "false")]
         public int So
         {
             get { return _So; }
@@ -132,7 +180,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
                 decimal tien = PhieuThus.Sum(x => x.Sotien);
                 return tien;
             }
-           
+
         }
 
         [XafDisplayName("Tiền nợ")]

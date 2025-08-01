@@ -11,6 +11,7 @@
   <ItemGroup>
     <None Remove="Images\baotri.svg" />
     <None Remove="Images\chutro.svg" />
+    <None Remove="Images\diaphuong.svg" />
     <None Remove="Images\dien.svg" />
     <None Remove="Images\hethong.svg" />
     <None Remove="Images\hoadon.svg" />
@@ -19,6 +20,8 @@
     <None Remove="Images\khanhthue.svg" />
     <None Remove="Images\Khoanchi.svg" />
     <None Remove="Images\khoanthu.svg" />
+    <None Remove="Images\mauhopdong.svg" />
+    <None Remove="Images\nganhang.svg" />
     <None Remove="Images\nhatky.svg" />
     <None Remove="Images\nuoc.svg" />
     <None Remove="Images\phiduytri.svg" />
@@ -40,6 +43,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Images\baotri.svg" />
     <EmbeddedResource Include="Images\chutro.svg" />
+    <EmbeddedResource Include="Images\diaphuong.svg" />
     <EmbeddedResource Include="Images\dien.svg" />
     <EmbeddedResource Include="Images\hethong.svg" />
     <EmbeddedResource Include="Images\hoadon.svg" />
@@ -48,6 +52,8 @@
     <EmbeddedResource Include="Images\khanhthue.svg" />
     <EmbeddedResource Include="Images\khoanchi.svg" />
     <EmbeddedResource Include="Images\khoanthu.svg" />
+    <EmbeddedResource Include="Images\mauhopdong.svg" />
+    <EmbeddedResource Include="Images\nganhang.svg" />
     <EmbeddedResource Include="Images\nhatky.svg" />
     <EmbeddedResource Include="Images\nuoc.svg" />
     <EmbeddedResource Include="Images\phiduytri.svg" />

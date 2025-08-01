@@ -6,16 +6,13 @@ using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
-using DevExpress.XtraRichEdit.API.Native;
 using MyPhongTro.Module.BusinessObjects.Cauhinhhethong;
 using MyPhongTro.Module.BusinessObjects.Chutro;
 using MyPhongTro.Module.BusinessObjects.Quanlykhanhthue;
 using MyPhongTro.Module.BusinessObjects.Quanlyphongtro;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
 
 namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
 {
@@ -33,32 +30,32 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         {
             base.AfterConstruction();
             // Place your initialization code here (https://docs.devexpress.com/eXpressAppFramework/112834/getting-started/in-depth-tutorial-winforms-webforms/business-model-design/initialize-a-property-after-creating-an-object-xpo?v=22.1).
-        if(Session.IsNewObject(this))
+            if (Session.IsNewObject(this))
             {
-                ChuTro chutro = Session.FindObject<ChuTro>(CriteriaOperator.Parse("Oid = ?",SecuritySystem.CurrentUserId)); // Tìm chủ trọ là người dùng hiện tại
+                ChuTro chutro = Session.FindObject<ChuTro>(CriteriaOperator.Parse("Oid = ?", SecuritySystem.CurrentUserId)); // Tìm chủ trọ là người dùng hiện tại
                 if (chutro != null)
                 {
                     Chutro = chutro; // Tự động gán chủ trọ là người dùng hiện tại
                 }
-                
-                string sql = "select max(SoHD) as so from HopDong where Chutro = '" +  SecuritySystem.CurrentUserId + "'";
+
+                string sql = "select max(SoHD) as so from HopDong where Chutro = '" + SecuritySystem.CurrentUserId + "'";
                 var ret = Session.ExecuteScalar(sql);
                 int so = 1;
-                if(ret != null) so = tmLib.ViCom.CInt(ret) + 1; // Lấy số hợp đồng lớn nhất của chủ trọ hiện tại
+                if (ret != null) so = tmLib.ViCom.CInt(ret) + 1; // Lấy số hợp đồng lớn nhất của chủ trọ hiện tại
                 SoHD = so; // Số hợp đồng mặc định là 1
 
                 //Cập nhật khoản thu mặc định cho hợp đồng
                 XPCollection<KhoanThu> xpCollectionKhoan = new(Session) // Lấy tất cả các khoản thu trong DB của chủ trọ hiện tại
                 {
-                    Criteria = CriteriaOperator.Parse("Chutro.Oid=? && Def=?", SecuritySystem.CurrentUserId,true)  
+                    Criteria = CriteriaOperator.Parse("Chutro.Oid=? && Def=?", SecuritySystem.CurrentUserId, true)
                 };
-                foreach(KhoanThu khoan in xpCollectionKhoan)
+                foreach (KhoanThu khoan in xpCollectionKhoan)
                 {
                     HopDongCT hopdongct = new(Session) // với mỗi khoản thu, tạo một hợp đồng chi tiết
                     {
                         Hopdong = this, // Gán hợp đồng hiện tại
                         Khoanthu = khoan, // Gán khoản thu
-                        Dongia = khoan.Dongia, 
+                        Dongia = khoan.Dongia,
                         Theochiso = khoan.Theochiso,
                     };
                     hopdongct.Save();
@@ -68,7 +65,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
 
                 Ngaylap = TCom.GetServerDateOnly(); // Ngày mặc định là ngày hiện tại
                 Trangthai = TrangThaiHD.dukien;
-                
+
             }
         }
 
@@ -91,17 +88,17 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         public Phong Phong
         {
             get { return _Phong; }
-            set 
+            set
             {
                 bool isModified = SetPropertyValue<Phong>(nameof(Phong), ref _Phong, value);
-                if(isModified && value != null && !IsLoading && !IsDeleted)
+                if (isModified && value != null && !IsLoading && !IsDeleted)
                 {
-                    Tiencoc= value.Tiencoc; // Khi chọn phòng thì tự động lấy tiền cọc của phòng đó
-                }   
+                    Tiencoc = value.Tiencoc; // Khi chọn phòng thì tự động lấy tiền cọc của phòng đó
+                }
             }
         }
 
-     
+
         [VisibleInListView(false), VisibleInDetailView(false)]
         public string SoHopdong
         {
@@ -109,7 +106,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
             {
                 String so = SoHD.ToString();
                 if (Phong != null)
-                
+
                     so += "/" + Phong.Sophong;
                 return so;
             }
@@ -117,7 +114,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
 
         private int _SoHD;
         [XafDisplayName("Số hợp đồng"), ModelDefault("AllowEdit", "false")]
-        
+
         public int SoHD
         {
             get { return _SoHD; }
@@ -155,11 +152,11 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         public DateOnly Denngay
         {
             get { return _Denngay; }
-            set { SetPropertyValue<DateOnly>(nameof(Denngay), ref _Denngay, value); } 
+            set { SetPropertyValue<DateOnly>(nameof(Denngay), ref _Denngay, value); }
         }
 
 
-        private decimal  _Tiencoc;
+        private decimal _Tiencoc;
         [XafDisplayName("Tiền cọc"), ModelDefault("AllowEdit", "false")]
         [ModelDefault("DisplayFormat", "{0:### ### ###}")]     //tự động
         [ModelDefault("EditMask", "### ### ###")]
@@ -170,7 +167,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         }
 
 
-        
+
         [XafDisplayName("Doanh thu")]
         [ModelDefault("DisplayFormat", "{0:### ### ###}")]     //tự động
         [ModelDefault("EditMask", "### ### ###")]
@@ -183,9 +180,9 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
             }
         }
 
-       
+
         [XafDisplayName("Số người")]
-        [ModelDefault("DisplayFormat", "{0:### ### ###}")] 
+        [ModelDefault("DisplayFormat", "{0:### ### ###}")]
         public int Songuoi
         {
             get
@@ -202,7 +199,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
             get { return _Ghichu; }
             set { SetPropertyValue<string>(nameof(Ghichu), ref _Ghichu, value); }
         }
-       
+
         public enum TrangThaiHD
         {
             [XafDisplayName("Dự kiến")] dukien = 0,
@@ -216,6 +213,43 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         {
             get { return _Trangthai; }
             set { SetPropertyValue<TrangThaiHD>(nameof(Trangthai), ref _Trangthai, value); }
+        }
+
+
+        private DateOnly _ThanhtoanTungay;
+        [XafDisplayName("Thanh toán từ ngày")]
+        [ModelDefault("EditMask", "dd/MM/yyyy")]
+        [ModelDefault("DisplayFormat", "{0:dd/MM/yyyy}")]
+        public DateOnly ThanhtoanTungay
+        {
+            get { return _ThanhtoanTungay; }
+            set { SetPropertyValue<DateOnly>(nameof(ThanhtoanTungay), ref _ThanhtoanTungay, value); }
+        }
+
+
+        private DateOnly _ThanhtoanDenngay;
+        [XafDisplayName("Thanh toán đến ngày")]
+        [ModelDefault("EditMask", "dd/MM/yyyy")]
+        [ModelDefault("DisplayFormat", "{0:dd/MM/yyyy}")]
+        public DateOnly ThanhtoanDenngay
+        {
+            get { return _ThanhtoanDenngay; }
+            set { SetPropertyValue<DateOnly>(nameof(ThanhtoanDenngay), ref _ThanhtoanDenngay, value); }
+        }
+
+        public enum HinhthucThanhtoan
+        {
+            [XafDisplayName("Chuyển khoản")] chuyenkhoan = 0,
+            [XafDisplayName("Tiền mặt")] tienmat = 1,
+
+        }
+
+        private HinhthucThanhtoan _Hinhthuc;
+        [XafDisplayName("Hình thức chuyển khoản")]
+        public HinhthucThanhtoan Hinhthuc
+        {
+            get { return _Hinhthuc; }
+            set { SetPropertyValue<HinhthucThanhtoan>(nameof(Hinhthuc), ref _Hinhthuc, value); }
         }
 
 
@@ -237,7 +271,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         {
             get { return GetCollection<TamTru>(nameof(TamTrus)); }
         }
-        
+
 
 
     }

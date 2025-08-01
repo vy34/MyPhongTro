@@ -60,6 +60,8 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
 
         private int _Chisodau;
         [XafDisplayName("Chỉ số đầu")]
+        [ModelDefault("DisplayFormat", "{0:### ### ###}")]     //tự động
+        [ModelDefault("EditMask", "### ### ###")]
         public int Chisodau
         {
             get { return _Chisodau; }
@@ -67,9 +69,10 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         }
 
 
-
         private int _Chisocuoi;
         [XafDisplayName("Chỉ số cuối")]
+        [ModelDefault("DisplayFormat", "{0:### ### ###}")]     //tự động
+        [ModelDefault("EditMask", "### ### ###")]
         public int Chisocuoi
         {
             get { return _Chisocuoi; }
@@ -82,11 +85,14 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         {
             get
             {
-                if (_Soluong > 0) // nếu người dùng nhập tay thì ưu tiên 
-                    return _Soluong;
                 if (Chisocuoi > Chisodau)
                     return Chisocuoi - Chisodau;
                 return 1;
+                //if (_Soluong > 0) // nếu người dùng nhập tay thì ưu tiên 
+                //    return _Soluong;
+                //if (Chisocuoi > Chisodau)
+                //    return Chisocuoi - Chisodau;
+                //return 1;
             }
             set
             {
