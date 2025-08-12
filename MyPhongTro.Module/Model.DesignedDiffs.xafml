@@ -14,7 +14,7 @@
     </Class>
     <Class Name="MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan.HopDong">
       <OwnMembers>
-        <Member Name="Phong" DataSourceCriteria="" />
+        <Member Name="Phong" DataSourceCriteria="[Chutro.Oid] = CurrentUserId()" />
       </OwnMembers>
     </Class>
     <Class Name="MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan.HopDongCT">
@@ -390,7 +390,6 @@
                 <LayoutItem Id="IsHoadonTiencoc" Removed="True" />
               </LayoutGroup>
               <LayoutGroup Id="HoaDon_col2" Caption="HoaDon_col2" RelativeSize="50.16216216216216">
-                <LayoutItem Id="Code" Index="0" RelativeSize="100" />
                 <LayoutItem Id="Conno" Removed="True" />
                 <LayoutItem Id="Dathu" Removed="True" />
                 <LayoutItem Id="Noidung" Removed="True" />
@@ -414,9 +413,9 @@
     <ListView Id="HoaDon_ListView">
       <Columns>
         <ColumnInfo Id="IsHoadonTiencoc" Index="-1" />
-        <ColumnInfo Id="So" SortIndex="-1" SortOrder="None" />
         <ColumnInfo Id="Hopdong" SortIndex="0" SortOrder="Ascending" Index="1" />
         <ColumnInfo Id="Ngay" Index="2" />
+        <ColumnInfo Id="So" SortIndex="-1" SortOrder="None" />
         <ColumnInfo Id="TongTien" Index="3" />
         <ColumnInfo Id="Dathu" Index="4" />
         <ColumnInfo Id="Conno" Index="5" />
@@ -476,8 +475,8 @@
     <ListView Id="HopDong_HoaDons_ListView">
       <Columns>
         <ColumnInfo Id="IsHoadonTiencoc" SortIndex="0" SortOrder="Ascending" Index="-1" />
-        <ColumnInfo Id="So" SortIndex="-1" SortOrder="None" />
         <ColumnInfo Id="Ngay" Index="1" />
+        <ColumnInfo Id="So" SortIndex="-1" SortOrder="None" />
         <ColumnInfo Id="TongTien" Index="2" />
         <ColumnInfo Id="Dathu" Index="3" />
         <ColumnInfo Id="Conno" Index="4" />

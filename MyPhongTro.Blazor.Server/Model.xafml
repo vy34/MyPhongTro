@@ -127,16 +127,19 @@
       <Items>
         <PropertyEditor Id="Hopdong" PropertyName="Hopdong" IsNewNode="True" />
         <PropertyEditor Id="Hopdong.SoHopdong" PropertyName="Hopdong.SoHopdong" IsNewNode="True" />
+        <PropertyEditor Id="QRCodeImage" ImageEditorMode="PictureEdit" />
       </Items>
       <Layout>
         <LayoutGroup Id="Main">
-          <LayoutGroup Id="SimpleEditors" RelativeSize="35.1123595505618">
-            <LayoutGroup Id="HoaDon">
-              <LayoutGroup Id="HoaDon_col1" RelativeSize="49.730893433799785" />
-              <LayoutGroup Id="HoaDon_col2" RelativeSize="50.269106566200215" />
+          <LayoutGroup Id="SimpleEditors" RelativeSize="53.53319057815846">
+            <LayoutGroup Id="HoaDon" Caption="Hoá đơn">
+              <LayoutGroup Id="HoaDon_col1" RelativeSize="49.71830985915493" />
+              <LayoutGroup Id="HoaDon_col2" RelativeSize="50.28169014084507">
+                <LayoutItem Id="QRCodeImage" Index="0" RelativeSize="100" />
+              </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
-          <TabbedGroup Id="Tabs" RelativeSize="64.88764044943821">
+          <TabbedGroup Id="Tabs" RelativeSize="46.46680942184154">
             <LayoutGroup Id="HoaDonCTs" Caption="Chi tiết hoá đơn" />
             <LayoutGroup Id="PhieuThus" Caption="Phiếu thu" />
             <LayoutGroup Id="Anhs" Caption="Ảnh" />
@@ -145,11 +148,7 @@
       </Layout>
     </DetailView>
     <ListView Id="HoaDon_HoaDonCTs_ListView" Caption="Chi tiết hóa đơn" />
-    <ListView Id="HoaDon_ListView" InlineEditMode="Inline">
-      <Columns>
-        <ColumnInfo Id="Code" Caption="Mã QR" />
-      </Columns>
-    </ListView>
+    <ListView Id="HoaDon_ListView" InlineEditMode="Inline" />
     <DetailView Id="HoaDonCT_DetailView" Caption="Chi tiết hóa đơn" />
     <ListView Id="HoaDonCT_ListView" InlineEditMode="Inline" Caption="Chi tiết hóa đơn" />
     <ListView Id="HoaDonCT_LookupListView" Caption="Chi tiết hóa đơn" />
@@ -196,7 +195,7 @@
     <ListView Id="HopDong_HopDongCTs_ListView" Caption="Chi tiết hợp đồng" />
     <ListView Id="HopDong_ListView" InlineEditMode="Inline">
       <Columns>
-        <ColumnInfo Id="Phong" SortIndex="0" SortOrder="Ascending" />
+        <ColumnInfo Id="Phong" SortIndex="0" SortOrder="None" />
       </Columns>
     </ListView>
     <DetailView Id="HopDongCT_DetailView" Caption="Chi tiết hợp đồng" />

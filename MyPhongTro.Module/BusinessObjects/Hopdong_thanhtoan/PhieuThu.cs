@@ -67,6 +67,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
 
         private TamTru _Tamtru;
         [Association]
+        [VisibleInListView(false), VisibleInLookupListView(false), VisibleInDetailView(false), VisibleInDashboards(false)]
         [XafDisplayName("Khách tạm trú")]
         public TamTru Tamtru
         {

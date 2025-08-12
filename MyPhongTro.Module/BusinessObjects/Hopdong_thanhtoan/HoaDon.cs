@@ -7,6 +7,7 @@ using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
 using MyPhongTro.Module.BusinessObjects.Chutro;
+using MyPhongTro.Module.BusinessObjects.Quanlyphongtro;
 using System.ComponentModel;
 using System.Drawing;
 
@@ -17,7 +18,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
     [ImageName("hoadon")]
     [System.ComponentModel.DisplayName("Hóa đơn")]
     [NavigationItem("Hợp đồng và hoá đơn")]
-    [DefaultProperty("So")]
+    [DefaultProperty("SoHoaDon")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://docs.devexpress.com/eXpressAppFramework/112701/business-model-design-orm/data-annotations-in-data-model).
@@ -114,30 +115,37 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
                                     }
                                     else
                                     {
-                                        // Nếu không tìm thấy, lấy chỉ số đầu từ hợp đồng chi tiết
-                                        hdct.Chisodau = hopDongCT.Chisodau;
+                                        hdct.Chisodau = hopDongCT.Chisodau; // Nếu không tìm thấy, lấy chỉ số đầu từ hợp đồng chi tiết
                                     }
                                 }
                                 else
                                 {
-                                    // Đây là hóa đơn đầu tiên, lấy chỉ số đầu từ hợp đồng chi tiết
-                                    hdct.Chisodau = hopDongCT.Chisodau;
+                                    hdct.Chisodau = hopDongCT.Chisodau;// Đây là hóa đơn đầu tiên, lấy chỉ số đầu từ hợp đồng chi tiết
                                 }
                             }
                             else
                             {
-                                // Đối với các khoản thu khác (không phải điện, nước), chỉ số đầu mặc định là 0 hoặc giá trị của hopDongCT
-                                hdct.Chisodau = hopDongCT.Chisodau;
+                                hdct.Chisodau = hopDongCT.Chisodau; // Đối với các khoản thu khác (không phải điện, nước), chỉ số đầu mặc định là 0 hoặc giá trị của hopDongCT
                             }
-
                             this.HoaDonCTs.Add(hdct);
                         }
                     }
-
                 }
             }
         }
 
+        // Replace this property:
+        [VisibleInListView(false), VisibleInDetailView(false)]
+        public string SoHoaDon
+        {
+            get
+            {
+                var so = So.ToString();
+                if (Hopdong?.Phong != null)
+                    so += "/" + Hopdong.Phong.Sophong;
+                return so;
+            }
+        }
 
         private int _So;
         [XafDisplayName("Số hóa đơn"), ModelDefault("AllowEdit", "false")]
@@ -205,16 +213,24 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         }
 
 
-        [NonPersistent]
-        private Bitmap _Code;
-        [XafDisplayName("QR thanh toán")]
-        [VisibleInListView(false)]
-        [ImageEditor(ListViewImageEditorMode = ImageEditorMode.PictureEdit, DetailViewImageEditorMode = ImageEditorMode.PictureEdit)]
-        public Bitmap Code
+
+
+
+        private byte[] _QRCodeImage;
+        [ImageEditor( 
+           DetailViewImageEditorFixedHeight = 450,
+           DetailViewImageEditorFixedWidth = 400
+        )]
+        [XafDisplayName("Mã QR")]
+        [VisibleInDetailView(true), VisibleInListView(false)]
+        public byte[] QRCodeImage
         {
-            get { return _Code; }
-            set { SetPropertyValue<Bitmap>(nameof(Code), ref _Code, value); }
+            get { return _QRCodeImage; }
+            set { SetPropertyValue<byte[]>(nameof(QRCodeImage), ref _QRCodeImage, value); }
         }
+
+
+
 
 
         [DevExpress.Xpo.Aggregated, Association]
@@ -225,7 +241,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         }
 
 
-        [DevExpress.Xpo.Aggregated, Association]
+        [DevExpress.Xpo.Aggregated, Association]                
         public XPCollection<PhieuThu> PhieuThus
         {
             get { return GetCollection<PhieuThu>(nameof(PhieuThus)); }

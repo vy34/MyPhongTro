@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="HoaDon_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Code" Caption="Mã QR" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

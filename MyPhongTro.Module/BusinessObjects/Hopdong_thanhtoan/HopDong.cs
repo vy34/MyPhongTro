@@ -138,6 +138,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         [XafDisplayName("Từ ngày")]
         [ModelDefault("EditMask", "dd/MM/yyyy")]
         [ModelDefault("DisplayFormat", "{0:dd/MM/yyyy}")]
+        [VisibleInListView(false)]
         public DateOnly Tungay
         {
             get { return _Tungay; }
@@ -149,6 +150,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         [XafDisplayName("Đến ngày")]
         [ModelDefault("EditMask", "dd/MM/yyyy")]
         [ModelDefault("DisplayFormat", "{0:dd/MM/yyyy}")]
+        [VisibleInListView(false)]
         public DateOnly Denngay
         {
             get { return _Denngay; }
@@ -220,6 +222,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         [XafDisplayName("Thanh toán từ ngày")]
         [ModelDefault("EditMask", "dd/MM/yyyy")]
         [ModelDefault("DisplayFormat", "{0:dd/MM/yyyy}")]
+        [VisibleInListView(false)]
         public DateOnly ThanhtoanTungay
         {
             get { return _ThanhtoanTungay; }
@@ -231,6 +234,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         [XafDisplayName("Thanh toán đến ngày")]
         [ModelDefault("EditMask", "dd/MM/yyyy")]
         [ModelDefault("DisplayFormat", "{0:dd/MM/yyyy}")]
+        [VisibleInListView(false)]
         public DateOnly ThanhtoanDenngay
         {
             get { return _ThanhtoanDenngay; }
@@ -246,6 +250,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
 
         private HinhthucThanhtoan _Hinhthuc;
         [XafDisplayName("Hình thức chuyển khoản")]
+        [VisibleInListView(false)]
         public HinhthucThanhtoan Hinhthuc
         {
             get { return _Hinhthuc; }
