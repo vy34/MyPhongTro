@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="ChuTroView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="ChuTro">
+              <LayoutGroup Id="ChuTro_col1">
+                <LayoutItem Id="AnhQRCode" ViewItem="AnhQRCode" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+      <Items Id="Items">
+        <PropertyEditor Id="Nganhang" PropertyName="Nganhang" />
+      </Items>
+    </DetailView>
+    <DetailView Id="ChuTro_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="Nganhang" PropertyName="Nganhang" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="ChuTro">
+              <LayoutGroup Id="ChuTro_col1">
+                <LayoutItem Id="Nganhang" ViewItem="Nganhang" />
+                <LayoutItem Id="AnhQRCode" ViewItem="AnhQRCode" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

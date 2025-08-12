@@ -11,10 +11,10 @@ namespace MyPhongTro.Module.BusinessObjects.Chutro
 {
     [DefaultClassOptions]
     [ImageName("diaphuong")]
-    [DefaultProperty("Ma")]
+    [DefaultProperty("Ten")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
     //[Persistent("DatabaseTableName")]
-    // Specify more UI options using a d    eclarative approach (https://docs.devexpress.com/eXpressAppFramework/112701/business-model-design-orm/data-annotations-in-data-model).
+    // Specify more UI options using a declarative approach (https://docs.devexpress.com/eXpressAppFramework/112701/business-model-design-orm/data-annotations-in-data-model).
     public class DiaPhuong(Session session) : BaseObject(session)
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://docs.devexpress.com/eXpressAppFramework/113146/business-model-design-orm/business-model-design-with-xpo/base-persistent-classes).
         public override void AfterConstruction()
@@ -32,7 +32,6 @@ namespace MyPhongTro.Module.BusinessObjects.Chutro
             set { SetPropertyValue<string>(nameof(Ma), ref _Ma, value); }
         }
 
-
         private string _Ten;
         [XafDisplayName("Tên địa phương")]
         public string Ten
@@ -43,14 +42,32 @@ namespace MyPhongTro.Module.BusinessObjects.Chutro
 
 
 
-        [DevExpress.Xpo.Aggregated, Association]
-        public XPCollection<ChuTro> ChuTros
+        private DiaPhuong _CapTren;
+        [XafDisplayName("Cấp trên")]
+        [Association("Diaphuong-CapTren")]
+        public DiaPhuong CapTren
         {
-            get { return GetCollection<ChuTro>(nameof(ChuTros)); }
+            get { return _CapTren; }
+            set { SetPropertyValue<DiaPhuong>(nameof(CapTren), ref _CapTren, value); }
+        }
+        
+        [Association("Diaphuong-CapTren")] 
+        public XPCollection<DiaPhuong> DiaPhuongCons
+        {
+            get { return GetCollection<DiaPhuong>(nameof(DiaPhuongCons)); }
         }
 
+        [Association("Chutro-Diaphuong-TinhThanh")]
+        public XPCollection<ChuTro> ChutroTinhs
+        {
+            get { return GetCollection<ChuTro>(nameof(ChutroTinhs)); }
+        }
 
-
+        [Association("Chutro-Diaphuong-Xa")]
+        public XPCollection<ChuTro> ChutroXas
+        {
+            get { return GetCollection<ChuTro>(nameof(ChutroXas)); }
+        }
 
 
 

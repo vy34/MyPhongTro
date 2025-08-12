@@ -4,7 +4,6 @@ using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Model;
 using DevExpress.ExpressApp.Security;
 using DevExpress.Persistent.Base;
-using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.BaseImpl.PermissionPolicy;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
@@ -13,10 +12,7 @@ using MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan;
 using MyPhongTro.Module.BusinessObjects.Quanlykhanhthue;
 using MyPhongTro.Module.BusinessObjects.Quanlyphongtro;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
 
 namespace MyPhongTro.Module.BusinessObjects.Chutro
 {
@@ -28,7 +24,7 @@ namespace MyPhongTro.Module.BusinessObjects.Chutro
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://docs.devexpress.com/eXpressAppFramework/112701/business-model-design-orm/data-annotations-in-data-model).
-    public class ChuTro(Session session) : ApplicationUser(session) 
+    public class ChuTro(Session session) : ApplicationUser(session)
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://docs.devexpress.com/eXpressAppFramework/113146/business-model-design-orm/business-model-design-with-xpo/base-persistent-classes).
         public override void AfterConstruction()
         {
@@ -40,7 +36,7 @@ namespace MyPhongTro.Module.BusinessObjects.Chutro
                 // Tự động tạo số đăng ký dựa trên ngày đăng ký mới nhất
                 int maxSo = Session.Query<ChuTro>().Max(x => (int?)x.Sodangky) ?? 0;
                 Sodangky = maxSo + 1; // Tăng số đăng ký lên 1
-                Phiduytri phiduytri = Session.FindObject<Phiduytri>(CriteriaOperator.Parse("Noidung = ? && Chutro.Oid = ? ","Dùng thử", this));
+                Phiduytri phiduytri = Session.FindObject<Phiduytri>(CriteriaOperator.Parse("Noidung = ? && Chutro.Oid = ? ", "Dùng thử", this));
                 if (phiduytri == null)
                 {
                     phiduytri = new Phiduytri(Session)
@@ -59,9 +55,11 @@ namespace MyPhongTro.Module.BusinessObjects.Chutro
 
         protected override void OnSaving()
         {
-            Captaikhoan();
-            base.OnSaving();
-            
+            if (Session.IsNewObject(this)) // Chỉ tạo tài khoản người dùng khi đối tượng mới được tạo
+            {
+                Captaikhoan();
+            }
+            base.OnSaving(); 
         }
         protected override void OnDeleting()
         {
@@ -105,7 +103,7 @@ namespace MyPhongTro.Module.BusinessObjects.Chutro
                         {
                             sott++;
                             tenDangNhap = baseUserName + sott;
-                            user = Session.FindObject<ApplicationUser>( CriteriaOperator.Parse("UserName = ?", tenDangNhap));
+                            user = Session.FindObject<ApplicationUser>(CriteriaOperator.Parse("UserName = ?", tenDangNhap));
                         }
 
                         this.UserName = tenDangNhap;
@@ -181,23 +179,14 @@ namespace MyPhongTro.Module.BusinessObjects.Chutro
         }
 
 
-        private int _SoTK;
+        private string _SoTK;
         [XafDisplayName("Số tài khoản")]
-        public int SoTK
+        public string SoTK
         {
             get { return _SoTK; }
-            set { SetPropertyValue<int>(nameof(SoTK), ref _SoTK, value); }
+            set { SetPropertyValue<string>(nameof(SoTK), ref _SoTK, value); }
         }
 
-
-        private NganHang _Nganhang;
-        [Association]
-        [XafDisplayName("Ngân hàng")]
-        public NganHang Nganhang
-        {
-            get { return _Nganhang; }
-            set { SetPropertyValue<NganHang>(nameof(Nganhang), ref _Nganhang, value); }
-        }
 
         private string _ChuTK;
         [XafDisplayName("Chủ tài khoản")]
@@ -207,17 +196,54 @@ namespace MyPhongTro.Module.BusinessObjects.Chutro
             set { SetPropertyValue<string>(nameof(ChuTK), ref _ChuTK, value); }
         }
 
-
-
-        private DiaPhuong _Diaphuong;
-        [Association]
-        public DiaPhuong Diaphuong
+        private string _Diachi;
+        [XafDisplayName("Địa chỉ")]
+        public string Diachi
         {
-            get { return _Diaphuong; }
-            set { SetPropertyValue<DiaPhuong>(nameof(Diaphuong), ref _Diaphuong, value); }
+            get { return _Diachi; }
+            set { SetPropertyValue<string>(nameof(Diachi), ref _Diachi, value); }
         }
 
+        private DiaPhuong _TinhThanh;
+        [XafDisplayName("Tỉnh/Thành phố")]
+        [Association("Chutro-Diaphuong-TinhThanh")]
+        [ImmediatePostData] // Để cập nhật danh sách xã/phường ngay khi tỉnh/thành phố thay đổi
+        [DataSourceCriteria("CapTren is null")] // DataSourceCriteria để lọc danh sách tỉnh/thành phố
+        public DiaPhuong TinhThanh
+        {
+            get { return _TinhThanh; }
+            set { SetPropertyValue<DiaPhuong>(nameof(TinhThanh), ref _TinhThanh, value); }
+        }
 
+        private DiaPhuong _Xa;
+
+        [XafDisplayName("Xã/Phường")]
+        [Association("Chutro-Diaphuong-Xa")]
+        [DataSourceProperty("XaList")] 
+        [DataSourceCriteria("CapTren.Oid = '@This.TinhThanh.Oid'")]// DataSourceCriteria để lọc danh sách xã/phường theo tỉnh/thành phố đã chọn
+        public DiaPhuong Xa
+        {
+            get { return _Xa; }
+            set { SetPropertyValue<DiaPhuong>(nameof(Xa), ref _Xa, value); }
+        }
+
+        [NonPersistent] // Thuộc tính không được lưu vào cơ sở dữ liệu
+        public IList<DiaPhuong> XaList // danh sách xã/phường liên kết với tỉnh/thành phố đã chọn
+        {
+            get
+            {
+                return TinhThanh != null ? [.. TinhThanh.DiaPhuongCons] : new List<DiaPhuong>(); //
+            }
+        }
+
+        private NganHang _Nganhang;
+        [Association]
+        [XafDisplayName("Ngân hàng")]
+        public NganHang Nganhang
+        {
+            get { return _Nganhang; }
+            set { SetPropertyValue<NganHang>(nameof(Nganhang), ref _Nganhang, value); }
+        }
 
 
 
@@ -321,13 +347,17 @@ namespace MyPhongTro.Module.BusinessObjects.Chutro
                 {
                     XafApplication xafApp = ApplicationHelper.Instance.Application;
                     using IObjectSpace objectSpace = xafApp.CreateObjectSpace<ApplicationUser>(); // tạo mới 1 object space để làm việc với đối tượng
-                    ((ISecurityUserWithLoginInfo)this).CreateUserLoginInfo(SecurityDefaults.PasswordAuthentication,objectSpace.GetKeyValueAsString(this)); // tạo thông tin đăng nhập cho người dùng
+                    ((ISecurityUserWithLoginInfo)this).CreateUserLoginInfo(SecurityDefaults.PasswordAuthentication, objectSpace.GetKeyValueAsString(this)); // tạo thông tin đăng nhập cho người dùng
                     this.Roles.Add(defaultRole);
                 }
-               
+
             }
 
         }
+
+
+
+
 
     }
 }

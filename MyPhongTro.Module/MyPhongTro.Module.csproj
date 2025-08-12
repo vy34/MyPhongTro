@@ -28,6 +28,7 @@
     <None Remove="Images\phieuchi.svg" />
     <None Remove="Images\phieuthu.svg" />
     <None Remove="Images\phong.svg" />
+    <None Remove="Images\QRCode.svg" />
     <None Remove="Images\quanliphongtro.svg" />
     <None Remove="Images\quanlydiennuoc.svg" />
     <None Remove="Images\tamtru.svg" />
@@ -35,6 +36,11 @@
     <None Remove="Images\tiencoc.svg" />
     <None Remove="Images\tuychon.svg" />
     <None Remove="Model.DesignedDiffs.xafml" />
+    <None Remove="UnusableNodes10.xml" />
+    <None Remove="UnusableNodes11.xml" />
+    <None Remove="UnusableNodes12.xml" />
+    <None Remove="UnusableNodes13.xml" />
+    <None Remove="UnusableNodes14.xml" />
     <None Remove="UnusableNodes6.xml" />
     <None Remove="UnusableNodes7.xml" />
     <None Remove="UnusableNodes8.xml" />
@@ -60,6 +66,7 @@
     <EmbeddedResource Include="Images\phieuchi.svg" />
     <EmbeddedResource Include="Images\phieuthu.svg" />
     <EmbeddedResource Include="Images\phong.svg" />
+    <EmbeddedResource Include="Images\QRCode.svg" />
     <EmbeddedResource Include="Images\quanliphongtro.svg" />
     <EmbeddedResource Include="Images\quanlydiennuoc.svg" />
     <EmbeddedResource Include="Images\suachua.svg" />
@@ -97,6 +104,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\tmLib\tmLib\tmLib.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.ExpressApp.Blazor.v24.2">
+      <HintPath>C:\Program Files\DevExpress 24.2\Components\Offline Packages\devexpress.expressapp.blazor\24.2.8\lib\net8.0\DevExpress.ExpressApp.Blazor.v24.2.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Update="UnusableNodes.xml">

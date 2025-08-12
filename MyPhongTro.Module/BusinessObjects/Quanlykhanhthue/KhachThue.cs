@@ -45,19 +45,22 @@ namespace MyPhongTro.Module.BusinessObjects.Quanlykhanhthue
 
         protected override void OnSaving()
         {
-            Captaikhoan();
+            if (Session.IsNewObject(this)) // Chỉ tạo tài khoản người dùng khi đối tượng mới được tạo
+            {
+                Captaikhoan();
+            }
             base.OnSaving();
         }
 
-        //protected override void OnDeleting()
-        //{
-        //    base.OnDeleting();
-        //    int so = Session.CollectReferencingObjects(this).Count;
-        //    if (so > 0)
-        //    {
-        //        throw new UserFriendlyException("Không thể xóa chủ trọ này vì có " + so + " đối tượng liên quan. Vui lòng xóa các đối tượng liên quan trước.");
-        //    }
-        //}
+        protected override void OnDeleting()
+        {
+            base.OnDeleting();
+            int so = Session.CollectReferencingObjects(this).Count;
+            if (so > 0)
+            {
+                throw new UserFriendlyException("Không thể xóa chủ trọ này vì có " + so + " đối tượng liên quan. Vui lòng xóa các đối tượng liên quan trước.");
+            }
+        }
 
         private ChuTro _Chutro;
         [Association]
@@ -205,21 +208,18 @@ namespace MyPhongTro.Module.BusinessObjects.Quanlykhanhthue
 
         private void Captaikhoan()
         {
-           
-            //role
             if (this.Roles.Count == 0)
             {
-                PermissionPolicyRole role = Session.FindObject<PermissionPolicyRole>(CriteriaOperator.Parse("Name = ?", "Default"));
-                if (role != null)
+                PermissionPolicyRole defaultRole = Session.FindObject<PermissionPolicyRole>(
+                    CriteriaOperator.Parse("Name = ?", "Default")
+                );
+                if (defaultRole != null)
                 {
-                    XafApplication app = ApplicationHelper.Instance.Application;
-                    using IObjectSpace objectSpace = app.CreateObjectSpace<ApplicationUser>();
-                    ((ISecurityUserWithLoginInfo)this).CreateUserLoginInfo(SecurityDefaults.PasswordAuthentication, objectSpace.GetKeyValueAsString(this));
-                    this.Roles.Add(role);
+                    this.Roles.Add(defaultRole);
                 }
             }
-
         }
+
 
     }
 }

@@ -62,37 +62,66 @@
         <ColumnInfo Id="Thietbiphong" SortIndex="0" SortOrder="Ascending" />
       </Columns>
     </ListView>
-    <DetailView Id="ChuTro_DetailView">
+    <DetailView Id="ChuTro_DetailView" AllowDelete="True" AllowEdit="True" AllowNew="True">
       <Layout>
         <LayoutGroup Id="Main">
-          <LayoutGroup Id="SimpleEditors" RelativeSize="48.09384164222874">
-            <LayoutGroup Id="ChuTro">
-              <LayoutGroup Id="ChuTro_col1" RelativeSize="51.3986013986014" Caption="ChuTro_col1" Direction="Vertical">
-                <LayoutItem Id="Anh" Index="0" RelativeSize="12.857142857142858" ViewItem="" IsNewNode="True" />
-                <LayoutItem Id="AnhQRCode" Index="1" RelativeSize="87.14285714285714" ViewItem="AnhQRCode" IsNewNode="True" />
+          <LayoutGroup Id="SimpleEditors" RelativeSize="77.75862068965517">
+            <LayoutGroup Id="ChuTro" RelativeSize="99.77827050997783">
+              <LayoutGroup Id="ChuTro_col1" RelativeSize="46.36871508379888" Caption="ChuTro_col1" Direction="Vertical">
+                <LayoutItem Id="Anh" Index="0" RelativeSize="9.512195121951219" ViewItem="" IsNewNode="True" />
+                <LayoutItem Id="Photo" Index="1" RelativeSize="6.341463414634147" />
+                <LayoutItem Id="AnhQRCode" Index="2" RelativeSize="62.68292682926829" ViewItem="" IsNewNode="True" />
+                <LayoutItem Id="SoTK" Index="3" RelativeSize="6.341463414634147" />
+                <LayoutItem Id="ChuTK" Index="4" RelativeSize="6.341463414634147" />
+                <LayoutItem Id="Nganhang" Index="5" RelativeSize="8.78048780487805" />
               </LayoutGroup>
-              <LayoutGroup Id="ChuTro_col2" RelativeSize="48.6013986013986">
-                <LayoutItem Id="Tenchutro" Index="0" RelativeSize="12.857142857142858" ViewItem="Tenchutro" IsNewNode="True" />
-                <LayoutItem Id="Dienthoai" Index="1" RelativeSize="9.285714285714286" ViewItem="Dienthoai" IsNewNode="True" />
-                <LayoutItem Id="Email" Index="2" RelativeSize="9.285714285714286" ViewItem="Email" IsNewNode="True" />
-                <LayoutItem Id="CCCD" Index="3" RelativeSize="9.285714285714286" ViewItem="CCCD" IsNewNode="True" />
-                <LayoutItem Id="Diachi" Index="4" RelativeSize="9.285714285714286" ViewItem="Diachi" IsNewNode="True" />
-                <LayoutItem Id="Sodangky" Index="5" RelativeSize="9.285714285714286" ViewItem="Sodangky" IsNewNode="True" />
-                <LayoutItem Id="NgayDangky" Index="6" RelativeSize="9.285714285714286" ViewItem="NgayDangky" IsNewNode="True" />
-                <LayoutItem Id="MsThue" Index="7" RelativeSize="9.285714285714286" />
-                <LayoutItem Id="MsThueVAT" RelativeSize="9.285714285714286" Index="8" />
-                <LayoutItem Id="MsThueTNCN" RelativeSize="12.857142857142858" Index="9" />
+              <LayoutGroup Id="ChuTro_col2" RelativeSize="53.63128491620112">
+                <LayoutItem Id="Tenchutro" Index="0" RelativeSize="8.78048780487805" ViewItem="Tenchutro" IsNewNode="True" />
+                <LayoutItem Id="Dienthoai" Index="1" RelativeSize="6.341463414634147" ViewItem="Dienthoai" IsNewNode="True" />
+                <LayoutItem Id="Email" Index="2" RelativeSize="6.341463414634147" ViewItem="Email" IsNewNode="True" />
+                <LayoutItem Id="CCCD" Index="3" RelativeSize="6.341463414634147" ViewItem="CCCD" IsNewNode="True" />
+                <LayoutItem Id="Diachi" Index="4" RelativeSize="6.341463414634147" ViewItem="Diachi" IsNewNode="True" />
+                <LayoutItem Id="Sodangky" Index="5" RelativeSize="6.341463414634147" ViewItem="Sodangky" IsNewNode="True" />
+                <LayoutItem Id="NgayDangky" Index="6" RelativeSize="6.341463414634147" ViewItem="NgayDangky" IsNewNode="True" />
+                <LayoutItem Id="MsThue" Index="7" RelativeSize="6.341463414634147" />
+                <LayoutItem Id="TinhThanh" Index="8" RelativeSize="6.341463414634147" />
+                <LayoutItem Id="Xa" Index="9" RelativeSize="6.341463414634147" />
+                <LayoutItem Id="MsThueVAT" RelativeSize="6.341463414634147" Index="10" />
+                <LayoutItem Id="MsThueTNCN" RelativeSize="6.341463414634147" Index="11" />
+                <LayoutItem Id="UserName" Index="12" RelativeSize="6.341463414634147" />
+                <LayoutItem Id="IsActive" Index="13" RelativeSize="6.341463414634147" />
+                <LayoutItem Id="ChangePasswordOnFirstLogon" Index="14" RelativeSize="8.78048780487805" />
               </LayoutGroup>
             </LayoutGroup>
+            <LayoutGroup Id="PermissionPolicyUser" RelativeSize="0.22172949002217296" />
           </LayoutGroup>
-          <TabbedGroup Id="Tabs" RelativeSize="51.90615835777126" />
+          <TabbedGroup Id="Tabs" RelativeSize="22.24137931034483" />
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <ListView Id="ChuTro_ListView" InlineEditMode="Inline" />
+    <ListView Id="ChuTro_ListView" InlineEditMode="Inline" AllowDelete="True" AllowEdit="True" AllowLink="True" AllowNew="True" />
+    <DetailView Id="ClsImport_DetailView">
+      <Items>
+        <PropertyEditor Id="Noidung" RowCount="10" />
+      </Items>
+    </DetailView>
     <DetailView Id="DashboardData_DetailView" Caption="Thống kê" />
     <ListView Id="DashboardData_ListView" Caption="Thống kê" />
     <ListView Id="DashboardData_LookupListView" Caption="Thống kê" />
+    <DetailView Id="DiaPhuong_DetailView" AllowDelete="False" AllowEdit="False" AllowNew="False">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="DiaPhuong" RelativeSize="100">
+              <LayoutItem Id="Ma" RelativeSize="6.315789473684211" />
+              <LayoutItem Id="Ten" RelativeSize="4.56140350877193" />
+              <LayoutItem Id="CapTren" RelativeSize="89.12280701754386" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="DiaPhuong_ListView" AllowDelete="False" AllowEdit="False" AllowLink="False" AllowNew="False" />
     <ListView Id="HoaDon_Anhs_ListView" Caption="Ảnh minh chứng" />
     <DetailView Id="HoaDon_DetailView">
       <Items>
@@ -101,26 +130,26 @@
       </Items>
       <Layout>
         <LayoutGroup Id="Main">
-          <LayoutGroup Id="SimpleEditors" RelativeSize="23.724137931034484">
-            <LayoutGroup Id="HoaDon" Caption="Hoá đơn">
-              <LayoutGroup Id="HoaDon_col1" RelativeSize="48.272138228941685">
-                <LayoutItem Id="So" RelativeSize="29.032258064516128" />
-                <LayoutItem Id="Hopdong" Index="1" RelativeSize="20.967741935483872" ViewItem="Hopdong" IsNewNode="True" />
-                <LayoutItem Id="Ngay" Index="2" RelativeSize="20.967741935483872" />
-              </LayoutGroup>
-              <LayoutGroup Id="HoaDon_col2" RelativeSize="51.727861771058315" />
+          <LayoutGroup Id="SimpleEditors" RelativeSize="35.1123595505618">
+            <LayoutGroup Id="HoaDon">
+              <LayoutGroup Id="HoaDon_col1" RelativeSize="49.730893433799785" />
+              <LayoutGroup Id="HoaDon_col2" RelativeSize="50.269106566200215" />
             </LayoutGroup>
           </LayoutGroup>
-          <TabbedGroup Id="Tabs" RelativeSize="76.27586206896552">
-            <LayoutGroup Id="HoaDonCTs" Caption="Chi tiết" />
+          <TabbedGroup Id="Tabs" RelativeSize="64.88764044943821">
+            <LayoutGroup Id="HoaDonCTs" Caption="Chi tiết hoá đơn" />
             <LayoutGroup Id="PhieuThus" Caption="Phiếu thu" />
-            <LayoutGroup Id="Anhs" Caption="Ảnh minh chứng" />
+            <LayoutGroup Id="Anhs" Caption="Ảnh" />
           </TabbedGroup>
         </LayoutGroup>
       </Layout>
     </DetailView>
     <ListView Id="HoaDon_HoaDonCTs_ListView" Caption="Chi tiết hóa đơn" />
-    <ListView Id="HoaDon_ListView" InlineEditMode="Inline" />
+    <ListView Id="HoaDon_ListView" InlineEditMode="Inline">
+      <Columns>
+        <ColumnInfo Id="Code" Caption="Mã QR" />
+      </Columns>
+    </ListView>
     <DetailView Id="HoaDonCT_DetailView" Caption="Chi tiết hóa đơn" />
     <ListView Id="HoaDonCT_ListView" InlineEditMode="Inline" Caption="Chi tiết hóa đơn" />
     <ListView Id="HoaDonCT_LookupListView" Caption="Chi tiết hóa đơn" />
@@ -131,31 +160,34 @@
       </Items>
       <Layout>
         <LayoutGroup Id="Main">
-          <LayoutGroup Id="SimpleEditors" RelativeSize="29.376854599406528">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="39.37007874015748">
             <LayoutGroup Id="HopDong" Caption="Hợp đồng">
-              <LayoutGroup Id="HopDong_col1" RelativeSize="49.9437570303712">
-                <LayoutItem Id="SoHD" RelativeSize="24" />
-                <LayoutItem Id="Phong" Index="1" RelativeSize="17.333333333333332" ViewItem="Phong" IsNewNode="True" />
-                <LayoutItem Id="Ngaylap" ViewItem="Ngaylap" Index="2" RelativeSize="17.333333333333332" IsNewNode="True" Removed="True" />
-                <LayoutItem Id="Tungay" Index="3" RelativeSize="17.333333333333332" />
-                <LayoutItem Id="Denngay" Index="4" RelativeSize="24" />
+              <LayoutGroup Id="HopDong_col1" RelativeSize="49.83202687569989">
+                <LayoutItem Id="SoHD" RelativeSize="17.821782178217823" />
+                <LayoutItem Id="Phong" Index="1" RelativeSize="12.871287128712872" ViewItem="Phong" IsNewNode="True" />
+                <LayoutItem Id="Ngaylap" ViewItem="Ngaylap" Index="2" RelativeSize="12.871287128712872" IsNewNode="True" Removed="True" />
+                <LayoutItem Id="Tungay" Index="3" RelativeSize="12.871287128712872" />
+                <LayoutItem Id="Denngay" Index="4" RelativeSize="12.871287128712872" />
+                <LayoutItem Id="Songuoi" Index="5" RelativeSize="12.871287128712872" ViewItem="Songuoi" IsNewNode="True" />
+                <LayoutItem Id="Ghichu" Index="6" RelativeSize="17.821782178217823" ViewItem="Ghichu" IsNewNode="True" />
               </LayoutGroup>
-              <LayoutGroup Id="HopDong_col2" RelativeSize="50.0562429696288">
-                <LayoutItem Id="Tiencoc" RelativeSize="24" />
-                <LayoutItem Id="Doanhthu" RelativeSize="17.333333333333332" />
-                <LayoutItem Id="Songuoi" RelativeSize="17.333333333333332" />
-                <LayoutItem Id="Ghichu" RelativeSize="17.333333333333332" />
-                <LayoutItem Id="Trangthai" RelativeSize="24" />
+              <LayoutGroup Id="HopDong_col2" RelativeSize="50.16797312430011">
+                <LayoutItem Id="Tiencoc" RelativeSize="17.821782178217823" />
+                <LayoutItem Id="ThanhtoanTungay" Index="1" RelativeSize="12.871287128712872" />
+                <LayoutItem Id="ThanhtoanDenngay" Index="2" RelativeSize="12.871287128712872" />
+                <LayoutItem Id="Trangthai" RelativeSize="12.871287128712872" Index="3" />
+                <LayoutItem Id="Doanhthu" RelativeSize="12.871287128712872" Index="4" />
+                <LayoutItem Id="Hinhthuc" Index="5" RelativeSize="30.693069306930692" />
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
-          <TabbedGroup Id="Tabs" RelativeSize="21.661721068249257">
+          <TabbedGroup Id="Tabs" RelativeSize="21.73228346456693">
             <LayoutGroup Id="HopDongCTs" Caption="Chi tiết" />
           </TabbedGroup>
-          <LayoutGroup Id="TamTrus" ShowCaption="True" Caption="Tạm trú khách thuê" Index="2" RelativeSize="23.590504451038576" IsNewNode="True">
+          <LayoutGroup Id="TamTrus" ShowCaption="True" Caption="Tạm trú khách thuê" Index="2" RelativeSize="23.30708661417323" IsNewNode="True">
             <LayoutItem Id="TamTrus" Index="0" RelativeSize="100" ViewItem="TamTrus" IsNewNode="True" />
           </LayoutGroup>
-          <LayoutGroup Id="HoaDons" ShowCaption="True" Caption="Hoá đơn" Index="3" RelativeSize="25.37091988130564" IsNewNode="True">
+          <LayoutGroup Id="HoaDons" ShowCaption="True" Caption="Hoá đơn" Index="3" RelativeSize="15.590551181102363" IsNewNode="True">
             <LayoutItem Id="HoaDons" Index="0" RelativeSize="100" ViewItem="HoaDons" IsNewNode="True" />
           </LayoutGroup>
         </LayoutGroup>
@@ -224,9 +256,44 @@
     <ListView Id="KhoanThu_HoaDonCTs_ListView" Caption="Chi tiết hóa đơn" />
     <ListView Id="KhoanThu_HopDongCTs_ListView" Caption="Chi tiết hợp đồng" />
     <ListView Id="KhoanThu_ListView" InlineEditMode="Inline" />
+    <DetailView Id="NganHang_DetailView" AllowDelete="False" AllowEdit="False">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="NganHang" RelativeSize="100">
+              <LayoutItem Id="Ten" RelativeSize="5.056179775280899" />
+              <LayoutItem Id="Tentat" RelativeSize="3.651685393258427" />
+              <LayoutItem Id="Ma" RelativeSize="3.651685393258427" />
+              <LayoutItem Id="Bin" RelativeSize="87.64044943820225" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="NganHang_ListView" AllowDelete="False" />
     <ListView Id="NhatKy_ListView" InlineEditMode="Inline" />
     <DetailView Id="Phiduytri_DetailView" CaptionHorizontalAlignment="Default" />
     <ListView Id="Phiduytri_ListView" InlineEditMode="Inline" />
+    <DetailView Id="PhieuThu_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="PhieuThu">
+              <LayoutGroup Id="PhieuThu_col1" RelativeSize="49.92947813822285">
+                <LayoutItem Id="So" RelativeSize="7.860262008733624" />
+                <LayoutItem Id="Ngay" RelativeSize="5.676855895196507" />
+                <LayoutItem Id="Sotien" Index="2" RelativeSize="5.676855895196507" />
+                <LayoutItem Id="Noidung" Index="3" RelativeSize="5.676855895196507" ViewItem="Noidung" IsNewNode="True" />
+                <LayoutItem Id="Ghichu" Index="4" RelativeSize="75.10917030567686" ViewItem="Ghichu" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="PhieuThu_col2" RelativeSize="50.07052186177715" Caption="PhieuThu_col2">
+                <LayoutItem Id="Anh" Index="0" RelativeSize="100" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <ListView Id="PhieuThu_ListView" InlineEditMode="Inline" />
     <ListView Id="Phong_ListView" InlineEditMode="Inline" AllowEdit="True" EditorTypeName="DevExpress.ExpressApp.Blazor.Editors.DxGridListEditor" />
     <ListView Id="SuaChua_ListView" InlineEditMode="Inline">

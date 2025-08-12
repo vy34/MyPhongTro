@@ -52,25 +52,19 @@ namespace MyPhongTro.Module.BusinessObjects.Chutro
         }
 
 
-        private int _Bin;
+        private string _Bin;
         [XafDisplayName("Mã BIN")]
-        public int Bin
+        public string Bin
         {
             get { return _Bin; }
-            set { SetPropertyValue<int>(nameof(Bin), ref _Bin, value); }
+            set { SetPropertyValue<string>(nameof(Bin), ref _Bin, value); }
         }
-
 
         [DevExpress.Xpo.Aggregated, Association]
-        public XPCollection<ChuTro> ChuTros
+        public XPCollection<ChuTro> Chutros
         {
-            get { return GetCollection<ChuTro>(nameof(ChuTros)); }
+            get { return GetCollection<ChuTro>(nameof(Chutros)); }
         }
-
-
-
-
-
 
 
 

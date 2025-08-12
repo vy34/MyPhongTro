@@ -8,6 +8,7 @@ using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
 using MyPhongTro.Module.BusinessObjects.Chutro;
 using System.ComponentModel;
+using System.Drawing;
 
 
 namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
@@ -201,6 +202,18 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         {
             get { return _Noidung; }
             set { SetPropertyValue<string>(nameof(Noidung), ref _Noidung, value); }
+        }
+
+
+        [NonPersistent]
+        private Bitmap _Code;
+        [XafDisplayName("QR thanh toán")]
+        [VisibleInListView(false)]
+        [ImageEditor(ListViewImageEditorMode = ImageEditorMode.PictureEdit, DetailViewImageEditorMode = ImageEditorMode.PictureEdit)]
+        public Bitmap Code
+        {
+            get { return _Code; }
+            set { SetPropertyValue<Bitmap>(nameof(Code), ref _Code, value); }
         }
 
 

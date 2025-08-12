@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="HoaDon_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="HoaDon">
+              <LayoutGroup Id="HoaDon_col1">
+                <LayoutItem Id="TongTien" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="HoaDon_col2">
+                <LayoutItem Id="Noidung" RelativeSize="20.967741935483872" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="HopDong_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="HopDong">
+              <LayoutGroup Id="HopDong_col2">
+                <LayoutItem Id="Ghichu" RelativeSize="12.871287128712872" Index="1" Removed="True" />
+                <LayoutItem Id="Songuoi" RelativeSize="17.333333333333332" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="PhieuThu_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="PhieuThu">
+              <LayoutGroup Id="PhieuThu_col2">
+                <LayoutItem Id="Ghichu" Index="0" RelativeSize="7.860262008733624" Removed="True" />
+                <LayoutItem Id="Noidung" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>
