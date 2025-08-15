@@ -274,19 +274,25 @@
     <DetailView Id="Phiduytri_DetailView" CaptionHorizontalAlignment="Default" />
     <ListView Id="Phiduytri_ListView" InlineEditMode="Inline" />
     <DetailView Id="PhieuThu_DetailView">
+      <Items>
+        <PropertyEditor Id="Hoadon" PropertyName="Hoadon" IsNewNode="True" />
+      </Items>
       <Layout>
         <LayoutGroup Id="Main">
           <LayoutGroup Id="SimpleEditors">
             <LayoutGroup Id="PhieuThu">
-              <LayoutGroup Id="PhieuThu_col1" RelativeSize="49.92947813822285">
-                <LayoutItem Id="So" RelativeSize="7.860262008733624" />
-                <LayoutItem Id="Ngay" RelativeSize="5.676855895196507" />
-                <LayoutItem Id="Sotien" Index="2" RelativeSize="5.676855895196507" />
-                <LayoutItem Id="Noidung" Index="3" RelativeSize="5.676855895196507" ViewItem="Noidung" IsNewNode="True" />
-                <LayoutItem Id="Ghichu" Index="4" RelativeSize="75.10917030567686" ViewItem="Ghichu" IsNewNode="True" />
+              <LayoutGroup Id="PhieuThu_col1" RelativeSize="49.79702300405954">
+                <LayoutItem Id="So" RelativeSize="7.627118644067797" />
+                <LayoutItem Id="Ngay" RelativeSize="5.508474576271187" />
+                <LayoutItem Id="Sotien" Index="2" RelativeSize="5.508474576271187" />
+                <LayoutItem Id="Hoadon" ViewItem="Hoadon" Index="3" RelativeSize="5.508474576271187" IsNewNode="True" />
+                <LayoutItem Id="Noidung" Index="4" RelativeSize="5.508474576271187" ViewItem="Noidung" IsNewNode="True" />
+                <LayoutItem Id="Ghichu" Index="5" RelativeSize="70.33898305084746" ViewItem="Ghichu" IsNewNode="True" />
               </LayoutGroup>
-              <LayoutGroup Id="PhieuThu_col2" RelativeSize="50.07052186177715" Caption="PhieuThu_col2">
+              <LayoutGroup Id="PhieuThu_col2" RelativeSize="50.20297699594046" Caption="PhieuThu_col2">
                 <LayoutItem Id="Anh" Index="0" RelativeSize="100" />
+                <LayoutItem Id="Ghichu" RelativeSize="92.37288135593221" Removed="True" />
+                <LayoutItem Id="Noidung" Removed="True" />
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>

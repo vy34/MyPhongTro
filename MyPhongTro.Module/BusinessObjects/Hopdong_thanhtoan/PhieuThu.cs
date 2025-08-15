@@ -4,15 +4,10 @@ using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
-using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
 using MyPhongTro.Module.BusinessObjects.Chutro;
 using MyPhongTro.Module.BusinessObjects.Quanlykhanhthue;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
+
 
 namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
 {
@@ -30,14 +25,14 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         {
             base.AfterConstruction();
             // Place your initialization code here (https://docs.devexpress.com/eXpressAppFramework/112834/getting-started/in-depth-tutorial-winforms-webforms/business-model-design/initialize-a-property-after-creating-an-object-xpo?v=22.1).
-        if(Session.IsNewObject(this))
+            if (Session.IsNewObject(this))
             {
                 ChuTro chutro = Session.FindObject<ChuTro>(CriteriaOperator.Parse("Oid = ?", SecuritySystem.CurrentUserId));
                 if (chutro != null)
                 {
                     Chutro = chutro; // Tự động gán chủ trọ là người dùng hiện tại
                 }
-                
+
                 string sql = "select max(So) as so from PhieuThu where Chutro = '" + SecuritySystem.CurrentUserId + "'";
                 var ret = Session.ExecuteScalar(sql);
                 int so = 1;
@@ -62,7 +57,15 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         public HoaDon Hoadon
         {
             get { return _Hoadon; }
-            set { SetPropertyValue<HoaDon>(nameof(Hoadon), ref _Hoadon, value); }
+            set 
+            {
+                bool isModified = SetPropertyValue<HoaDon>(nameof(Hoadon), ref _Hoadon, value);
+                if (isModified && !IsDeleted && !IsLoading && value != null)
+                {
+                    Sotien = value.TongTien;
+                    Noidung = value.Noidung;
+                }
+            }
         }
 
         private TamTru _Tamtru;
@@ -85,7 +88,6 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         }
 
 
-
         private DateOnly _Ngay;
         [XafDisplayName("Ngày")]
         [ModelDefault("EditMask", "dd/MM/yyyy")]
@@ -98,21 +100,11 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
 
         private decimal _Sotien;
         [XafDisplayName("Số tiền")]
-        [ModelDefault("DisplayFormat", "{0:### ### ###}")]     //tự động
+        [ModelDefault("DisplayFormat", "{0:### ### ###}")]    
         [ModelDefault("EditMask", "### ### ###")]
         public decimal Sotien
         {
-            get
-            {
-                if (_Sotien > 0) 
-                    return _Sotien;  // nếu số tiền dương (nhập tay) ưu tiên
-                else
-                {
-                    decimal tien = Hoadon != null ? Hoadon.TongTien : 0;
-                    return tien;
-                }
-                
-            }       
+            get{ return _Sotien; }
             set { SetPropertyValue<decimal>(nameof(Sotien), ref _Sotien, value); }
         }
 
@@ -137,8 +129,8 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         [Delayed(true), VisibleInListViewAttribute(false)]
         [ImageEditor(
             ListViewImageEditorMode = ImageEditorMode.PopupPictureEdit,
-            DetailViewImageEditorMode = ImageEditorMode.PictureEdit, 
-            DetailViewImageEditorFixedHeight = 240, 
+            DetailViewImageEditorMode = ImageEditorMode.PictureEdit,
+            DetailViewImageEditorFixedHeight = 240,
             DetailViewImageEditorFixedWidth = 300,
             ListViewImageEditorCustomHeight = 40)]
         [XafDisplayName("Ảnh")]

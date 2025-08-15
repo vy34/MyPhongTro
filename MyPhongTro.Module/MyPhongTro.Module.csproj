@@ -34,7 +34,9 @@
     <None Remove="Images\tamtru.svg" />
     <None Remove="Images\thietbi.svg" />
     <None Remove="Images\tiencoc.svg" />
+    <None Remove="Images\trichxuatanh.svg" />
     <None Remove="Images\tuychon.svg" />
+    <None Remove="Images\update.svg" />
     <None Remove="Model.DesignedDiffs.xafml" />
     <None Remove="UnusableNodes10.xml" />
     <None Remove="UnusableNodes11.xml" />
@@ -74,7 +76,9 @@
     <EmbeddedResource Include="Images\thietbiphong.svg" />
     <EmbeddedResource Include="Images\thietbi.svg" />
     <EmbeddedResource Include="Images\tiencoc.svg" />
+    <EmbeddedResource Include="Images\trichxuatanh.svg" />
     <EmbeddedResource Include="Images\tuychon.svg" />
+    <EmbeddedResource Include="Images\update.svg" />
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
   </ItemGroup>
   <ItemGroup>
