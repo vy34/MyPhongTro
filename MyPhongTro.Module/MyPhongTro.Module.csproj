@@ -21,6 +21,7 @@
     <None Remove="Images\Khoanchi.svg" />
     <None Remove="Images\khoanthu.svg" />
     <None Remove="Images\mauhopdong.svg" />
+    <None Remove="Images\mauinHĐ.svg" />
     <None Remove="Images\nganhang.svg" />
     <None Remove="Images\nhatky.svg" />
     <None Remove="Images\nuoc.svg" />
@@ -61,6 +62,7 @@
     <EmbeddedResource Include="Images\khoanchi.svg" />
     <EmbeddedResource Include="Images\khoanthu.svg" />
     <EmbeddedResource Include="Images\mauhopdong.svg" />
+    <EmbeddedResource Include="Images\mauinHĐ.svg" />
     <EmbeddedResource Include="Images\nganhang.svg" />
     <EmbeddedResource Include="Images\nhatky.svg" />
     <EmbeddedResource Include="Images\nuoc.svg" />

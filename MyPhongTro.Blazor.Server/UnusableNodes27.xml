@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="PhieuThu_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="PhieuThu">
+              <LayoutGroup Id="PhieuThu_col2">
+                <LayoutItem Id="Ghichu" Index="1" RelativeSize="93.15589353612167" ShowCaption="False" Removed="True" />
+                <LayoutItem Id="Noidung" ShowCaption="False" Index="1" RelativeSize="79.84790874524715" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="HopDong_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="HopDong">
+              <LayoutGroup Id="HopDong_col2">
+                <LayoutItem Id="Doanhthu" RelativeSize="12.264150943396226" Index="4" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

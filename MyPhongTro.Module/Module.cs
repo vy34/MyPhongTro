@@ -1,4 +1,5 @@
-﻿using DevExpress.ExpressApp;
+﻿using DevExpress.Data.Filtering;
+using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;
 using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Editors;
@@ -7,6 +8,7 @@ using DevExpress.ExpressApp.Model.Core;
 using DevExpress.ExpressApp.Model.DomainLogics;
 using DevExpress.ExpressApp.Model.NodeGenerators;
 using DevExpress.ExpressApp.Security.ClientServer;
+using DevExpress.ExpressApp.SystemModule;
 using DevExpress.ExpressApp.Updating;
 using DevExpress.ExpressApp.Xpo;
 using DevExpress.Persistent.Base;
@@ -14,6 +16,7 @@ using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.BaseImpl.PermissionPolicy;
 using DevExpress.Xpo;
 using MyPhongTro.Module.BusinessObjects;
+using MyPhongTro.Module.Functions;
 using System.ComponentModel;
 
 namespace MyPhongTro.Module;
@@ -53,6 +56,10 @@ public sealed class MyPhongTroModule : ModuleBase {
         base.Setup(application);
         // Manage various aspects of the application UI and behavior at the module level.
         ApplicationHelper.Instance.Initialize(application);
+
+        BangChuFunction.Register();
+
+
         application.LoggedOn += Application_LoggedOn;
         application.LoggingOn += Application_LoggingOn;
         application.SetupComplete += Application_SetupComplete;

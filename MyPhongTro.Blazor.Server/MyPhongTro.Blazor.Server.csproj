@@ -19,7 +19,19 @@
     <None Remove="UnusableNodes15.xml" />
     <None Remove="UnusableNodes16.xml" />
     <None Remove="UnusableNodes17.xml" />
+    <None Remove="UnusableNodes18.xml" />
+    <None Remove="UnusableNodes19.xml" />
     <None Remove="UnusableNodes2.xml" />
+    <None Remove="UnusableNodes20.xml" />
+    <None Remove="UnusableNodes21.xml" />
+    <None Remove="UnusableNodes22.xml" />
+    <None Remove="UnusableNodes23.xml" />
+    <None Remove="UnusableNodes24.xml" />
+    <None Remove="UnusableNodes25.xml" />
+    <None Remove="UnusableNodes26.xml" />
+    <None Remove="UnusableNodes27.xml" />
+    <None Remove="UnusableNodes28.xml" />
+    <None Remove="UnusableNodes29.xml" />
     <None Remove="UnusableNodes3.xml" />
     <None Remove="UnusableNodes4.xml" />
     <None Remove="UnusableNodes5.xml" />
@@ -57,5 +69,8 @@
     <None Update="UnusableNodes.xml">
       <DependentUpon>Model.xafml</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MyPhongTro\Blazor\Server\Controllers\Chung\" />
   </ItemGroup>
 </Project>

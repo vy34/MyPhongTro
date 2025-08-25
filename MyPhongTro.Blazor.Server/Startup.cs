@@ -1,13 +1,15 @@
-﻿using DevExpress.ExpressApp.Security;
+﻿using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp.ApplicationBuilder;
 using DevExpress.ExpressApp.Blazor.ApplicationBuilder;
 using DevExpress.ExpressApp.Blazor.Services;
+using DevExpress.ExpressApp.Security;
+using DevExpress.ExpressApp.Xpo;
 using DevExpress.Persistent.Base;
+using DevExpress.Persistent.BaseImpl.PermissionPolicy;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Components.Server.Circuits;
-using DevExpress.ExpressApp.Xpo;
 using MyPhongTro.Blazor.Server.Services;
-using DevExpress.Persistent.BaseImpl.PermissionPolicy;
+using MyPhongTro.Module;
 
 namespace MyPhongTro.Blazor.Server;
 
@@ -92,6 +94,8 @@ public class Startup {
                 .AddPasswordAuthentication(options => {
                     options.IsSupportChangePassword = true;
                 });
+
+
         });
         var authentication = services.AddAuthentication(options => {
             options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;

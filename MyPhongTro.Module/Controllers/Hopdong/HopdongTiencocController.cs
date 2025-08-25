@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyPhongTro.Module.Controllers
+namespace MyPhongTro.Module.Controllers.Hopdong
 {
     public class HopdongTiencocController : ObjectViewController<DetailView,HopDong> // chỉ áp dụng cho detailview cụ thể (HopDong)
     {

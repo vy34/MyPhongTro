@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="HopDong_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="HopDong">
+              <LayoutGroup Id="HopDong_col1">
+                <LayoutItem Id="Doanhthu" RelativeSize="11.403508771929825" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="HopDong_col2">
+                <LayoutItem Id="Songuoi" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

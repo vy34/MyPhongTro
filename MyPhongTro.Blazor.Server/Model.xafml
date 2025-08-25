@@ -154,41 +154,43 @@
     <ListView Id="HoaDonCT_LookupListView" Caption="Chi tiết hóa đơn" />
     <DetailView Id="HopDong_DetailView">
       <Items>
+        <PropertyEditor Id="HopDongMau" PropertyName="HopDongMau" IsNewNode="True" />
         <PropertyEditor Id="Phong" PropertyName="Phong" IsNewNode="True" />
         <PropertyEditor Id="Phong.Sophong" PropertyName="Phong.Sophong" IsNewNode="True" />
       </Items>
       <Layout>
         <LayoutGroup Id="Main">
-          <LayoutGroup Id="SimpleEditors" RelativeSize="39.37007874015748">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="35.2112676056338">
             <LayoutGroup Id="HopDong" Caption="Hợp đồng">
-              <LayoutGroup Id="HopDong_col1" RelativeSize="49.83202687569989">
+              <LayoutGroup Id="HopDong_col1" RelativeSize="47.98331015299026">
                 <LayoutItem Id="SoHD" RelativeSize="17.821782178217823" />
-                <LayoutItem Id="Phong" Index="1" RelativeSize="12.871287128712872" ViewItem="Phong" IsNewNode="True" />
-                <LayoutItem Id="Ngaylap" ViewItem="Ngaylap" Index="2" RelativeSize="12.871287128712872" IsNewNode="True" Removed="True" />
-                <LayoutItem Id="Tungay" Index="3" RelativeSize="12.871287128712872" />
-                <LayoutItem Id="Denngay" Index="4" RelativeSize="12.871287128712872" />
+                <LayoutItem Id="Phong" RelativeSize="12.871287128712872" />
+                <LayoutItem Id="Ngaylap" RelativeSize="12.871287128712872" />
+                <LayoutItem Id="Tungay" RelativeSize="12.871287128712872" />
+                <LayoutItem Id="Denngay" RelativeSize="12.871287128712872" Index="4" />
                 <LayoutItem Id="Songuoi" Index="5" RelativeSize="12.871287128712872" ViewItem="Songuoi" IsNewNode="True" />
-                <LayoutItem Id="Ghichu" Index="6" RelativeSize="17.821782178217823" ViewItem="Ghichu" IsNewNode="True" />
+                <LayoutItem Id="HopDongMau" Index="6" RelativeSize="17.821782178217823" ViewItem="HopDongMau" IsNewNode="True" />
               </LayoutGroup>
-              <LayoutGroup Id="HopDong_col2" RelativeSize="50.16797312430011">
-                <LayoutItem Id="Tiencoc" RelativeSize="17.821782178217823" />
-                <LayoutItem Id="ThanhtoanTungay" Index="1" RelativeSize="12.871287128712872" />
-                <LayoutItem Id="ThanhtoanDenngay" Index="2" RelativeSize="12.871287128712872" />
-                <LayoutItem Id="Trangthai" RelativeSize="12.871287128712872" Index="3" />
-                <LayoutItem Id="Doanhthu" RelativeSize="12.871287128712872" Index="4" />
-                <LayoutItem Id="Hinhthuc" Index="5" RelativeSize="30.693069306930692" />
+              <LayoutGroup Id="HopDong_col2" RelativeSize="52.01668984700974">
+                <LayoutItem Id="Doanhthu" ViewItem="Doanhthu" Index="0" RelativeSize="17.821782178217823" IsNewNode="True" Removed="True" />
+                <LayoutItem Id="Tiencoc" Index="1" RelativeSize="12.871287128712872" />
+                <LayoutItem Id="Ghichu" RelativeSize="12.871287128712872" Index="2" />
+                <LayoutItem Id="ThanhtoanTungay" Index="3" RelativeSize="12.871287128712872" />
+                <LayoutItem Id="ThanhtoanDenngay" Index="4" RelativeSize="12.871287128712872" />
+                <LayoutItem Id="Trangthai" Index="5" RelativeSize="12.871287128712872" />
+                <LayoutItem Id="Hinhthuc" RelativeSize="17.821782178217823" Index="6" />
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
-          <TabbedGroup Id="Tabs" RelativeSize="21.73228346456693">
-            <LayoutGroup Id="HopDongCTs" Caption="Chi tiết" />
+          <LayoutGroup Id="SizeableEditors" RelativeSize="0.14084507042253522" />
+          <TabbedGroup Id="Tabs" RelativeSize="16.760563380281692">
+            <LayoutGroup Id="HopDongCTs" Caption="Chi tiết hợp đồng" />
           </TabbedGroup>
-          <LayoutGroup Id="TamTrus" ShowCaption="True" Caption="Tạm trú khách thuê" Index="2" RelativeSize="23.30708661417323" IsNewNode="True">
-            <LayoutItem Id="TamTrus" Index="0" RelativeSize="100" ViewItem="TamTrus" IsNewNode="True" />
+          <LayoutGroup Id="TamTrus" Index="3" RelativeSize="18.169014084507044" Caption="Danh sách tạm trú" />
+          <LayoutGroup Id="HoaDons" Index="4" RelativeSize="18.169014084507044" Caption="Hoá đơn">
+            <LayoutItem Id="HoaDons" RelativeSize="100" />
           </LayoutGroup>
-          <LayoutGroup Id="HoaDons" ShowCaption="True" Caption="Hoá đơn" Index="3" RelativeSize="15.590551181102363" IsNewNode="True">
-            <LayoutItem Id="HoaDons" Index="0" RelativeSize="100" ViewItem="HoaDons" IsNewNode="True" />
-          </LayoutGroup>
+          <LayoutItem Id="NoidungIn" Index="5" RelativeSize="11.549295774647888" ViewItem="NoidungIn" IsNewNode="True" />
         </LayoutGroup>
       </Layout>
     </DetailView>
@@ -281,17 +283,17 @@
         <LayoutGroup Id="Main">
           <LayoutGroup Id="SimpleEditors">
             <LayoutGroup Id="PhieuThu">
-              <LayoutGroup Id="PhieuThu_col1" RelativeSize="49.79702300405954">
-                <LayoutItem Id="So" RelativeSize="7.627118644067797" />
-                <LayoutItem Id="Ngay" RelativeSize="5.508474576271187" />
-                <LayoutItem Id="Sotien" Index="2" RelativeSize="5.508474576271187" />
-                <LayoutItem Id="Hoadon" ViewItem="Hoadon" Index="3" RelativeSize="5.508474576271187" IsNewNode="True" />
-                <LayoutItem Id="Noidung" Index="4" RelativeSize="5.508474576271187" ViewItem="Noidung" IsNewNode="True" />
-                <LayoutItem Id="Ghichu" Index="5" RelativeSize="70.33898305084746" ViewItem="Ghichu" IsNewNode="True" />
+              <LayoutGroup Id="PhieuThu_col1" RelativeSize="49.729729729729726">
+                <LayoutItem Id="So" RelativeSize="6.83111954459203" />
+                <LayoutItem Id="Ngay" RelativeSize="4.933586337760911" />
+                <LayoutItem Id="Sotien" Index="2" RelativeSize="4.933586337760911" />
+                <LayoutItem Id="Hoadon" Index="3" RelativeSize="4.933586337760911" ViewItem="Hoadon" IsNewNode="True" />
+                <LayoutItem Id="Noidung" Index="4" RelativeSize="4.933586337760911" ViewItem="Noidung" IsNewNode="True" />
+                <LayoutItem Id="Ghichu" Index="5" RelativeSize="73.43453510436433" ViewItem="Ghichu" IsNewNode="True" />
               </LayoutGroup>
-              <LayoutGroup Id="PhieuThu_col2" RelativeSize="50.20297699594046" Caption="PhieuThu_col2">
+              <LayoutGroup Id="PhieuThu_col2" RelativeSize="50.270270270270274" Caption="PhieuThu_col2">
                 <LayoutItem Id="Anh" Index="0" RelativeSize="100" />
-                <LayoutItem Id="Ghichu" RelativeSize="92.37288135593221" Removed="True" />
+                <LayoutItem Id="Ghichu" RelativeSize="93.16888045540797" Removed="True" />
                 <LayoutItem Id="Noidung" Removed="True" />
               </LayoutGroup>
             </LayoutGroup>

@@ -23,10 +23,10 @@ namespace MyPhongTro.Module.Controllers.QR_Code
 
         private void QrCodeAction_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
-            if (View.CurrentObject is not HoaDon hoaDon)
+            if (View.CurrentObject is not HoaDon hoaDon) 
                 return;
-
-            var apiRequest = new ApiRequest()
+             
+            var apiRequest = new ApiRequest() // tạo thông tin yêu cầu API
             {
                 AccountNo = hoaDon.Chutro?.SoTK,
                 AccountName = hoaDon.Chutro?.ChuTK,
@@ -39,14 +39,14 @@ namespace MyPhongTro.Module.Controllers.QR_Code
 
             try
             {
-                var client = new RestClient("https://api.vietqr.io/v2/generate");
-                var request = new RestRequest()
-                    .AddHeader("x-client-id", "c7c09ac5-6206-4771-a549-505418a7a084")
+                var client = new RestClient("https://api.vietqr.io/v2/generate"); //chỉ định nơi gửi yêu cầu API, đây là URL của dịch vụ tạo mã QR.
+                var request = new RestRequest()  // là một đối tượng chứa thông tin về yêu cầu API, bao gồm phương thức HTTP, tiêu đề và nội dung yêu cầu.
+                    .AddHeader("x-client-id", "c7c09ac5-6206-4771-a549-505418a7a084") // dùng để xác thực ứng dụng với API.
                     .AddHeader("x-api-key", "56fdc9f2-c20a-4771-89ca-f5fc12114fd0")
-                    .AddHeader("Accept", "application/json")
-                    .AddJsonBody(apiRequest);
+                    .AddHeader("Accept", "application/json") // yêu cầu API trả về dữ liệu ở định dạng JSON.
+                    .AddJsonBody(apiRequest);  // thêm thông tin yêu cầu vào request dưới dạng JSON.
 
-                var response = client.Post(request);
+                var response = client.Post(request); // gửi yêu cầu POST đến API với thông tin đã chuẩn bị.(request) và nhận phản hồi (response).
 
                 if (!response.IsSuccessful)
                 {
@@ -55,7 +55,11 @@ namespace MyPhongTro.Module.Controllers.QR_Code
                     return;
                 }
 
-                var apiResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<ApiResponse>(response.Content);
+                // Nếu phản hồi thành công, giải mã nội dung JSON trả về để lấy dữ liệu mã QR.
+
+                var apiResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<ApiResponse>(response.Content); // reponse.Content chứa dữ liệu JSON ( nội dung ) trả về từ API, được giải mã thành đối tượng ApiResponse.
+
+                // xử lý dữ liệu mã QR trả về từ API.
 
                 if (!string.IsNullOrEmpty(apiResponse?.Data?.QrDataURL))
                 {

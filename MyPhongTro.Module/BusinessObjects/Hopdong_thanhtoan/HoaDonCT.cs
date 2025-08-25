@@ -60,7 +60,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
 
         private int _Chisodau;
         [XafDisplayName("Chỉ số đầu")]
-        [ModelDefault("DisplayFormat", "{0:### ### ###}")]     //tự động
+        [ModelDefault("DisplayFormat", "{0:### ### ###}")]   
         [ModelDefault("EditMask", "### ### ###")]
         public int Chisodau
         {
@@ -71,7 +71,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
 
         private int _Chisocuoi;
         [XafDisplayName("Chỉ số cuối")]
-        [ModelDefault("DisplayFormat", "{0:### ### ###}")]     //tự động
+        [ModelDefault("DisplayFormat", "{0:### ### ###}")]     
         [ModelDefault("EditMask", "### ### ###")]
         public int Chisocuoi
         {

@@ -357,11 +357,28 @@ namespace tmLib
                 return "";
 
             string[] strTachPhanSauDauPhay;
+            //if (number.Contains('.') || number.Contains(','))
+            //{
+            //    strTachPhanSauDauPhay = number.Split(',', '.');
+            //    return (ChuyenSo(strTachPhanSauDauPhay[0]) + "phẩy " + ChuyenSo(strTachPhanSauDauPhay[1]));
+            //}
             if (number.Contains('.') || number.Contains(','))
             {
                 strTachPhanSauDauPhay = number.Split(',', '.');
-                return (ChuyenSo(strTachPhanSauDauPhay[0]) + "phẩy " + ChuyenSo(strTachPhanSauDauPhay[1]));
+
+                // nếu phần thập phân toàn 0 thì bỏ qua
+                if (string.IsNullOrEmpty(strTachPhanSauDauPhay[1])
+                    || long.Parse(strTachPhanSauDauPhay[1]) == 0)
+                {
+                    return ChuyenSo(strTachPhanSauDauPhay[0]) ;
+                }
+
+                // còn nếu có phần thập phân thực sự
+                return (ChuyenSo(strTachPhanSauDauPhay[0]) + " phẩy " + ChuyenSo(strTachPhanSauDauPhay[1]) + " đồng");
             }
+
+
+
 
             string[] dv = ["", "mươi", "trăm", "nghìn", "triệu", "tỉ"];
             string[] cs = ["không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín"];

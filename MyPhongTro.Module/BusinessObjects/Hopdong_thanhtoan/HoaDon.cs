@@ -134,7 +134,6 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
             }
         }
 
-        // Replace this property:
         [VisibleInListView(false), VisibleInDetailView(false)]
         public string SoHoaDon
         {

@@ -10,9 +10,10 @@ using MyPhongTro.Module.BusinessObjects.Cauhinhhethong;
 using MyPhongTro.Module.BusinessObjects.Chutro;
 using MyPhongTro.Module.BusinessObjects.Quanlykhanhthue;
 using MyPhongTro.Module.BusinessObjects.Quanlyphongtro;
-using System;
+using DevExpress.ExpressApp.Editors;
 using System.ComponentModel;
 using System.Linq;
+using static MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan.HopDong;
 
 namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
 {
@@ -256,6 +257,40 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
             get { return _Hinhthuc; }
             set { SetPropertyValue<HinhthucThanhtoan>(nameof(Hinhthuc), ref _Hinhthuc, value); }
         }
+
+
+        private HopDongMau _HopDongMau;
+        [Association]
+        [XafDisplayName("Mẫu hợp đồng")]
+        [VisibleInListView(false)]
+        public HopDongMau HopDongMau
+        {
+            get { return _HopDongMau; }
+            set
+            {
+                bool isModified = SetPropertyValue<HopDongMau>(nameof(HopDongMau), ref _HopDongMau, value);
+                if (isModified && value != null && !IsLoading && !IsDeleted)
+                {
+                    // Khi chọn mẫu hợp đồng thì tự động cập nhật nội dung in
+                    if (string.IsNullOrEmpty(NoidungIn))
+                    {
+                        NoidungIn = value.Noidung;
+                    }
+                }
+            }
+        }
+
+        private string _NoidungIn;
+        [XafDisplayName("Bản in hợp đồng")]
+        [Size(SizeAttribute.Unlimited)]
+        [EditorAlias(EditorAliases.RichTextPropertyEditor)]
+        public string NoidungIn
+        {
+            get { return _NoidungIn; }
+            set { SetPropertyValue<string>(nameof(NoidungIn), ref _NoidungIn, value); }
+            
+        }
+
 
 
 

@@ -1,4 +1,5 @@
-﻿using DevExpress.ExpressApp;
+﻿using DevExpress.Data.Filtering;
+using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.ApplicationBuilder;
 using DevExpress.ExpressApp.Blazor;
 using DevExpress.ExpressApp.Security;
@@ -8,6 +9,8 @@ using DevExpress.ExpressApp.Utils;
 using DevExpress.ExpressApp.Xpo;
 using Microsoft.JSInterop;
 using MyPhongTro.Blazor.Server.Services;
+using MyPhongTro.Module.Controllers.Chung;
+
 
 namespace MyPhongTro.Blazor.Server;
 
@@ -77,6 +80,7 @@ public class MyPhongTroBlazorApplication : BlazorApplication {
 
     protected override void OnSetupStarted() {
         base.OnSetupStarted();
+
 
         this.SetupComplete += (s, e) =>
         {
