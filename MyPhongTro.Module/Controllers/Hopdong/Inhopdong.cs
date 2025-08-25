@@ -50,6 +50,7 @@ namespace MyPhongTro.Module.Controllers.Hopdong
                     return;
                 }
 
+
                 // Lấy các khách được chọn
                 var selectedTamTrus = listPropertyEditor.ListView.SelectedObjects.Cast<TamTru>().ToList(); 
 
@@ -59,12 +60,13 @@ namespace MyPhongTro.Module.Controllers.Hopdong
                     return;
                 }
 
-            
+      
+
                 var khachDaiDien = selectedTamTrus.First().Khachthue; 
                 var tienThue = hopDong.HopDongCTs?.FirstOrDefault(ct => ct.Khoanthu?.TenKhoanThu == "Tiền nhà") ?.Dongia.ToString();
 
-                using RichEditDocumentServer wordProcessor = new();
-                wordProcessor.RtfText = hopDong.NoidungIn;
+                using RichEditDocumentServer wordProcessor = new(); // công cụ xử lý văn bản RTF/Docx của DevExpress.
+                wordProcessor.RtfText = hopDong.NoidungIn; // load nội dung hợp đồng vào wordProcessor để xử lý.
                 var replacements = new Dictionary<string, string>
                 {
                  
@@ -115,8 +117,8 @@ namespace MyPhongTro.Module.Controllers.Hopdong
                     wordProcessor.Document.ReplaceAll(kvp.Key, kvp.Value, SearchOptions.None);
                 }
 
-                hopDong.NoidungIn = wordProcessor.RtfText;
-                ObjectSpace.CommitChanges();
+                hopDong.NoidungIn = wordProcessor.RtfText; //gán lại nội dung RTF đã được cập nhật
+                ObjectSpace.CommitChanges(); //lưu lại thay đổi vào database
             }
 
         }

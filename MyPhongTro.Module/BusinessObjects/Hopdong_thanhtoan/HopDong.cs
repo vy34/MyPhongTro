@@ -288,7 +288,7 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         {
             get { return _NoidungIn; }
             set { SetPropertyValue<string>(nameof(NoidungIn), ref _NoidungIn, value); }
-            
+
         }
 
 
@@ -311,8 +311,6 @@ namespace MyPhongTro.Module.BusinessObjects.Hopdong_thanhtoan
         {
             get { return GetCollection<TamTru>(nameof(TamTrus)); }
         }
-
-
 
     }
 }
